@@ -38,4 +38,4 @@ coding!
 - Francisco Guitler: [GitHub](https://github.com/umfrancisco) / [LinkedIn](https://linkedin.com/in/francisco-guitler)
 
    ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Claire Lee: [GitHub](https://github.com/llsy97) / [LinkedIn](https://linkedin.com/in/seungyeon-lee-claire)
