@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Winona Murphy: [GitHub](https://github.com/wmurphy-collabstar) / [LinkedIn](https://linkedin.com/in/winona-murphy-840048170)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Francisco Guitler: [GitHub](https://github.com/umfrancisco) / [LinkedIn](https://linkedin.com/in/francisco-guitler)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
