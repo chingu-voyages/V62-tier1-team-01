@@ -2,6 +2,6 @@
 
 | Project Idea | Description | Votes
 | :--- | :--- | :--- | 
-| Validation for ai answer | Validate if the user request is a valid request | 0 | 
-| Prompt and structured data | Add a context for ai to produce a response with special characters | 0 |
-| Csv file with the structured data | Return a csv file with the structure data provided by the API | 0 |
+| Validation for ai answer | Validate whether the user’s request is valid; the user must ask for a personalized learning path | 0 | 
+| Prompt and structured data | Provide context so the ai can generate a response containing special characters, to be parsed into arrays | 0 |
+| JSON and CSV formatting | Return the data in JSON and CSV formats using the structure provided by the API | 0 |
