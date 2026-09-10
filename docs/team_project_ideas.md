@@ -10,8 +10,9 @@ sentences.
 Each team member should Place an 'X' under their name to vote for the ideas 
 you like the best.
 
-| Project Idea | Description | Claire |
-| Visual Roadmap | Display the AI-generated learning path as connected visual steps so users can easily follow their learning journey. |
-| Light/Dark Mode | Allow users to switch between light and dark themes and save their preference for future visits. |
-| Share Progress | Let users turn their learning progress into a shareable image that they can save or post directly to social media. |
-| Learning Pace Options | Let users choose a learning pace, such as Relaxed, Balanced, or Intensive, to personalize their generated learning path. |
+| Project Idea | Description | Claire | teammate name | teammate name | teammate name | teammate name | teammate name |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Visual Roadmap | Diplay the AI-generated learning path as connected visual steps so users can easily follow their learning journey. | | | | | | |
+| Light/Dark Mode | Allow users to switch between light and dark themes and save their preference for future visits. | | | | | | |
+| Share Progress | Let users turn their learning progress into a shareable image that they can save or post directly to social media. | | | | | | |
+| Learning Pace Options | Let users choose a learning pace, such as Relaxed, Balanced, or Intensive, to personalize their generated learning path. | | | | | | |
