@@ -1,11 +1,16 @@
 import { useState } from "react"
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import UserInputForm from "./UserInputForm"
+import LearningPathResult from "./LearningPathResult"
+import LearningPathBanner from "./LearningPathBanner"
 
 function Prompt() {
   const [aiAnswer, setAiAnswer] = useState("")
   const [career, setCareer] = useState("")
   const [skillLevel, setSkillLevel] = useState("")
+  const [timeCommitment, setTimeCommitment] = useState(0)
   const [isWaiting, setIsWaiting] = useState(false)
+  const [step, setStep] = useState(0)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -21,11 +26,12 @@ function Prompt() {
       2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
 
       3. The user's career goal is: ${career}
-        The user's current skill level is: ${skillLevel}
+         The user's current skill level is: ${skillLevel}
+         The user time commitment (hours per week) is: ${timeCommitment}
 
       4. Generate a structured learning path that:
         - Is practical and actionable
-        - Progresses step by step from the user's current level
+        - Progresses step by step from the user's current level and based on his weekly commitment
         - Includes relevant skills, tools, and technologies
         - Is aligned with real-world job requirements
 
@@ -50,28 +56,28 @@ function Prompt() {
     setIsWaiting(false)
   }
 
+  if (step === 0) {
+    return (
+      <LearningPathBanner step={step} setStep={setStep} />
+    )
+  }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Your career goal: </label>
-        <input type="text" value={career} onChange={e => setCareer(e.target.value)} />
-        <label>Your current skill level: </label>
-        <select value={skillLevel} onChange={e => setSkillLevel(e.target.value)}>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
-        <button>Submit</button>
-      </form>   
-      <h2>Results:</h2>
-      {isWaiting && <div className="loader"></div>}
-      {aiAnswer !== "" && 
-        aiAnswer
-          .split("$")
-          .map(a => (
-            <p key={a} style={{ backgroundColor: "#e9db5c", marginBottom: "16px", marginTop: "16px" }}>{a}</p>
-          ))
-      }
+      <div>
+        <UserInputForm 
+          onSubmit={handleSubmit}
+          career={career} 
+          setCareer={setCareer}
+          timeCommitment={timeCommitment}
+          setTimeCommitment={setTimeCommitment}
+          skillLevel={skillLevel} 
+          setSkillLevel={setSkillLevel} />
+        <LearningPathResult
+          isWaiting={isWaiting}
+          aiAnswer={aiAnswer} />
+      </div>
+      <button onClick={() => setStep(step - 1)}>Previous</button>
     </div>
   )
 }
