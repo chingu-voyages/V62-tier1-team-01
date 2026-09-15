@@ -1,9 +1,5 @@
-
 function LearningPathItem({ item }) {
-
-  return (
-    <div>{item}</div>
-  )
+  return <div>{item}</div>;
 }
 
-export default LearningPathItem
+export default LearningPathItem;

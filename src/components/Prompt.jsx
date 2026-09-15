@@ -1,22 +1,22 @@
-import { useState } from "react"
-import { GoogleGenerativeAI } from "@google/generative-ai"
-import UserInputForm from "./UserInputForm"
-import LearningPathResult from "./LearningPathResult"
-import LearningPathBanner from "./LearningPathBanner"
+import { useState } from "react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import UserInputForm from "./UserInputForm";
+import LearningPathResult from "./LearningPathResult";
+import LearningPathBanner from "./LearningPathBanner";
 
 function Prompt() {
-  const [aiAnswer, setAiAnswer] = useState("")
-  const [career, setCareer] = useState("")
-  const [skillLevel, setSkillLevel] = useState("")
-  const [timeCommitment, setTimeCommitment] = useState(0)
-  const [isWaiting, setIsWaiting] = useState(false)
-  const [step, setStep] = useState(0)
+  const [aiAnswer, setAiAnswer] = useState("");
+  const [career, setCareer] = useState("");
+  const [skillLevel, setSkillLevel] = useState("");
+  const [timeCommitment, setTimeCommitment] = useState(0);
+  const [isWaiting, setIsWaiting] = useState(false);
+  const [step, setStep] = useState(0);
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    setAiAnswer("")
-    setIsWaiting(true)
+    setAiAnswer("");
+    setIsWaiting(true);
 
     const contextInfo = `
       You are an AI Career Path Generator.
@@ -40,46 +40,46 @@ function Prompt() {
       6. Output format:
         - Write everything in a single line
         - Separate each step or sentence using the '$' character
-    `
+    `;
 
     try {
-      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY)
-      const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" })
-      const result = await model.generateContent(contextInfo.concat(" ", prompt))
+      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
+      const model = genAI.getGenerativeModel({
+        model: "gemini-3.1-flash-lite",
+      });
+      const result = await model.generateContent(
+        contextInfo.concat(" ", prompt)
+      );
 
-      setAiAnswer(result.response.text())
-      console.log(prompt)
-
+      setAiAnswer(result.response.text());
+      console.log(prompt);
     } catch (err) {
-      alert("!! Error while generating content, please try again later !!")
+      alert("!! Error while generating content, please try again later !!");
     }
-    setIsWaiting(false)
+    setIsWaiting(false);
   }
 
   if (step === 0) {
-    return (
-      <LearningPathBanner step={step} setStep={setStep} />
-    )
+    return <LearningPathBanner step={step} setStep={setStep} />;
   }
 
   return (
     <div>
       <div>
-        <UserInputForm 
+        <UserInputForm
           onSubmit={handleSubmit}
-          career={career} 
+          career={career}
           setCareer={setCareer}
           timeCommitment={timeCommitment}
           setTimeCommitment={setTimeCommitment}
-          skillLevel={skillLevel} 
-          setSkillLevel={setSkillLevel} />
-        <LearningPathResult
-          isWaiting={isWaiting}
-          aiAnswer={aiAnswer} />
+          skillLevel={skillLevel}
+          setSkillLevel={setSkillLevel}
+        />
+        <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
       </div>
       <button onClick={() => setStep(step - 1)}>Previous</button>
     </div>
-  )
+  );
 }
 
-export default Prompt
+export default Prompt;

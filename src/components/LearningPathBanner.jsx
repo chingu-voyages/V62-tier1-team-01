@@ -1,6 +1,4 @@
-
-function LearningPathBanner({ step, setStep}) {
-
+function LearningPathBanner({ step, setStep }) {
   return (
     <div>
       <h3>Let's build your path</h3>
@@ -26,7 +24,7 @@ function LearningPathBanner({ step, setStep}) {
         <button onClick={() => setStep(step + 1)}>Next</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default LearningPathBanner
+export default LearningPathBanner;
