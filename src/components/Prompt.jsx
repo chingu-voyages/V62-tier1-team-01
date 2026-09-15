@@ -6,9 +6,11 @@ import LearningPathBanner from "./LearningPathBanner";
 
 function Prompt() {
   const [aiAnswer, setAiAnswer] = useState("");
-  const [career, setCareer] = useState("");
-  const [skillLevel, setSkillLevel] = useState("");
-  const [timeCommitment, setTimeCommitment] = useState(0);
+  const [userPrompt, setUserPrompt] = useState({
+    career: "",
+    skillLevel: "",
+    timeCommitment: 1,
+  });
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
 
@@ -25,9 +27,9 @@ function Prompt() {
 
       2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
 
-      3. The user's career goal is: ${career}
-         The user's current skill level is: ${skillLevel}
-         The user time commitment (hours per week) is: ${timeCommitment}
+      3. The user's career goal is: ${userPrompt.career}
+         The user's current skill level is: ${userPrompt.skillLevel}
+         The user time commitment (hours per week) is: ${userPrompt.timeCommitment}
 
       4. Generate a structured learning path that:
         - Is practical and actionable
@@ -52,7 +54,6 @@ function Prompt() {
       );
 
       setAiAnswer(result.response.text());
-      console.log(prompt);
     } catch (err) {
       alert("Error while generating content, please try again later");
     }
@@ -68,12 +69,8 @@ function Prompt() {
       <div>
         <UserInputForm
           onSubmit={handleSubmit}
-          career={career}
-          setCareer={setCareer}
-          timeCommitment={timeCommitment}
-          setTimeCommitment={setTimeCommitment}
-          skillLevel={skillLevel}
-          setSkillLevel={setSkillLevel}
+          userPrompt={userPrompt}
+          setUserPrompt={setUserPrompt}
         />
         <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
       </div>
