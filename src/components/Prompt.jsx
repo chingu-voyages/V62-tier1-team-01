@@ -49,9 +49,7 @@ function Prompt() {
       const model = genAI.getGenerativeModel({
         model: "gemini-3.1-flash-lite",
       });
-      const result = await model.generateContent(
-        contextInfo.concat(" ", prompt)
-      );
+      const result = await model.generateContent(contextInfo);
 
       setAiAnswer(result.response.text());
     } catch (err) {
