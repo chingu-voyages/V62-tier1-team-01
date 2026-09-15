@@ -41,7 +41,7 @@ function Prompt() {
 
       6. Output format:
         - Write everything in a single line
-        - Separate each step or sentence using the '$' character
+        - Separate each step of the learning path using the '$' character
     `;
 
     try {
