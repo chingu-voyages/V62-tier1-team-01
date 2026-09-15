@@ -54,7 +54,7 @@ function Prompt() {
       setAiAnswer(result.response.text());
       console.log(prompt);
     } catch (err) {
-      alert("!! Error while generating content, please try again later !!");
+      alert("Error while generating content, please try again later");
     }
     setIsWaiting(false);
   }
