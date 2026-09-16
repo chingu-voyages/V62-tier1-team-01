@@ -4,7 +4,7 @@ import UserInputForm from "./UserInputForm";
 import LearningPathResult from "./LearningPathResult";
 import LearningPathBanner from "./LearningPathBanner";
 
-function Prompt() {
+function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
   const [userPrompt, setUserPrompt] = useState({
     career: "",
@@ -77,4 +77,4 @@ function Prompt() {
   );
 }
 
-export default Prompt;
+export default AiGeneratedPath;
