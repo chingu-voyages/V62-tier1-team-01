@@ -1,5 +1,5 @@
 // todo
-function LearningPathBanner({ step, setStep }) {
+function LearningPathBanner({ onNextStep }) {
   return (
     <div>
       <h3>Let's build your path</h3>
@@ -22,7 +22,7 @@ function LearningPathBanner({ step, setStep }) {
         </ul>
       </div>
       <div>
-        <button onClick={() => setStep(step + 1)}>Next</button>
+        <button onClick={onNextStep}>Next</button>
       </div>
     </div>
   );

@@ -58,8 +58,16 @@ function AiGeneratedPath() {
     setIsWaiting(false);
   }
 
+  function handleNext() {
+    setStep((s) => s + 1);
+  }
+
+  function handlePrevious() {
+    setStep((s) => s - 1);
+  }
+
   if (step === 0) {
-    return <LearningPathBanner step={step} setStep={setStep} />;
+    return <LearningPathBanner onNextStep={handleNext} />;
   }
 
   return (
@@ -72,7 +80,7 @@ function AiGeneratedPath() {
         />
         <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
       </div>
-      <button onClick={() => setStep(step - 1)}>Previous</button>
+      <button onClick={handlePrevious}>Previous</button>
     </div>
   );
 }
