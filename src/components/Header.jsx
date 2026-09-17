@@ -1,10 +1,13 @@
+import brandIcon from "../assets/logo.png";
 import searchIcon from "../assets/search-icon.svg";
 import "./Header.css";
 
 function Header() {
   return (
     <header className="header">
-      <h1>NEXA</h1>
+      <div className="brand-logo">
+        <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
+      </div>
 
       <nav className="navigation">
         <a href="/">Home</a>
