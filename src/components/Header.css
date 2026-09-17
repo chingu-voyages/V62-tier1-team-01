@@ -1,0 +1,45 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 35px 90px;
+  background-color: white;
+
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.btn {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn img {
+  width: 24px;
+  height: 24px;
+}
