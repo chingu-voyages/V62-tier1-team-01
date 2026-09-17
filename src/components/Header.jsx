@@ -1,5 +1,3 @@
-// todo
-
 import searchIcon from "../assets/search-icon.svg";
 import "./Header.css";
 
@@ -13,7 +11,7 @@ function Header() {
         <a href="/">My Learning</a>
 
         <button className="btn">
-          <img src="Design/search-icon.svg" alt="Search" />
+          <img src={searchIcon} alt="Search" />
         </button>
       </nav>
     </header>
