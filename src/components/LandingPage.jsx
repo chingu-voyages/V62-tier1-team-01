@@ -8,9 +8,15 @@ function LandingPage({ onNextStep }) {
         <div className="lp-text-section">
           <div>
             <span className="lp-title-small">AI-POWERED LEARNING PATHS</span>
-            <h2 className="lp-title">From Curiosity<br/>to Career.</h2>
+            <h2 className="lp-title">
+              From Curiosity
+              <br />
+              to Career.
+            </h2>
             <p className="lp-text">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem aliquid rerum dolor vitae voluptas minima harum, in quam corporis consectetur debitis molestias recusandae, explicabo distinctio.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
+              aliquid rerum dolor vitae voluptas minima harum, in quam corporis
+              consectetur debitis molestias recusandae, explicabo distinctio.
             </p>
           </div>
           <div className="buttons-box">
