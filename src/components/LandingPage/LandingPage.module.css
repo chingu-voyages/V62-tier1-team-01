@@ -1,3 +1,7 @@
+body {
+  position: relative;
+}
+
 .box {
   display: flex;
   justify-content: space-between;
@@ -49,11 +53,22 @@
   max-height: 520px;
 }
 
+.blush {
+  position: absolute;
+  opacity: 0.4;
+  filter: blur(16px);
+  border-radius: 50%;
+}
+
 @media (max-width: 768px) {
   .box {
     display: block;
     margin-top: 36px;
     background-image: url("/src/assets/banner-img-with-opacity.svg");
+  }
+
+  .blush {
+    display: none;
   }
 
   .textSection {
