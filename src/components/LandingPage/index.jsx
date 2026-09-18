@@ -1,5 +1,6 @@
 import bannerImg from "/src/assets/banner-img.svg";
 import playButton from "/src/assets/play-button.svg";
+import separationBar from "/src/assets/separation-bar.svg"
 import styles from "./LandingPage.module.css";
 
 function LandingPage({ onNextStep }) {
@@ -36,9 +37,23 @@ function LandingPage({ onNextStep }) {
               <span>Watch demo</span>
             </button>
           </div>
-        
+          <div className={styles.reviewBox}>
+            <div className={styles.reviewCard}>
+              <span>50K+</span>
+              <p className={styles.reviewText}>Active Learners</p>
+            </div>
+            <img src={separationBar} />
+            <div className={styles.reviewCard}>
+              <span>95%</span>
+              <p className={styles.reviewText}>Recommended Us</p>
+            </div>
+            <img src={separationBar} />
+            <div className={styles.reviewCard}>
+              <span>200+</span>
+              <p className={styles.reviewText}>Learning Resources</p>
+            </div>
+          </div>
         </div>
-        
         <img className={styles.bannerImg} src={bannerImg} alt="banner image" />
       </div>
     </div>
