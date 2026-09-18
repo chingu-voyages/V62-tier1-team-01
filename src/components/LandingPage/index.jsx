@@ -5,16 +5,16 @@ import styles from "./LandingPage.module.css";
 function LandingPage({ onNextStep }) {
   return (
     <div className="container">
-      <div className={styles.lpBox}>
-        <div className={styles.lpTextSection}>
+      <div className={styles.box}>
+        <div className={styles.textSection}>
           <div>
-            <span className={styles.lpTitleSmall}>AI-POWERED LEARNING PATHS</span>
-            <h2 className={styles.lpTitle}>
+            <span className={styles.smallTitle}>AI-POWERED LEARNING PATHS</span>
+            <h2 className={styles.mainTitle}>
               From Curiosity
               <br />
               to Career.
             </h2>
-            <p className={styles.lpText}>
+            <p className={styles.text}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
               aliquid rerum dolor vitae voluptas minima harum, in quam corporis
               consectetur debitis molestias recusandae, explicabo distinctio.

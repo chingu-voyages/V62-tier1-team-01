@@ -1,21 +1,21 @@
-.lpBox {
+.box {
   display: flex;
   justify-content: space-between;
   margin-top: 128px;
 }
 
-.lpTitle {
+.mainTitle {
   font-size: 68px;
   margin-bottom: 24px;
 }
 
-.lpTitleSmall {
+.smallTitle {
   font-size: 11px;
   margin-bottom: 16x;
   color: #515a6e;
 }
 
-.lpText {
+.text {
   font-size: 16px;
   margin-bottom: 36px;
   color: #565656;
@@ -50,13 +50,13 @@
 }
 
 @media (max-width: 768px) {
-  .lpBox {
+  .box {
     display: block;
     margin-top: 36px;
     background-image: url("/src/assets/banner-img-with-opacity.svg");
   }
 
-  .lpTextSection {
+  .textSection {
     height: 100%;
     margin: 0 8px;
   }
