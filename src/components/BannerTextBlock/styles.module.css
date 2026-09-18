@@ -1,22 +1,12 @@
-body {
-  position: relative;
-}
-
-.box {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 128px;
+.smallTitle {
+  font-size: 11px;
+  margin-bottom: 16x;
+  color: #515a6e;
 }
 
 .mainTitle {
   font-size: 68px;
   margin-bottom: 24px;
-}
-
-.smallTitle {
-  font-size: 11px;
-  margin-bottom: 16x;
-  color: #515a6e;
 }
 
 .text {
@@ -51,17 +41,6 @@ body {
   margin-right: 16px;
 }
 
-.bannerImg {
-  max-height: 520px;
-}
-
-.blush {
-  position: absolute;
-  opacity: 0.4;
-  filter: blur(32px);
-  border-radius: 50%;
-}
-
 .reviewBox {
   display: flex;
   align-items: center;
@@ -77,27 +56,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .box {
-    display: block;
-    margin-top: 36px;
-    background-image: url("/src/assets/banner-img-with-opacity.svg");
-    background-repeat: no-repeat;
-  }
-
-  .blush {
-    display: none;
-  }
-
   .textSection {
     height: 100%;
     margin: 0 8px;
-  }
-
-  .bannerImg {
-    display: none;
-  }
-
-  .reviewCard {
-    margin: 0 4px;
   }
 }

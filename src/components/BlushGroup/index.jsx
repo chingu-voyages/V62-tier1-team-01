@@ -1,4 +1,4 @@
-import styles from "./LandingPage.module.css";
+import styles from "./styles.module.css";
 
 function BlushGroup() {
   return (

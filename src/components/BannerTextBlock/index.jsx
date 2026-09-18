@@ -1,4 +1,4 @@
-import styles from "./LandingPage.module.css";
+import styles from "./styles.module.css";
 import playButton from "/src/assets/play-button.svg";
 import separationBar from "/src/assets/separation-bar.svg";
 

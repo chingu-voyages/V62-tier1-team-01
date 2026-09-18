@@ -1,7 +1,7 @@
 import bannerImg from "/src/assets/banner-img.svg";
-import styles from "./LandingPage.module.css";
-import BannerTextBlock from "./BannerTextBlock";
-import BlushGroup from "./BlushGroup";
+import styles from "./styles.module.css";
+import BannerTextBlock from "../BannerTextBlock";
+import BlushGroup from "../BlushGroup";
 
 function LandingPage({ onNextStep }) {
   return (
