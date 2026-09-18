@@ -1,0 +1,67 @@
+.lpBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 128px;
+}
+
+.lpTitle {
+  font-size: 68px;
+  margin-bottom: 24px;
+}
+
+.lpTitleSmall {
+  font-size: 11px;
+  margin-bottom: 16x;
+  color: #515a6e;
+}
+
+.lpText {
+  font-size: 16px;
+  margin-bottom: 36px;
+  color: #565656;
+}
+
+.buttonsBox {
+  display: flex;
+}
+
+.buttonNextPage {
+  background-color: #11141b;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 16px;
+  margin-right: 36px;
+  cursor: pointer;
+}
+
+.buttonPlay {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.iconPlay {
+  margin-right: 16px;
+}
+
+.bannerImg {
+  max-height: 520px;
+}
+
+@media (max-width: 768px) {
+  .lpBox {
+    display: block;
+    margin-top: 36px;
+    background-image: url("/src/assets/banner-img-with-opacity.svg");
+  }
+
+  .lpTextSection {
+    height: 100%;
+    margin: 0 8px;
+  }
+
+  .bannerImg {
+    display: none;
+  }
+}
