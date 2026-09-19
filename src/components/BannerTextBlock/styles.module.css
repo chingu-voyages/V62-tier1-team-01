@@ -1,0 +1,67 @@
+.smallTitle {
+  font-size: 11px;
+  margin-bottom: 16x;
+  color: #515a6e;
+}
+
+.mainTitle {
+  font-size: 68px;
+  margin-bottom: 24px;
+}
+
+.textSection {
+  z-index: 1;
+}
+
+.text {
+  font-size: 16px;
+  margin-bottom: 36px;
+  color: #565656;
+}
+
+.buttonsBox {
+  display: flex;
+}
+
+.buttonNextPage {
+  background-color: #11141b;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 16px;
+  margin-right: 36px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.buttonPlay {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+}
+
+.iconPlay {
+  margin-right: 16px;
+}
+
+.reviewBox {
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.reviewCard {
+  margin: 0 16px;
+}
+
+.reviewText {
+  color: #11141b80;
+}
+
+@media (max-width: 768px) {
+  .textSection {
+    height: 100%;
+    margin: 0 32px;
+  }
+}

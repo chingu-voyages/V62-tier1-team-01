@@ -1,0 +1,12 @@
+.blush {
+  position: absolute;
+  opacity: 0.4;
+  filter: blur(32px);
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .blush {
+    display: none;
+  }
+}
