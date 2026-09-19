@@ -29,18 +29,15 @@ function BannerTextBlock({ onNextStep }) {
       </div>
       <div className={styles.reviewBox}>
         <div className={styles.reviewCard}>
-          <span>50K+</span>
-          <p className={styles.reviewText}>Active Learners</p>
+          <p className={styles.reviewText}>Lorem ipsum</p>
         </div>
         <img src={separationBar} />
         <div className={styles.reviewCard}>
-          <span>95%</span>
-          <p className={styles.reviewText}>Recommended Us</p>
+          <p className={styles.reviewText}>Lorem ipsum</p>
         </div>
         <img src={separationBar} />
         <div className={styles.reviewCard}>
-          <span>200+</span>
-          <p className={styles.reviewText}>Learning Resources</p>
+          <p className={styles.reviewText}>Lorem ipsum</p>
         </div>
       </div>
     </div>
