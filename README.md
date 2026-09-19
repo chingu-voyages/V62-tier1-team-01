@@ -37,3 +37,4 @@ coding!
 - Winona Murphy: [GitHub](https://github.com/wmurphy-collabstar) / [LinkedIn](https://linkedin.com/in/winona-murphy-840048170)
 - Francisco Guitler: [GitHub](https://github.com/umfrancisco) / [LinkedIn](https://linkedin.com/in/francisco-guitler)
 - Claire Lee: [GitHub](https://github.com/llsy97) / [LinkedIn](https://linkedin.com/in/seungyeon-lee-claire)
+- Qusay AlTaslaq: [GitHub](https://github.com/QusayAlTaslaq) / [LinkedIn](https://www.linkedin.com/in/qusay-al-taslaq/)
