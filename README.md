@@ -5,10 +5,35 @@
 
 **Staging version**: N/A at the moment
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Features
+- ⏰ ***In Progress***: A visually-stunning landing page describing our webapp's mission, features and value
+- ⏰ ***In Progress***: An intuitive user form that asks for a user's desired career path, current skills, time commitment as well as desired pace
+- ⏰ ***In Progress***: An AI-Generated custom learning path including clearly labeled steps with the name of each skill, a description and estimate time to complete
+- ⏰ ***In Progress***: Keyboard and screen-reader accessibility
+- ⏰ ***In Progress***: Option for choosing light and dark mode
+- ⏰ ***In Progress***: AI Input Validation/Output formatting (@umfrancisco what should I add here?)
 
-> Own it & Make it your Own!
+
+## Acceptance Criteria
+* [x] Your GitHub repo contains a well-written `README.md` that includes a link
+  to your deployed app, a description of the project, and the names/GitHub
+  profiles of all team members.
+* [ ] The deployed app is accessible and fully usable in a modern web browser
+  without any console errors.
+* [ ] The form validates required input (e.g., career goal) before submission,
+  and displays clear, specific error messages when input is missing or invalid.
+* [ ] The generated learning path is displayed in a clear, organized format with
+  each step visually distinct and progression/order clearly indicated.
+* [ ] A loading state is shown while the AI request is processing, and a clear
+  error message is shown if the AI request fails.
+* [ ] Users can regenerate a new path with different input, and the old path is
+  cleared or replaced rather than left on screen alongside the new one.
+* [ ] The UI is responsive and usable on both desktop and mobile screen sizes.
+* [ ] App is accessible to keyboard users and via screen readers
+* [ ] Users can choose light or dark mode
+* [ ] Users can decide what learning pace they'd like, such as Relaxed, Balanced or Intensive(in addition to time commitment field)
+* [ ] AI Input Validation/Output Formatting (@umfrancisco, could you add more details here? I'm forgetting what you meant by this feature)
+
 
 ## Team Documents
 
