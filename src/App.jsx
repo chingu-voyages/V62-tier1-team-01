@@ -1,12 +1,15 @@
-import Prompt from "./components/Prompt"
+import AiGeneratedPath from "./components/AiGeneratedPath";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-
   return (
-    <div className="container">
-      <Prompt />
-    </div>
-  )
+    <>
+      <Header />
+      <AiGeneratedPath />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;
