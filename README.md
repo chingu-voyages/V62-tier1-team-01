@@ -34,6 +34,52 @@
 * [ ] Users can decide what learning pace they'd like, such as Relaxed, Balanced or Intensive(in addition to time commitment field)
 * [ ] AI Input Validation/Output Formatting (@umfrancisco, could you add more details here? I'm forgetting what you meant by this feature)
 
+## Getting Started
+
+1. Clone the repo to your local machine.
+2. In your file navigator application, navigate to the folder with the git repo inside. Then open the folder in your code editor of choice.
+3. Install all the necessary npm dependencies.
+4. Open the terminal and start the frontend Vite development environment.
+5. Now you can preview the development version of the NEXA web app!
+
+### Prerequisites
+
+The things you need before downloading the web application.
+
+* LTS (long term support) version of Node installed (recommend [v24.21.0 for Mac, Windows and Linux](https://nodejs.org/en/download)).
+* A terminal (i.e. Bash, PowerShell, etc.).
+* A code editor if you plan on inspecting, editing, or contributing to the code.
+* The following dependencies:
+    * `react: ^v19.2.8` [Documentation](https://react.dev/)
+    * `react-dom: ^v19.2.8` [Documentation](https://react.dev/reference/react-dom)
+    * `prettier: ^v3.9.6` [Documentation](https://prettier.io/docs/)
+    * `@google/generative-ai: ^v0.24.1` [Documentation](https://www.npmjs.com/package/@google/generative-ai)
+  
+### Environment Setup
+
+A step by step guide that will tell you how to get the development environment up and running.
+
+First, clone the project from Github:
+```
+$ git clone https://github.com/chingu-voyages/V62-tier1-team-01.git
+$ cd V62-tier1-team-01/
+```
+
+Then install all dependencies, create the `.env` file and add the Gemini API key, then run the Vite development server:
+```
+$ npm install
+$ cat .env.def > .env //Add Gemini API Key to this file
+$ npm run dev //Runs the Vite dev server
+```
+
+Now you should be able to view the full website locally from your machine by typing `http://localhost:5173` into your browser of choice.
+
+To view the code itself, run the following commands:
+```
+$ cd V62-tier1-team-01/
+$ code .
+```
+> **Note**: The last command works if you have your code editor (i.e. Visual Studio Code) configured to open up your editor from the terminal.
 
 ## Team Documents
 
