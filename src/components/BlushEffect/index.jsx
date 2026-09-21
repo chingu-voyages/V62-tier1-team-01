@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-function BlushGroup() {
+function BlushEffect() {
   return (
     <>
       <div
@@ -57,4 +57,4 @@ function BlushGroup() {
   );
 }
 
-export default BlushGroup;
+export default BlushEffect;

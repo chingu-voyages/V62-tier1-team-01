@@ -1,15 +1,16 @@
-import bannerImg from "/src/assets/banner-img.svg";
-import styles from "./styles.module.css";
-import BannerTextBlock from "../BannerTextBlock";
-import BlushGroup from "../BlushGroup";
+import Hero from "../Hero";
+import BlushEffect from "../BlushEffect";
 
+// Hero, HowItWorks
 function LandingPage({ onNextStep }) {
   return (
     <div className="container">
-      <div className={styles.box}>
-        <BlushGroup />
-        <BannerTextBlock onNextStep={onNextStep} />
-        <img className={styles.bannerImg} src={bannerImg} alt="banner image" />
+      <BlushEffect />
+      <Hero onNextStep={onNextStep} />
+      <div>
+        <span>HOW IT WORKS</span>
+        <h4>A Smarter Way to Learn</h4>
+        <p>From your goals to real progress - all in a few simple steps.</p>
       </div>
     </div>
   );
