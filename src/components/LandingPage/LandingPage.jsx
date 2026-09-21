@@ -1,5 +1,5 @@
-import Hero from "../Hero";
-import BlushEffect from "../BlushEffect";
+import Hero from "../Hero/Hero";
+import BlushEffect from "../BlushEffect/BlushEffect";
 
 // Hero, HowItWorks
 function LandingPage({ onNextStep }) {
