@@ -1,12 +1,9 @@
-# voyage-tasks
+# NEXA - AI Learning Path Generator
+> NEXA is a React web application that creates an AI-tailored step-by-step learning path for any user's career goal in the tech industry. It takes a daunting task of deciding what to learn first, and gives a clear answer tailored to the user's experience level, interest and time commitment, making sure they are geared towards success. While also building a useful web application, my team and I are also learning how to collaborate using the Scrum Agile methodology, over our 7 week Chingu voyage. We're excited to show you what we build!
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+**Live version**: N/A at the moment
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+**Staging version**: N/A at the moment
 
 And before we go there's "one more thing"! Once you decide what to include
 in your `readme` feel free to replace the text we've provided here.
@@ -29,10 +26,12 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 
 ## Our Team
 
+<!-- 
 Everyone on your team should add their name along with a link to their GitHub
 & optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
 your repo access and to practice PR'ing with your team *before* you start
 coding!
+-->
 
 - Winona Murphy: [GitHub](https://github.com/wmurphy-collabstar) / [LinkedIn](https://linkedin.com/in/winona-murphy-840048170)
 - Francisco Guitler: [GitHub](https://github.com/umfrancisco) / [LinkedIn](https://linkedin.com/in/francisco-guitler)
