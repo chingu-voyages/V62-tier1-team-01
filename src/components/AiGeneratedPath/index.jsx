@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import UserInputForm from "./UserInputForm";
-import LearningPathResult from "./LearningPathResult";
-import LandingPage from "./LandingPage";
+import UserInputForm from "../UserInputForm";
+import LearningPathResult from "../LearningPathResult";
+import LandingPage from "../LandingPage";
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
