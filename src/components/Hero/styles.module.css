@@ -34,18 +34,6 @@
   display: flex;
 }
 
-.buttonPlay {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  z-index: 1;
-}
-
-.iconPlay {
-  margin-right: 16px;
-}
-
 .infos {
   display: flex;
   align-items: center;
@@ -58,6 +46,21 @@
 
 .cardText {
   color: #11141b80;
+}
+
+.iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: 16px;
+}
+
+.showVideo {
+  margin-top: 32px;
+}
+
+.hideVideo {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -79,5 +82,9 @@
   .textSection {
     height: 100%;
     margin: 0 32px;
+  }
+
+  .iframe {
+    height: 200px;
   }
 }

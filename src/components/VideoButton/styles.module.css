@@ -1,0 +1,11 @@
+.buttonPlay {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.iconPlay {
+  margin-right: 16px;
+}

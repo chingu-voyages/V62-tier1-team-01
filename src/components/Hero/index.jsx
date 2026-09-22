@@ -1,10 +1,17 @@
 import styles from "./styles.module.css";
-import playButton from "/src/assets/play-button.svg";
 import separationBar from "/src/assets/separation-bar.svg";
 import heroImg from "/src/assets/banner-img.svg";
 import NextButton from "../NextButton";
+import VideoButton from "../VideoButton";
+import { useState } from "react";
 
 function Hero({ onNextStep }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleOpen() {
+    setIsOpen(o => !o);
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.textSection}>
@@ -25,10 +32,9 @@ function Hero({ onNextStep }) {
           <NextButton nextStep={onNextStep}>
             <span>Generate your path</span>
           </NextButton>
-          <button className={styles.buttonPlay}>
-            <img className={styles.iconPlay} src={playButton} alt="play button" />
-            <span>Watch demo</span>
-          </button>
+          <VideoButton onOpen={handleOpen}>
+            <span>{isOpen ? "Close video" : "Watch demo"}</span>
+          </VideoButton>
         </div>
         
         <div className={styles.infos}>
@@ -43,6 +49,10 @@ function Hero({ onNextStep }) {
           <div className={styles.cardInfo}>
             <p className={styles.cardText}>Clear, structured, and easy to follow</p>
           </div>
+        </div>
+
+        <div className={isOpen ? styles.showVideo : styles.hideVideo}>
+          <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe>
         </div>
       </div>
       
