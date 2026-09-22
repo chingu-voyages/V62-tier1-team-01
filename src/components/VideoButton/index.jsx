@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
 import playButton from "/src/assets/play-button.svg";
 
