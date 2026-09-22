@@ -1,0 +1,9 @@
+.buttonNextPage {
+  background-color: #11141b;
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 16px;
+  margin-right: 36px;
+  cursor: pointer;
+  z-index: 1;
+}

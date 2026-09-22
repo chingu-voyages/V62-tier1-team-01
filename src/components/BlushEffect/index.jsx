@@ -43,16 +43,6 @@ function BlushEffect() {
           width: "446px",
         }}
       ></div>
-      <div
-        className={styles.blush}
-        style={{
-          backgroundColor: "#A9F1DB4D",
-          left: "740px",
-          top: "475px",
-          height: "446px",
-          width: "446px",
-        }}
-      ></div>
     </>
   );
 }

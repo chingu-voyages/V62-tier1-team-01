@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import playButton from "/src/assets/play-button.svg";
 import separationBar from "/src/assets/separation-bar.svg";
 import heroImg from "/src/assets/banner-img.svg";
+import NextButton from "../NextButton";
 
 function Hero({ onNextStep }) {
   return (
@@ -21,9 +22,9 @@ function Hero({ onNextStep }) {
         </div>
         
         <div className={styles.buttons}>
-          <button className={styles.buttonNextPage} onClick={onNextStep}>
+          <NextButton nextStep={onNextStep}>
             <span>Generate your path</span>
-          </button>
+          </NextButton>
           <button className={styles.buttonPlay}>
             <img className={styles.iconPlay} src={playButton} alt="play button" />
             <span>Watch demo</span>
