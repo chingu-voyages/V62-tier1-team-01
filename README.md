@@ -3,7 +3,7 @@
 
 **Live version**: https://nexa-ai-learning-path.netlify.app/
 
-**Staging version**: N/A at the moment
+**Staging version**: https://develop--nexa-ai-learning-path.netlify.app/
 
 ## Features
 - ⏰ ***In Progress***: A visually-stunning landing page describing our webapp's mission, features and value
