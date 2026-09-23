@@ -13,50 +13,52 @@ function Hero({ onNextStep }) {
   }
 
   return (
-    <div className={styles.card}>
-      <div className={styles.textSection}>
+    <div className="container">
+      <div className={styles.card}>
+        <div className={styles.textSection}>
 
-        <div>
-          <span className={styles.subtitle}>AI-POWERED LEARNING PATHS</span>
-          <h2 className={styles.title}>
-            From Curiosity
-            <br />
-            to Career.
-          </h2>
-          <p className={styles.text}>
-            Turn your goals into a clear, step-by-step learning journey. Our AI analyzes your current level, identifies the most relevant skills, and builds a personalized roadmap to help you grow faster and with confidence—no more guessing what to learn next.
-          </p>
-        </div>
-        
-        <div className={styles.buttons}>
-          <NextButton nextStep={onNextStep}>
-            <span>Generate your path</span>
-          </NextButton>
-          <VideoButton onOpen={handleOpen}>
-            <span>{isOpen ? "Close video" : "Watch demo"}</span>
-          </VideoButton>
-        </div>
-        
-        <div className={styles.infos}>
-          <div className={styles.cardInfo}>
-            <p className={styles.cardText}>A roadmap that fits your goals</p>
+          <div>
+            <span className={styles.subtitle}>AI-POWERED LEARNING PATHS</span>
+            <h2 className={styles.title}>
+              From Curiosity
+              <br />
+              to Career.
+            </h2>
+            <p className={styles.text}>
+              Turn your goals into a clear, step-by-step learning journey. Our AI analyzes your current level, identifies the most relevant skills, and builds a personalized roadmap to help you grow faster and with confidence—no more guessing what to learn next.
+            </p>
           </div>
-          <img src={separationBar} />
-          <div className={styles.cardInfo}>
-            <p className={styles.cardText}>Help you focus on what really matters</p>
+
+          <div className={styles.buttons}>
+            <NextButton nextStep={onNextStep}>
+              <span>Generate your path</span>
+            </NextButton>
+            <VideoButton onOpen={handleOpen}>
+              <span>{isOpen ? "Close video" : "Watch demo"}</span>
+            </VideoButton>
           </div>
-          <img src={separationBar} />
-          <div className={styles.cardInfo}>
-            <p className={styles.cardText}>Clear, structured, and easy to follow</p>
+
+          <div className={styles.infos}>
+            <div className={styles.cardInfo}>
+              <p className={styles.cardText}>A roadmap that fits your goals</p>
+            </div>
+            <img src={separationBar} />
+            <div className={styles.cardInfo}>
+              <p className={styles.cardText}>Help you focus on what really matters</p>
+            </div>
+            <img src={separationBar} />
+            <div className={styles.cardInfo}>
+              <p className={styles.cardText}>Clear, structured, and easy to follow</p>
+            </div>
+          </div>
+
+          <div className={isOpen ? styles.showVideo : styles.hideVideo}>
+            <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe>
           </div>
         </div>
 
-        <div className={isOpen ? styles.showVideo : styles.hideVideo}>
-          <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe>
-        </div>
+        <img className={styles.img} src={heroImg} alt="hero image" />
       </div>
-      
-      <img className={styles.img} src={heroImg} alt="hero image" />
     </div>
   );
 }
