@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "prettier": "^3.9.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
