@@ -1,4 +1,5 @@
 # NEXA - AI Learning Path Generator
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3684dc95-2808-4b9e-9b10-699f661b9cc1/deploy-status)](https://app.netlify.com/projects/nexa-ai-learning-path/deploys)
 > NEXA is a React web application that creates an AI-tailored step-by-step learning path for any user's career goal in the tech industry. It takes a daunting task of deciding what to learn first, and gives a clear answer tailored to the user's experience level, interest and time commitment, making sure they are geared towards success. While also building a useful web application, my team and I are also learning how to collaborate using the Scrum Agile methodology, over our 7 week Chingu voyage. We're excited to show you what we build!
 
 **Live version**: https://nexa-ai-learning-path.netlify.app/
