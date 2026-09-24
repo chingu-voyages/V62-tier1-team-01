@@ -1,0 +1,12 @@
+.buttonPlay {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 36px;
+}
+
+.iconPlay {
+  margin-right: 16px;
+}
