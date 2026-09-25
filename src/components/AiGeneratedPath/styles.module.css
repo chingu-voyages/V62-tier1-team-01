@@ -1,6 +1,10 @@
-.buttons {
-  margin-top: 16px;
-  margin-bottom: 32px;
+.loader {
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.buttons {
+  margin-top: 8px;
+  margin-left: 32px;
 }

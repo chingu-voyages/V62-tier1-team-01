@@ -14,6 +14,11 @@
   margin-bottom: 76px;
 }
 
+.formBody {
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
 .questionHeader {
   display: flex;
   align-items: center;
@@ -28,20 +33,20 @@
 }
 
 .questionText p {
-  color: #515A6E;
+  color: #515a6e;
 }
 
 .questionAndInput {
-  box-shadow: 0 4px 8px 0 rgba(59, 59, 59, 0.2), 0 6px 20px 0 rgba(59, 59, 59, 0.2);
+  box-shadow:
+    0 4px 8px 0 rgba(59, 59, 59, 0.2),
+    0 6px 20px 0 rgba(59, 59, 59, 0.2);
   border-radius: 16px;
-  padding-top: 20px;
-  padding-bottom: 38px;
-  padding-left: 56px;
+  padding: 32px;
   margin-bottom: 32px;
 }
 
 .circle {
-  background-color: #AD94FF5C;
+  background-color: #ad94ff5c;
   font-size: 20px;
   border-radius: 50%;
   height: 50px;
@@ -51,25 +56,22 @@
 }
 
 .circle span {
-  color: #6F47FF;
+  color: #6f47ff;
   font-size: bold;
 }
 
 .input {
+  margin-top: 16px;
   width: 100%;
-  margin-top: 8px;
   padding-right: 56px;
-}
-
-.input input {
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid #cecece;
 }
 
 .select {
-  width: 95%;
   margin-top: 16px;
+  width: 100%;
   border: 1px solid #cecece;
   border-radius: 8px;
   padding: 8px 16px;
@@ -79,4 +81,25 @@
 .buttonDiv {
   display: flex;
   justify-content: end;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .formBody {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .questionAndInput {
+    padding: 8px;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .questionText {
+    margin-left: 8px;
+  }
 }

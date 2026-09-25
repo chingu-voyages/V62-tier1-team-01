@@ -1,13 +1,13 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt }) {
+function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
 
   function setSkills(data) {
-    setUserPrompt({ ...userPrompt, skills: data })
+    setUserPrompt({ ...userPrompt, skills: data });
   }
 
   function setTimeCommitment(data) {
@@ -30,10 +30,12 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt }) {
     <div className="container">
       <div className={styles.formTitle}>
         <h2>Let's build your path</h2>
-        <p>Tell us a bit about yourself so we can create a personalized <br /> learning journey for you.</p>
+        <p>
+          Tell us a bit about yourself so we can create a personalized <br />
+          learning journey for you.
+        </p>
       </div>
-      <form onSubmit={onSubmit}>
-
+      <form onSubmit={onSubmit} className={styles.formBody}>
         <div className={styles.questionAndInput}>
           <div className={styles.questionHeader}>
             <div className={styles.circle}>
@@ -44,14 +46,13 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt }) {
               <p>What do you hope to achieve with NEXA?</p>
             </div>
           </div>
-          <div className={styles.input}>
-            <input
-              className={styles.input}
-              type="text"
-              value={userPrompt.career}
-              onChange={(e) => setCareer(e.target.value)}
-            />
-          </div>
+          <input
+            className={styles.input}
+            type="text"
+            value={userPrompt.career}
+            onChange={(e) => setCareer(e.target.value)}
+            required
+          />
         </div>
 
         <div className={styles.questionAndInput}>
@@ -60,18 +61,17 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt }) {
               <span>2</span>
             </div>
             <div className={styles.questionText}>
-              <h4>What are your background & existing skills?</h4>
+              <h4>What are your background and existing skills?</h4>
               <p>Write down areas you're most excited to learn.</p>
             </div>
           </div>
-          <div className={styles.input}>
-            <input
-              className={styles.input}
-              type="text"
-              value={userPrompt.skills}
-              onChange={(e) => setSkills(e.target.value)}
-            />
-          </div>
+          <input
+            className={styles.input}
+            type="text"
+            value={userPrompt.skills}
+            onChange={(e) => setSkills(e.target.value)}
+            required
+          />
         </div>
 
         <div className={styles.questionAndInput}>
@@ -105,18 +105,17 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt }) {
               <p>Choose the option that best fits your schedule.</p>
             </div>
           </div>
-          <div className={styles.input}>
-            <input
-              className={styles.input}
-              type="text"
-              value={userPrompt.timeCommitment}
-              onChange={(e) => checkUserInput(e.target.value)}
-            />
-          </div>
+          <input
+            className={styles.input}
+            type="text"
+            value={userPrompt.timeCommitment}
+            onChange={(e) => checkUserInput(e.target.value)}
+            required
+          />
         </div>
 
         <div className={styles.buttonDiv}>
-          <Button>Submit</Button>
+          {aiAnswer === "" ? <Button>Submit</Button> : null}
         </div>
       </form>
     </div>

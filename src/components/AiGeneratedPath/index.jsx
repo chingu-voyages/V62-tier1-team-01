@@ -81,19 +81,25 @@ function AiGeneratedPath() {
           onSubmit={handleSubmit}
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
+          aiAnswer={aiAnswer}
         />
         <div className={styles.buttons}>
-          {isWaiting ? (
-            <div className="loader"></div>
-          ) : (
-            <Button onPrevious={handlePrevious} marginRight={"8px"}>Previous</Button>
+          {!isWaiting && (
+            <Button onPrevious={handlePrevious} marginRight={"8px"}>
+              Previous
+            </Button>
           )}
           {aiAnswer === "" ? null : <Button onNext={handleNext}>Next</Button>}
         </div>
+        {isWaiting && (
+          <div className={styles.loader}>
+            <div className="loader"></div>
+          </div>
+        )}
       </div>
     );
   }
-  
+
   return (
     <>
       <LearningPathResult aiAnswer={aiAnswer} />

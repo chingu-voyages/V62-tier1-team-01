@@ -9,14 +9,13 @@ function Hero({ onNextStep }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOpen() {
-    setIsOpen(o => !o);
+    setIsOpen((o) => !o);
   }
 
   return (
     <div className="container">
       <div className={styles.card}>
         <div className={styles.textSection}>
-
           <div>
             <span className={styles.subtitle}>AI-POWERED LEARNING PATHS</span>
             <h2 className={styles.title}>
@@ -25,7 +24,10 @@ function Hero({ onNextStep }) {
               to Career.
             </h2>
             <p className={styles.text}>
-              Turn your goals into a clear, step-by-step learning journey. Our AI analyzes your current level, identifies the most relevant skills, and builds a personalized roadmap to help you grow faster and with confidence—no more guessing what to learn next.
+              Turn your goals into a clear, step-by-step learning journey. Our
+              AI analyzes your current level, identifies the most relevant
+              skills, and builds a personalized roadmap to help you grow faster
+              and with confidence—no more guessing what to learn next.
             </p>
           </div>
 
@@ -44,16 +46,24 @@ function Hero({ onNextStep }) {
             </div>
             <img src={separationBar} />
             <div className={styles.cardInfo}>
-              <p className={styles.cardText}>Help you focus on what really matters</p>
+              <p className={styles.cardText}>
+                Help you focus on what really matters
+              </p>
             </div>
             <img src={separationBar} />
             <div className={styles.cardInfo}>
-              <p className={styles.cardText}>Clear, structured, and easy to follow</p>
+              <p className={styles.cardText}>
+                Clear, structured, and easy to follow
+              </p>
             </div>
           </div>
 
           <div className={isOpen ? styles.showVideo : styles.hideVideo}>
-            <iframe className={styles.iframe} src="https://placehold.co/480x320" allowFullScreen></iframe>
+            <iframe
+              className={styles.iframe}
+              src="https://placehold.co/480x320"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
 
