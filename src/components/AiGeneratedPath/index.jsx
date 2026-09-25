@@ -3,12 +3,15 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
+import Button from "../Button";
+import styles from "./styles.module.css";
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
   const [userPrompt, setUserPrompt] = useState({
     career: "",
-    skillLevel: "",
+    skills: "",
+    experienceLevel: "",
     timeCommitment: 1,
   });
   const [isWaiting, setIsWaiting] = useState(false);
@@ -28,7 +31,8 @@ function AiGeneratedPath() {
       2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
 
       3. The user's career goal is: ${userPrompt.career}
-         The user's current skill level is: ${userPrompt.skillLevel}
+         The user's background and existing skills are: ${userPrompt.skills}
+         The user's current skill level is: ${userPrompt.experienceLevel}
          The user time commitment (hours per week) is: ${userPrompt.timeCommitment}
 
       4. Generate a structured learning path that:
@@ -72,15 +76,20 @@ function AiGeneratedPath() {
 
   if (step === 1) {
     return (
-      <div>
+      <div className="container">
         <UserInputForm
           onSubmit={handleSubmit}
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
         />
-        <button onClick={handlePrevious}>Previous</button>
-        {isWaiting && <div className="loader"></div>}
-        {aiAnswer === "" ? null : <button onClick={handleNext}>Next</button>}
+        <div className={styles.buttons}>
+          {isWaiting ? (
+            <div className="loader"></div>
+          ) : (
+            <Button onPrevious={handlePrevious} marginRight={"8px"}>Previous</Button>
+          )}
+          {aiAnswer === "" ? null : <Button onNext={handleNext}>Next</Button>}
+        </div>
       </div>
     );
   }

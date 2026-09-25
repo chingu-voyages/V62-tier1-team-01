@@ -1,0 +1,82 @@
+.formTitle {
+  text-align: center;
+}
+
+.formTitle h2 {
+  font-size: 46px;
+  margin-top: 128px;
+  margin-bottom: 20px;
+}
+
+.formTitle p {
+  font-size: 20px;
+  color: #676767;
+  margin-bottom: 76px;
+}
+
+.questionHeader {
+  display: flex;
+  align-items: center;
+}
+
+.questionText {
+  margin-left: 24px;
+}
+
+.questionText h4 {
+  margin-bottom: 8px;
+}
+
+.questionText p {
+  color: #515A6E;
+}
+
+.questionAndInput {
+  box-shadow: 0 4px 8px 0 rgba(59, 59, 59, 0.2), 0 6px 20px 0 rgba(59, 59, 59, 0.2);
+  border-radius: 16px;
+  padding-top: 20px;
+  padding-bottom: 38px;
+  padding-left: 56px;
+  margin-bottom: 32px;
+}
+
+.circle {
+  background-color: #AD94FF5C;
+  font-size: 20px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  align-content: center;
+}
+
+.circle span {
+  color: #6F47FF;
+  font-size: bold;
+}
+
+.input {
+  width: 100%;
+  margin-top: 8px;
+  padding-right: 56px;
+}
+
+.input input {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #cecece;
+}
+
+.select {
+  width: 95%;
+  margin-top: 16px;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #fff;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: end;
+}

@@ -1,0 +1,6 @@
+.buttons {
+  margin-top: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: start;
+}

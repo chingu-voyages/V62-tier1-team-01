@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import separationBar from "/src/assets/separation-bar.svg";
 import heroImg from "/src/assets/banner-img.svg";
-import NextButton from "../NextButton";
+import Button from "../Button";
 import VideoButton from "../VideoButton";
 import { useState } from "react";
 
@@ -30,9 +30,9 @@ function Hero({ onNextStep }) {
           </div>
 
           <div className={styles.buttons}>
-            <NextButton nextStep={onNextStep}>
+            <Button onNext={onNextStep}>
               <span>Generate your path</span>
-            </NextButton>
+            </Button>
             <VideoButton onOpen={handleOpen}>
               <span>{isOpen ? "Close video" : "Watch demo"}</span>
             </VideoButton>
@@ -53,7 +53,7 @@ function Hero({ onNextStep }) {
           </div>
 
           <div className={isOpen ? styles.showVideo : styles.hideVideo}>
-            <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe>
+            <iframe className={styles.iframe} src="https://placehold.co/480x320" allowFullScreen></iframe>
           </div>
         </div>
 
