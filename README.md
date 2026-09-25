@@ -12,7 +12,7 @@
 - ⏰ ***In Progress***: An AI-Generated custom learning path including clearly labeled steps with the name of each skill, a description and estimate time to complete
 - ⏰ ***In Progress***: Keyboard and screen-reader accessibility
 - ⏰ ***In Progress***: Option for choosing light and dark mode
-- ⏰ ***In Progress***: AI Input Validation/Output formatting (@umfrancisco what should I add here?)
+- ⏰ ***In Progress***: **NEEDS FIXING** AI Input Validation/Output formatting (@umfrancisco what should I add here?)
 
 
 ## Acceptance Criteria
@@ -33,7 +33,7 @@
 * [ ] App is accessible to keyboard users and via screen readers
 * [ ] Users can choose light or dark mode
 * [ ] Users can decide what learning pace they'd like, such as Relaxed, Balanced or Intensive(in addition to time commitment field)
-* [ ] AI Input Validation/Output Formatting (@umfrancisco, could you add more details here? I'm forgetting what you meant by this feature)
+* [ ] **NEEDS FIXING** AI Input Validation/Output Formatting (@umfrancisco, could you add more details here? I'm forgetting what you meant by this feature)
 
 ## Getting Started
 
