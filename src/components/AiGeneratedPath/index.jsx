@@ -70,18 +70,26 @@ function AiGeneratedPath() {
     return <LandingPage onNextStep={handleNext} />;
   }
 
-  return (
-    <div>
+  if (step === 1) {
+    return (
       <div>
         <UserInputForm
           onSubmit={handleSubmit}
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
         />
-        <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
+        <button onClick={handlePrevious}>Previous</button>
+        {isWaiting && <div className="loader"></div>}
+        {aiAnswer === "" ? null : <button onClick={handleNext}>Next</button>}
       </div>
+    );
+  }
+  
+  return (
+    <>
+      <LearningPathResult aiAnswer={aiAnswer} />
       <button onClick={handlePrevious}>Previous</button>
-    </div>
+    </>
   );
 }
 
