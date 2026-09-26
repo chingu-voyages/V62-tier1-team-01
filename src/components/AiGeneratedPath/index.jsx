@@ -6,14 +6,16 @@ import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
 
+const initialState = {
+  career: "Front-end Development",
+  skills: "HTML, CSS, JavaScript",
+  experienceLevel: "Complete Beginner",
+  timeCommitment: "Less than 3 hrs",
+}
+
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
-  const [userPrompt, setUserPrompt] = useState({
-    career: "Front-end Development",
-    skills: "HTML, CSS, JavaScript",
-    experienceLevel: "Complete Beginner",
-    timeCommitment: "Less than 3 hrs",
-  });
+  const [userPrompt, setUserPrompt] = useState(initialState);
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
 
