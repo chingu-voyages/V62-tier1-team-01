@@ -78,7 +78,11 @@ function AiGeneratedPath() {
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
         />
-        <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
+        <LearningPathResult 
+          isWaiting={isWaiting} 
+          aiAnswer={aiAnswer} 
+          userPrompt={userPrompt}
+        />
       </div>
       <button onClick={handlePrevious}>Previous</button>
     </div>
