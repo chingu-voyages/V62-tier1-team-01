@@ -1,4 +1,4 @@
-.modalBox {
+.modal {
   background-image: linear-gradient(to right, #b7a1ff66, #4691fc33);
   border-radius: 20px;
   text-align: center;
@@ -21,20 +21,20 @@
   color: #11141b;
 }
 
-.text {
+.description {
   font-size: 16px;
   margin-bottom: 32px;
   color: #676767;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .modalBox {
+  .modal {
     padding: 32px 16px;
   }
 }
 
 @media (max-width: 768px) {
-  .modalBox {
+  .modal {
     padding: 32px 16px;
   }
 }

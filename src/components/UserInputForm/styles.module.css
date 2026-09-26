@@ -1,42 +1,42 @@
-.formTitle {
+.header {
   text-align: center;
 }
 
-.formTitle h2 {
+.header > h2 {
   font-size: 46px;
   margin-top: 128px;
   margin-bottom: 20px;
 }
 
-.formTitle p {
+.header > p {
   font-size: 20px;
   color: #676767;
   margin-bottom: 76px;
 }
 
-.formBody {
+.form {
   margin-right: 32px;
   margin-left: 32px;
 }
 
-.questionHeader {
+.fieldHeader {
   display: flex;
   align-items: center;
 }
 
-.questionText {
+.fieldText {
   margin-left: 24px;
 }
 
-.questionText h4 {
+.fieldText > h4 {
   margin-bottom: 8px;
 }
 
-.questionText p {
+.fieldText > p {
   color: #515a6e;
 }
 
-.questionAndInput {
+.field {
   box-shadow:
     0 4px 8px 0 rgba(59, 59, 59, 0.2),
     0 6px 20px 0 rgba(59, 59, 59, 0.2);
@@ -55,7 +55,7 @@
   align-content: center;
 }
 
-.circle span {
+.circle > span {
   color: #6f47ff;
   font-size: bold;
 }
@@ -78,20 +78,20 @@
   background-color: #fff;
 }
 
-.buttonDiv {
+.button {
   display: flex;
   justify-content: end;
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
-  .formBody {
+  .form {
     margin-right: 32px;
     margin-left: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .questionAndInput {
+  .field {
     padding: 8px;
   }
 

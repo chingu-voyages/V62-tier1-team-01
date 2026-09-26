@@ -11,7 +11,7 @@ const initialState = {
   skills: "HTML, CSS, JavaScript",
   experienceLevel: "Complete Beginner",
   timeCommitment: "Less than 3 hrs",
-}
+};
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
