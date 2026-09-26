@@ -58,6 +58,7 @@ function AiGeneratedPath() {
       const result = await model.generateContent(contextInfo);
 
       setAiAnswer(result.response.text());
+      alert("Success!!");
     } catch (err) {
       alert("Error while generating content, please try again later");
     }
@@ -84,24 +85,21 @@ function AiGeneratedPath() {
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
           aiAnswer={aiAnswer}
+          isWaiting={isWaiting}
         />
-        <div className={styles["buttons"]}>
-          {!isWaiting && (
-            <Button onPrevious={handlePrevious} marginRight={"8px"}>
-              Previous
-            </Button>
-          )}
+        <div className={isWaiting ? styles["buttons", "hide"] : styles["buttons"]}>
+          <Button onPrevious={handlePrevious} marginRight={"8px"}>
+            Previous
+          </Button>
           {aiAnswer === "" ? null : (
             <Button onNext={handleNext} marginRight={"8px"}>
               Next
             </Button>
           )}
         </div>
-        {isWaiting && (
-          <div className={styles["loadingArea"]}>
-            <div className="loader"></div>
-          </div>
-        )}
+        <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
+          <div className="loader"></div>
+        </div>
       </div>
     );
   }
