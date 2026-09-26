@@ -99,6 +99,10 @@
     padding: 8px;
   }
 
+  .fieldText {
+    margin-left: 8px;
+  }
+
   .circle {
     display: none;
   }
