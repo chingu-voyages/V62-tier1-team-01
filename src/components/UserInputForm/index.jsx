@@ -10,20 +10,12 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
     setUserPrompt({ ...userPrompt, skills: data });
   }
 
-  function setTimeCommitment(data) {
-    setUserPrompt({ ...userPrompt, timeCommitment: data });
-  }
-
   function setExperienceLevel(data) {
     setUserPrompt({ ...userPrompt, experienceLevel: data });
   }
 
-  function checkUserInput(data) {
-    if (Number(data).toString() === "NaN") {
-      setTimeCommitment(0);
-    } else {
-      setTimeCommitment(Number(data) > 168 ? 168 : Number(data));
-    }
+  function setTimeCommitment(data) {
+    setUserPrompt({ ...userPrompt, timeCommitment: data });
   }
 
   return (
@@ -46,13 +38,17 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
               <p>What do you hope to achieve with NEXA?</p>
             </div>
           </div>
-          <input
-            className={styles.input}
-            type="text"
-            value={userPrompt.career}
+          <select
+            className={styles.select}
+            value={userPrompt.skillLevel}
             onChange={(e) => setCareer(e.target.value)}
-            required
-          />
+          >
+            <option>Front-end Development</option>
+            <option>Back-end Development</option>
+            <option>Full-Stack Development</option>
+            <option>Data Science</option>
+            <option>UI/UX Design</option>
+          </select>
         </div>
 
         <div className={styles.questionAndInput}>
@@ -62,7 +58,10 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
             </div>
             <div className={styles.questionText}>
               <h4>What are your background and existing skills?</h4>
-              <p>Write down areas you're most excited to learn.</p>
+              <p>
+                Write down areas you're most excited to learn (i. e., HTML, CSS,
+                JavaScript, React).
+              </p>
             </div>
           </div>
           <input
@@ -89,6 +88,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
             value={userPrompt.skillLevel}
             onChange={(e) => setExperienceLevel(e.target.value)}
           >
+            <option>Complete Beginner</option>
             <option>Beginner</option>
             <option>Intermediate</option>
             <option>Advanced</option>
@@ -105,13 +105,16 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer }) {
               <p>Choose the option that best fits your schedule.</p>
             </div>
           </div>
-          <input
-            className={styles.input}
-            type="text"
-            value={userPrompt.timeCommitment}
-            onChange={(e) => checkUserInput(e.target.value)}
-            required
-          />
+          <select
+            className={styles.select}
+            value={userPrompt.skillLevel}
+            onChange={(e) => setTimeCommitment(e.target.value)}
+          >
+            <option>Less than 3 hrs</option>
+            <option>3 - 5 hours</option>
+            <option>6 - 10 hours</option>
+            <option>10+ hrs</option>
+          </select>
         </div>
 
         <div className={styles.buttonDiv}>

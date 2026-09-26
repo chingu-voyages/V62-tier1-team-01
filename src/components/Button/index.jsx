@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-function Button({ children, onNext, onPrevious, marginRight }) {
+function Button({ children, onNext, onPrevious, onClick, marginRight }) {
   if (onPrevious) {
     return (
       <button
@@ -26,7 +26,11 @@ function Button({ children, onNext, onPrevious, marginRight }) {
   }
 
   return (
-    <button className={styles.button} style={{ marginRight: marginRight }}>
+    <button
+      onClick={onClick}
+      className={styles.button}
+      style={{ marginRight: marginRight }}
+    >
       {children}
     </button>
   );

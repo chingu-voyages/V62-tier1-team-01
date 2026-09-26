@@ -9,10 +9,10 @@ import styles from "./styles.module.css";
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
   const [userPrompt, setUserPrompt] = useState({
-    career: "",
-    skills: "",
-    experienceLevel: "",
-    timeCommitment: 1,
+    career: "Front-end Development",
+    skills: "HTML, CSS, JavaScript",
+    experienceLevel: "Complete Beginner",
+    timeCommitment: "Less than 3 hrs",
   });
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
@@ -33,7 +33,7 @@ function AiGeneratedPath() {
       3. The user's career goal is: ${userPrompt.career}
          The user's background and existing skills are: ${userPrompt.skills}
          The user's current skill level is: ${userPrompt.experienceLevel}
-         The user time commitment (hours per week) is: ${userPrompt.timeCommitment}
+         The user time commitment is: ${userPrompt.timeCommitment} per week
 
       4. Generate a structured learning path that:
         - Is practical and actionable
@@ -89,7 +89,11 @@ function AiGeneratedPath() {
               Previous
             </Button>
           )}
-          {aiAnswer === "" ? null : <Button onNext={handleNext}>Next</Button>}
+          {aiAnswer === "" ? null : (
+            <Button onNext={handleNext} marginRight={"8px"}>
+              Next
+            </Button>
+          )}
         </div>
         {isWaiting && (
           <div className={styles.loader}>
