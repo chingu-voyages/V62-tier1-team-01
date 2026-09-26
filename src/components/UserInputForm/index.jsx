@@ -21,7 +21,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
   return (
     <div className="container">
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
-        <h2>Building your path</h2>
+        <h2>Building <br/> your path</h2>
         <p>Just a second...</p>
       </div>
       <div className={isWaiting ? styles["hide"] : styles["header"]}>
