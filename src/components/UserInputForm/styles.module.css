@@ -1,0 +1,113 @@
+.header {
+  text-align: center;
+}
+
+.header > h2 {
+  font-size: 46px;
+  margin-top: 128px;
+  margin-bottom: 20px;
+}
+
+.header > p {
+  font-size: 20px;
+  color: #676767;
+  margin-bottom: 76px;
+}
+
+.form {
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
+.fieldHeader {
+  display: flex;
+  align-items: center;
+}
+
+.fieldText {
+  margin-left: 24px;
+}
+
+.fieldText > h4 {
+  margin-bottom: 8px;
+}
+
+.fieldText > p {
+  color: #515a6e;
+}
+
+.field {
+  box-shadow:
+    0 4px 8px 0 rgba(59, 59, 59, 0.2),
+    0 6px 20px 0 rgba(59, 59, 59, 0.2);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.circle {
+  background-color: #ad94ff5c;
+  font-size: 20px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  align-content: center;
+}
+
+.circle > span {
+  color: #6f47ff;
+  font-size: bold;
+}
+
+.input {
+  margin-top: 16px;
+  width: 100%;
+  padding-right: 56px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #cecece;
+}
+
+.select {
+  margin-top: 16px;
+  width: 100%;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #fff;
+}
+
+.button {
+  display: flex;
+  justify-content: end;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .form {
+    margin-right: 32px;
+    margin-left: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .field {
+    padding: 8px;
+  }
+
+  .fieldText {
+    margin-left: 8px;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .questionText {
+    margin-left: 8px;
+  }
+}

@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import UserInputForm from "./UserInputForm";
-import LearningPathResult from "./LearningPathResult";
-import LearningPathBanner from "./LearningPathBanner";
+import UserInputForm from "../UserInputForm";
+import LearningPathResult from "../LearningPathResult";
+import LandingPage from "../LandingPage";
+import Button from "../Button";
+import styles from "./styles.module.css";
+
+const initialState = {
+  career: "Front-end Development",
+  skills: "HTML, CSS, JavaScript",
+  experienceLevel: "Complete Beginner",
+  timeCommitment: "Less than 3 hrs",
+};
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
-  const [userPrompt, setUserPrompt] = useState({
-    career: "",
-    skillLevel: "",
-    timeCommitment: 1,
-  });
+  const [userPrompt, setUserPrompt] = useState(initialState);
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
 
@@ -28,8 +33,9 @@ function AiGeneratedPath() {
       2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
 
       3. The user's career goal is: ${userPrompt.career}
-         The user's current skill level is: ${userPrompt.skillLevel}
-         The user time commitment (hours per week) is: ${userPrompt.timeCommitment}
+         The user's background and existing skills are: ${userPrompt.skills}
+         The user's current skill level is: ${userPrompt.experienceLevel}
+         The user time commitment is: ${userPrompt.timeCommitment} per week
 
       4. Generate a structured learning path that:
         - Is practical and actionable
@@ -52,6 +58,7 @@ function AiGeneratedPath() {
       const result = await model.generateContent(contextInfo);
 
       setAiAnswer(result.response.text());
+      setStep(2);
     } catch (err) {
       alert("Error while generating content, please try again later");
     }
@@ -67,21 +74,41 @@ function AiGeneratedPath() {
   }
 
   if (step === 0) {
-    return <LearningPathBanner onNextStep={handleNext} />;
+    return <LandingPage onNextStep={handleNext} />;
   }
 
-  return (
-    <div>
-      <div>
+  if (step === 1) {
+    return (
+      <div className="container">
         <UserInputForm
           onSubmit={handleSubmit}
           userPrompt={userPrompt}
           setUserPrompt={setUserPrompt}
+          aiAnswer={aiAnswer}
+          isWaiting={isWaiting}
         />
-        <LearningPathResult isWaiting={isWaiting} aiAnswer={aiAnswer} />
+        <div className={isWaiting ? styles["buttons", "hide"] : styles["buttons"]}>
+          <Button onPrevious={handlePrevious} marginRight={"8px"}>
+            Previous
+          </Button>
+          {aiAnswer === "" ? null : (
+            <Button onNext={handleNext} marginRight={"8px"}>
+              Next
+            </Button>
+          )}
+        </div>
+        <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
+          <div className="loader"></div>
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <>
+      <LearningPathResult aiAnswer={aiAnswer} />
       <button onClick={handlePrevious}>Previous</button>
-    </div>
+    </>
   );
 }
 

@@ -1,10 +1,9 @@
-import LearningPathItem from "./LearningPathItem";
+import LearningPathItem from "../LearningPathItem";
 
 // todo
-function LearningPathResult({ isWaiting, aiAnswer }) {
+function LearningPathResult({ aiAnswer }) {
   return (
     <div>
-      {isWaiting && <div className="loader"></div>}
       {aiAnswer.split("$").map((item) => (
         <LearningPathItem key={item} item={item} />
       ))}
