@@ -1,3 +1,5 @@
+import styles from "./styles.module.css";
+
 // todo
 function LearningPathItem({ item }) {
   return <div>{item}</div>;
