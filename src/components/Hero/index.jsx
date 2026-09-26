@@ -14,16 +14,16 @@ function Hero({ onNextStep }) {
 
   return (
     <div className="container">
-      <div className={styles.card}>
-        <div className={styles.textSection}>
+      <div className={styles["card"]}>
+        <div className={styles["textSection"]}>
           <div>
-            <span className={styles.subtitle}>AI-POWERED LEARNING PATHS</span>
-            <h2 className={styles.title}>
+            <span className={styles["subtitle"]}>AI-POWERED LEARNING PATHS</span>
+            <h2 className={styles["title"]}>
               From Curiosity
               <br />
               to Career.
             </h2>
-            <p className={styles.text}>
+            <p className={styles["text"]}>
               Turn your goals into a clear, step-by-step learning journey. Our
               AI analyzes your current level, identifies the most relevant
               skills, and builds a personalized roadmap to help you grow faster
@@ -31,7 +31,7 @@ function Hero({ onNextStep }) {
             </p>
           </div>
 
-          <div className={styles.buttons}>
+          <div className={styles["buttons"]}>
             <Button onNext={onNextStep}>
               <span>Generate your path</span>
             </Button>
@@ -40,34 +40,34 @@ function Hero({ onNextStep }) {
             </VideoButton>
           </div>
 
-          <div className={styles.infos}>
-            <div className={styles.cardInfo}>
-              <p className={styles.cardText}>A roadmap that fits your goals</p>
+          <div className={styles["infos"]}>
+            <div className={styles["cardInfo"]}>
+              <p className={styles["cardText"]}>A roadmap that fits your goals</p>
             </div>
             <img src={separationBar} />
-            <div className={styles.cardInfo}>
-              <p className={styles.cardText}>
+            <div className={styles["cardInfo"]}>
+              <p className={styles["cardText"]}>
                 Help you focus on what really matters
               </p>
             </div>
             <img src={separationBar} />
-            <div className={styles.cardInfo}>
-              <p className={styles.cardText}>
+            <div className={styles["cardInfo"]}>
+              <p className={styles["cardText"]}>
                 Clear, structured, and easy to follow
               </p>
             </div>
           </div>
 
-          <div className={isOpen ? styles.showVideo : styles.hideVideo}>
+          <div className={isOpen ? styles["showVideo"] : styles["hideVideo"]}>
             <iframe
-              className={styles.iframe}
+              className={styles["iframe"]}
               src="https://placehold.co/480x320"
               allowFullScreen
             ></iframe>
           </div>
         </div>
 
-        <img className={styles.img} src={heroImg} alt="hero image" />
+        <img className={styles["img"]} src={heroImg} alt="hero image" />
       </div>
     </div>
   );

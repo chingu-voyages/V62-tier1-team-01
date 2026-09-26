@@ -5,7 +5,7 @@ function Button({ children, onNext, onPrevious, onClick, marginRight }) {
     return (
       <button
         onClick={onPrevious}
-        className={styles.button}
+        className={styles["button"]}
         style={{ marginRight }}
       >
         {children}
@@ -17,7 +17,7 @@ function Button({ children, onNext, onPrevious, onClick, marginRight }) {
     return (
       <button
         onClick={onNext}
-        className={styles.button}
+        className={styles["button"]}
         style={{ marginRight }}
       >
         {children}
@@ -28,7 +28,7 @@ function Button({ children, onNext, onPrevious, onClick, marginRight }) {
   return (
     <button
       onClick={onClick}
-      className={styles.button}
+      className={styles["button"]}
       style={{ marginRight }}
     >
       {children}

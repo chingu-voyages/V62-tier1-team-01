@@ -85,7 +85,7 @@ function AiGeneratedPath() {
           setUserPrompt={setUserPrompt}
           aiAnswer={aiAnswer}
         />
-        <div className={styles.buttons}>
+        <div className={styles["buttons"]}>
           {!isWaiting && (
             <Button onPrevious={handlePrevious} marginRight={"8px"}>
               Previous
@@ -98,7 +98,7 @@ function AiGeneratedPath() {
           )}
         </div>
         {isWaiting && (
-          <div className={styles.loader}>
+          <div className={styles["loadingArea"]}>
             <div className="loader"></div>
           </div>
         )}
