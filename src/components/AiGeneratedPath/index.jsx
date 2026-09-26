@@ -58,7 +58,7 @@ function AiGeneratedPath() {
       const result = await model.generateContent(contextInfo);
 
       setAiAnswer(result.response.text());
-      alert("Success!!");
+      setStep(2);
     } catch (err) {
       alert("Error while generating content, please try again later");
     }
