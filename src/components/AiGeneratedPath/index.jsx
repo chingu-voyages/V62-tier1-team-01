@@ -13,6 +13,8 @@ function AiGeneratedPath() {
   });
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -54,8 +56,10 @@ function AiGeneratedPath() {
       setAiAnswer(result.response.text());
     } catch (err) {
       alert("Error while generating content, please try again later");
+      setError(true);
     }
     setIsWaiting(false);
+    setSubmitted(true);
   }
 
   function handleNext() {
@@ -66,23 +70,46 @@ function AiGeneratedPath() {
     setStep((s) => s - 1);
   }
 
+  function resetForm(){
+    setUserPrompt({
+      career: "",
+      skillLevel: "",
+      timeCommitment: 1,
+    });
+    setSubmitted(false);
+    setError(false);
+  }
+
   if (step === 0) {
     return <LandingPage onNextStep={handleNext} />;
   }
 
+  // if (isWaiting){ 
+  //   return <div className="loader"></div>;
+  // }
+
   return (
     <div>
       <div>
-        <UserInputForm
-          onSubmit={handleSubmit}
-          userPrompt={userPrompt}
-          setUserPrompt={setUserPrompt}
-        />
-        <LearningPathResult 
-          isWaiting={isWaiting} 
-          aiAnswer={aiAnswer} 
-          userPrompt={userPrompt}
-        />
+        {!submitted &&
+          <>
+          <UserInputForm
+            onSubmit={handleSubmit}
+            userPrompt={userPrompt}
+            setUserPrompt={setUserPrompt}
+          />
+          {isWaiting &&
+            <div className="loader"></div>
+          }
+          </>
+        }
+        {(submitted && !error) &&
+          <LearningPathResult 
+            resetForm={resetForm}
+            aiAnswer={aiAnswer} 
+            userPrompt={userPrompt}
+          />
+        }
       </div>
       <button onClick={handlePrevious}>Previous</button>
     </div>
