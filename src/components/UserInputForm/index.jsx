@@ -111,7 +111,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           </div>
           <select
             className={styles["select"]}
-            value={userPrompt.skillLevel}
+            value={userPrompt.timeCommitment}
             onChange={(e) => setTimeCommitment(e.target.value)}
           >
             <option>Less than 3 hrs</option>
