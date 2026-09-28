@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import timeIcon from "../../assets/time-icon.png";
+import timeIcon from "../../assets/time-icon.svg";
 
 // todo
 function LearningPathItem({ item, index}) {
@@ -7,12 +7,12 @@ function LearningPathItem({ item, index}) {
   // console.log(item);
   return (
     <div className={styles.card}>
-      <p>{index+1}</p>
-      <p>{title}</p>
-      <p>{description}</p>
-      <div>
+      <p className={styles.cardIndex}>{index < 9 ? "0": ""}{index+1}</p>
+      <p className={styles.cardTitle}>{title}</p>
+      <p className={styles.cardDescription}>{description}</p>
+      <div className={styles.cardEstimate}>
         <img src={timeIcon}/>
-        <p>{estimate} hrs</p>
+        <p>{estimate} hours</p>
       </div>
     </div>
   );
