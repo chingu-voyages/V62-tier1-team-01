@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 const initialState = {
   career: "Front-end Development",
   skills: "HTML, CSS, JavaScript",
-  experienceLevel: "Complete Beginner",
+  experienceLevel: "Beginner",
   timeCommitment: "Less than 3 hrs",
 };
 
