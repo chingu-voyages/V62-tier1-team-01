@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
-import shareIcon from "../../assets/share-icon.png";
-import editIcon from "../../assets/edit-icon.png";
+import shareIcon from "../../assets/share-icon.svg";
+import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import BlushEffect from "../BlushEffect";
 
@@ -53,45 +53,70 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
     return `~${numberOfYears > 0 ? `${numberOfYears} years, `: ""}${numberOfMonths > 0 ? `${numberOfMonths} months, `: ""}${leftOverWeeks} weeks`;
   }
 
+  //todo
+  function shareProgress() {
+
+  }
+
+  //todo
+  function saveToLocalStorage() {
+    return 0;
+  }
+
+  //todo
+  function takeScreenshot() {
+    return 0;
+  }
+
+  //todo
+  function savePath() {
+    saveToLocalStorage();
+    takeScreenshot();
+    return 0;
+  }
+
   return (
-    <div class={styles.pageContainer}>
+    <div className={styles.pageContainer}>
       <BlushEffect className={styles.zIndexZero}/>
-      <h1 class={styles.title}>Your Personalized Learning Path is Ready!</h1>
-      <p class={styles.subtitle}>Based on your goals, skills, and test results, we’ve created a path that fits you.</p>
-      <div class={styles.flexContainer}>
-        <div class={styles.flexChild}>
-          <div class={styles.card}>
+      <h1 className={styles.title}>Your Personalized Learning Path is Ready!</h1>
+      <p className={styles.subtitle}>Based on your goals, skills, and test results, we’ve created a path that fits you.</p>
+      <div className={styles.flexContainer}>
+        <div className={styles.flexChild}>
+          <div className={styles.card}>
             <p className={styles.profileTitle}>Your Profile</p>
-            <div class={styles.profileFact}>
-              <p class={styles.profileLabel}>Target Role</p>
-              <p class={styles.profileValue}>{career}</p>
+            <div className={styles.profileFact}>
+              <p className={styles.profileLabel}>Target Role</p>
+              <p className={styles.profileValue}>{career}</p>
             </div>
-            <div class={styles.profileFact}>
-              <p class={styles.profileLabel}>Current Level</p>
-              <p class={styles.profileValue}>{skillLevel || "Beginner"}</p>
+            <div className={styles.profileFact}>
+              <p className={styles.profileLabel}>Current Level</p>
+              <p className={styles.profileValue}>{skillLevel || "Beginner"}</p>
             </div>
-            <div class={styles.profileFact}>
-              <p class={styles.profileLabel}>Study Pace</p>
-              <p class={styles.profileValue}>Balanced</p>
+            <div className={styles.profileFact}>
+              <p className={styles.profileLabel}>Study Pace</p>
+              <p className={styles.profileValue}>Balanced</p>
             </div>
-            <div class={styles.profileFact}>
-              <p class={styles.profileLabel}>Estimated Time</p>
-              <p class={styles.profileValue}>{calculatePathTimeEstimate(timeCommitment)}</p>
+            <div className={styles.profileFact}>
+              <p className={styles.profileLabel}>Estimated Time</p>
+              <p className={styles.profileValue}>{calculatePathTimeEstimate(timeCommitment)}</p>
             </div>
           </div>
-          <button class={styles.defaultButton} disabled>
+          <button className={styles.defaultButton} disabled onClick={shareProgress}>
             <img src={shareIcon}/>
             Share
           </button>
-          <button class={styles.defaultButton} onClick={resetForm}>
+          <button className={styles.defaultButton} onClick={resetForm}>
             <img src={editIcon}/>
             Edit Path
           </button>
         </div>
-        <div class={styles.flexChild}>
-          {dummyData.map((item, index) => (
-            <LearningPathItem key={item.key} item={item} index={index}/>
-          ))}
+        <div className={styles.flexChild}>
+          <div className={styles.timeline}>
+            {dummyData.map((item, index) => (
+              <LearningPathItem key={item.key} item={item} index={index}/>
+            ))}
+          </div>
+          <button className={styles.submitButton} onClick={savePath}>Save</button>
           {/* {aiAnswer.split("$").map((item) => (
             <LearningPathItem key={item} item={item} />
           ))} */}

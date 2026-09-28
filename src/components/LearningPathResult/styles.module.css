@@ -2,6 +2,11 @@
     z-index: 1;
 }
 
+.verticalLine {
+    border-right: 5px solid green;
+    height: 100%;
+}
+
 .pageContainer {
     margin: 0;
     padding: 244px 94px;
@@ -40,14 +45,16 @@
     padding: 20px 87px;
     /* padding: 20px 0; */
     gap: 123px;
-    /* width: 50%;
+    /* width: 50%; */
     margin-left: auto;
-    margin-right: auto; */
+    margin-right: auto;
+    max-width: 1100px;
 }
 
 .flexChild {
-    width: 50%;
+    /* width: 50%; */
     flex: 1;
+    max-width: 384px;
 }
 
 .card {
@@ -58,12 +65,50 @@
     min-width: 300px;
     max-width: 384px;
     /* width: 50%; */
+    margin-bottom: 25px;
 }
 
 .defaultButton {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
     background-color: #FEFDFE;
     border: 1px solid #1A1C2533;
     padding: 1rem 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    color: #11141B;
+    align-items: center;
+    gap: 14px;
+    margin: 18px 0;
+    transition: box-shadow .5s;
+}
+
+.submitButton {
+    background-color: #11141B;
+    color: white;
+    border: none;
+    box-shadow: 5px 12px 25px 0px #00000033;
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 1rem 5rem;
+    border-radius: 16px;
+    margin: 18px 0;
+    margin-left: auto;
+    text-transform: uppercase;
+    transition: box-shadow .5s;
+}
+
+.defaultButton:not(:disabled):hover, .submitButton:not(:disabled):hover {
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
+    transition: box-shadow .5s;
+}
+
+.defaultButton:disabled{
+    cursor: not-allowed;
+    background: lightgrey;
+    color: darkgray;
 }
 
 .profileFact {
@@ -80,4 +125,19 @@
     font-weight: 600;
     font-size: 16px;
     margin-top: 7px;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(90deg, rgba(183, 161, 255, 0.6) 0%, rgba(38, 77, 228, 0.5) 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-left: -54px;
 }
