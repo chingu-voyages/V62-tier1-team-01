@@ -10,7 +10,7 @@ function Modal({ onNextStep }) {
         <p className={styles["description"]}>
           Join thousands of learners and build your future with Nexa.
         </p>
-        <Button onNext={onNextStep}>Get Started</Button>
+        <Button onClick={onNextStep}>Get Started</Button>
       </div>
     </div>
   );

@@ -88,11 +88,11 @@ function AiGeneratedPath() {
           isWaiting={isWaiting}
         />
         <div className={isWaiting ? styles["buttons", "hide"] : styles["buttons"]}>
-          <Button onPrevious={handlePrevious} marginRight={"8px"}>
+          <Button onClick={handlePrevious} marginRight={"8px"}>
             Previous
           </Button>
           {aiAnswer === "" ? null : (
-            <Button onNext={handleNext} marginRight={"8px"}>
+            <Button onClick={handleNext} marginRight={"8px"}>
               Next
             </Button>
           )}

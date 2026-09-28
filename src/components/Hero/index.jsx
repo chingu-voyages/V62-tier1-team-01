@@ -34,7 +34,7 @@ function Hero({ onNextStep }) {
           </div>
 
           <div className={styles["buttons"]}>
-            <Button onNext={onNextStep}>
+            <Button onClick={onNextStep}>
               <span>Generate your path</span>
             </Button>
             <VideoButton onOpen={handleOpen}>
