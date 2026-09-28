@@ -87,7 +87,7 @@ function AiGeneratedPath() {
           aiAnswer={aiAnswer}
           isWaiting={isWaiting}
         />
-        <div className={isWaiting ? styles["buttons", "hide"] : styles["buttons"]}>
+        <div className={isWaiting ? styles["hide"] : styles["buttons"]}>
           <Button onClick={handlePrevious} marginRight={"8px"}>
             Previous
           </Button>
