@@ -92,7 +92,6 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
             value={userPrompt.skillLevel}
             onChange={(e) => setExperienceLevel(e.target.value)}
           >
-            <option>Complete Beginner</option>
             <option>Beginner</option>
             <option>Intermediate</option>
             <option>Advanced</option>
