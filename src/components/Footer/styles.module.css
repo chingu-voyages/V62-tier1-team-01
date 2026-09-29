@@ -1,0 +1,31 @@
+.footer {
+  margin-top: 64px;
+  border-top: 1px solid #e4e8f0;
+  color: #515a6e;
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+}
+
+.content a {
+  color: #11141b;
+  text-underline-offset: 3px;
+}
+
+.content a:focus-visible {
+  outline: 2px solid #4691fc;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-wrap: wrap;
+    padding: 24px 20px;
+  }
+}
