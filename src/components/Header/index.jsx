@@ -1,6 +1,15 @@
-// todo
+import styles from "./styles.module.css";
+
 function Header() {
-  return <div>Header</div>;
+  return (
+    <header className={styles.header}>
+      <div className={`container ${styles.content}`}>
+        <a className={styles.brand} href="/" aria-label="NEXA home">
+          NEXA
+        </a>
+      </div>
+    </header>
+  );
 }
 
 export default Header;
