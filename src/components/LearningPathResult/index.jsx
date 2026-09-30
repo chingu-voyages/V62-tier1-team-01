@@ -7,6 +7,7 @@ import BlushEffect from "../BlushEffect";
 // todo
 function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
+  const totalTime = aiAnswer.map(step => step["time_estimate"]).reduce((sum, step) => sum + step);
 
   const dummyData = [
     {
@@ -94,11 +95,11 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
             </div>
             <div className={styles.profileFact}>
               <p className={styles.profileLabel}>Study Pace</p>
-              <p className={styles.profileValue}>Balanced</p>
+              <p className={styles.profileValue}>Balanced <br/>({timeCommitment} hours/week)</p>
             </div>
             <div className={styles.profileFact}>
               <p className={styles.profileLabel}>Estimated Time</p>
-              <p className={styles.profileValue}>{calculatePathTimeEstimate(timeCommitment)}</p>
+              <p className={styles.profileValue}>{calculatePathTimeEstimate(timeCommitment, totalTime)}</p>
             </div>
           </div>
           <button className={styles.defaultButton} disabled onClick={shareProgress}>
@@ -112,7 +113,7 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
         </div>
         <div className={styles.flexChild}>
           <div className={styles.timeline}>
-            {dummyData.map((item, index) => (
+            {aiAnswer.map((item, index) => (
               <LearningPathItem key={item.key} item={item} index={index}/>
             ))}
           </div>
