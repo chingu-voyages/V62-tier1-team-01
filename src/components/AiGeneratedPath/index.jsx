@@ -42,8 +42,8 @@ function AiGeneratedPath() {
       5. If the user input is not a valid career goal, ask the user to reformulate the request.
 
       6. Output format:
-        - Write everything in a single line
-        - Separate each step of the learning path using the '$' character
+        - Return a list of JSON objects with title, description, and time estimate in hours (to complete the task)
+        - Do not return any other text except the JSON
     `;
 
     try {
@@ -53,13 +53,15 @@ function AiGeneratedPath() {
       });
       const result = await model.generateContent(contextInfo);
 
-      setAiAnswer(result.response.text());
+      setAiAnswer(JSON.parse(result.response.text()));
+      // console.log(result.response.text());
+      setSubmitted(true);
     } catch (err) {
       alert("Error while generating content, please try again later");
       setError(true);
+      setSubmitted(false);
     }
     setIsWaiting(false);
-    setSubmitted(true);
   }
 
   function handleNext() {
