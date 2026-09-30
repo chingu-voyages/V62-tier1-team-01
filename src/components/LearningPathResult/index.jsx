@@ -1,4 +1,4 @@
-import LearningPathItem from "./LearningPathItem";
+import LearningPathItem from "../LearningPathItem";
 
 // todo
 function LearningPathResult({ isWaiting, aiAnswer }) {
