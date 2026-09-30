@@ -78,7 +78,7 @@
   background-color: #fff;
 }
 
-.button {
+.buttons {
   display: flex;
   justify-content: end;
 }
@@ -109,5 +109,9 @@
 
   .questionText {
     margin-left: 8px;
+  }
+
+  .buttons button {
+    padding: 8px 18px;
   }
 }

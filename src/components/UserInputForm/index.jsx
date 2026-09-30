@@ -120,7 +120,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           </select>
         </div>
 
-        <div className={styles["button"]}>
+        <div className={styles["buttons"]}>
           {children}
           {aiAnswer === "" ? <Button type="submit">Submit</Button> : <Button type="submit">Submit again</Button>}
         </div>

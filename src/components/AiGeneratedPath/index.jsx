@@ -87,7 +87,7 @@ function AiGeneratedPath() {
           aiAnswer={aiAnswer}
           isWaiting={isWaiting}
         >
-          <div>
+          <>
             <Button onClick={handlePrevious} marginRight={"8px"}>
               Previous
             </Button>
@@ -96,7 +96,7 @@ function AiGeneratedPath() {
                 Next
               </Button>
             )}
-          </div>
+          </>
         </UserInputForm>
         <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
           <div className="loader"></div>
