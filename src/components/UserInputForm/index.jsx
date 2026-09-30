@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting }) {
+function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children }) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
@@ -121,7 +121,8 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
         </div>
 
         <div className={styles["button"]}>
-          {aiAnswer === "" ? <Button>Submit</Button> : <Button>Submit again</Button>}
+          {children}
+          {aiAnswer === "" ? <Button type="submit">Submit</Button> : <Button type="submit">Submit again</Button>}
         </div>
       </form>
     </div>

@@ -86,17 +86,18 @@ function AiGeneratedPath() {
           setUserPrompt={setUserPrompt}
           aiAnswer={aiAnswer}
           isWaiting={isWaiting}
-        />
-        <div className={isWaiting ? styles["hide"] : styles["buttons"]}>
-          <Button onClick={handlePrevious} marginRight={"8px"}>
-            Previous
-          </Button>
-          {aiAnswer === "" ? null : (
-            <Button onClick={handleNext} marginRight={"8px"}>
-              Next
+        >
+          <div>
+            <Button onClick={handlePrevious} marginRight={"8px"}>
+              Previous
             </Button>
-          )}
-        </div>
+            {aiAnswer === "" ? null : (
+              <Button onClick={handleNext} marginRight={"8px"}>
+                Next
+              </Button>
+            )}
+          </div>
+        </UserInputForm>
         <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
           <div className="loader"></div>
         </div>

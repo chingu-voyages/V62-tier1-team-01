@@ -1,10 +1,11 @@
 import styles from "./styles.module.css";
 
-function Button({ children, onNext, onPrevious, onClick, marginRight }) {
+function Button({ children, onClick, type, marginRight }) {
 
   return (
     <button
       onClick={onClick}
+      type={type}
       className={styles["button"]}
       style={{ marginRight }}
     >
