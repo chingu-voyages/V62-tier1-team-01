@@ -1,38 +1,38 @@
 import { FaGithub, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import brandIcon from "../assets/logo.png";
-import "./Footer.css";
+import style from "./footer.module.css";
 
-function Footer() {
+export default function Footer() {
   return (
-      <footer className="footer">
-        <div className="brand-logo">
-          <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
+      <footer className={style.footer}>
+        <div className={style.brandLogo}>
+          <img src={brandIcon} alt="Brand Icon" className={style.brandIcon} />
         </div>
   
-        <nav className="footer-menu">
+        <nav className={style.footerMenu}>
 
-          <div className="footer-menu-column">
+          <div className={style.footerMenuColumn}>
             <h3>Product</h3>
             <a href="#">Features</a>
             <a href="#">Pricing</a>
             <a href="#">Changelog</a>
           </div>
 
-          <div className="footer-menu-column">
+          <div className={style.footerMenuColumn}>
             <h3>Resources</h3>
             <a href="#">Blog</a>
             <a href="#">Learning Guides</a>
             <a href="#">Help Center</a>
           </div>
 
-          <div className="footer-menu-column">
+          <div className={style.footerMenuColumn}>
             <h3>Community</h3>
             <a href="#">Discord</a>
             <a href="#">Forum</a>
             <a href="#">Events</a>
           </div>
 
-          <div className="footer-menu-column">
+          <div className={style.footerMenuColumn}>
             <h3>Company</h3>
             <a href="#">About</a>
             <a href="#">Careers</a>
@@ -41,8 +41,8 @@ function Footer() {
 
         </nav>
 
-        <div className="footer-social-media">
-          <div className="social-icons">
+        <div className={style.footerSocialMedia}>
+          <div className={style.socialIcons}>
             <a href="#" aria-label="GitHub">
               <FaGithub />
             </a>
@@ -63,5 +63,3 @@ function Footer() {
       </footer>
     );
   }
-
-export default Footer;

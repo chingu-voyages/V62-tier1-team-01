@@ -13,33 +13,30 @@
   color: #111111;
 }
 
-.brand-logo {
+.brandLogo {
   width: 180px;
   flex-shrink: 0;
 }
 
-.brand-icon {
+.brandIcon {
   width: 130px;
   height: auto;
   display: block;
   object-fit: contain;
 }
 
-.footer-menu {
+.footerMenu {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  gap: 60px;
+  gap: 200px;
   flex: 1;
 
   margin-left: 70px;
 }
 
-.footer-menu-column,
-.footer-menu-resources,
-.footer-menu-community,
-.footer-menu-company {
+.footerMenuColumn {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -70,7 +67,7 @@
   color: #111111;
 }
 
-.social-icons {
+.socialIcons {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -79,7 +76,7 @@
   flex-shrink: 0;
 }
 
-.social-icons a {
+.socialIcons a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +89,7 @@
     transform 0.2s ease;
 }
 
-.social-icons a:hover {
+.socialIcons a:hover {
   opacity: 0.6;
   transform: translateY(-2px);
 }
@@ -104,13 +101,13 @@
     padding: 50px 6%;
   }
 
-  .footer-menu {
+  .footerMenu {
     margin-left: 0;
     gap: 45px;
     flex-wrap: wrap;
   }
 
-  .social-icons {
+  .socialIcons {
     margin-left: 0;
   }
 }
@@ -120,7 +117,7 @@
     flex-direction: column;
   }
 
-  .footer-menu {
+  .footerMenu {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

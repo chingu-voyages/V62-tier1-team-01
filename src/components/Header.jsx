@@ -1,24 +1,22 @@
 import brandIcon from "../assets/logo.png";
 import searchIcon from "../assets/search-icon.svg";
-import "./Header.css";
+import style from "./header.module.css";
 
-function Header() {
+export default function Header() {
   return (
-    <header className="header">
-      <div className="brand-logo">
-        <img src={brandIcon} alt="Brand Icon" className="brand-icon" />
+    <header className={style.header}>
+      <div className={style.brandLogo}>
+        <img src={brandIcon} alt="Brand Icon" className={style.brandIcon} />
       </div>
 
-      <nav className="navigation">
+      <nav className={style.navigation}>
         <a href="/">Home</a>
         <a href="/">My Learning</a>
-
-        <button className="btn">
-          <img src={searchIcon} alt="Search" />
-        </button>
       </nav>
+
+      <button className={style.btn}>
+        <img src={searchIcon} alt="Search" />
+      </button>
     </header>
   );
 }
-
-export default Header;
