@@ -1,5 +1,5 @@
-import brandIcon from "../assets/logo.png";
-import searchIcon from "../assets/search-icon.svg";
+import brandIcon from "../../assets/logo.png";
+import searchIcon from "../../assets/search-icon.svg";
 import style from "./header.module.css";
 
 export default function Header() {
