@@ -5,7 +5,7 @@ import LearningPathItem from "../LearningPathItem";
 import BlushEffect from "../BlushEffect";
 
 // todo
-function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
+function LearningPathResult({ aiAnswer, userPrompt, resetForm, setInLocalStorage}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer.map(step => step["time_estimate"]).reduce((sum, step) => sum + step);
 
@@ -61,7 +61,11 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm}) {
 
   //todo
   function saveToLocalStorage() {
-    return 0;
+    const learningPathString = JSON.stringify(aiAnswer);
+    localStorage.setItem("nexa-ai-generated-learning-path", learningPathString);
+    localStorage.setItem("nexa-user-answers", JSON.stringify(userPrompt));
+    setInLocalStorage(true);
+    console.log("Saved to local storage!");
   }
 
   //todo
