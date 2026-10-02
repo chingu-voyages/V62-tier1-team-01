@@ -1,0 +1,99 @@
+.card {
+    padding: 19px 34px 34px 34px;
+    background-color: #FEFDFE;
+    border: 1px solid #5158D22B;
+    border-radius: 16px;
+    min-width: 300px;
+    max-width: 384px;
+    margin-bottom: 46px;
+    position: relative;
+    /* width: 50%; */
+    /* min-inline-size: 0; */
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -73px;
+    background-color: white;
+    border: 9px solid #264DE4;
+    box-shadow: 0 0 5px 0px #264DE4;
+    top: 77px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.cardIndex {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.card:nth-of-type(5n)::after {
+    border: 9px solid #4691FC;
+    box-shadow: 0 0 5px 0px #4691FC;
+}
+
+.card:nth-of-type(5n) > .cardIndex {
+    color: #4691FC;
+}
+
+.card:nth-of-type(5n+1)::after {
+    border: 9px solid #264DE4;
+    box-shadow: 0 0 5px 0px #264DE4;
+}
+
+.card:nth-of-type(5n+1) > .cardIndex{
+    color: #264DE4;
+}
+
+.card:nth-of-type(5n+2)::after {
+    border: 9px solid #9747FF;
+    box-shadow: 0 0 5px 0px #9747FF;
+}
+
+.card:nth-of-type(5n+2) > .cardIndex{
+    color: #9747FF;
+}
+
+.card:nth-of-type(5n+3)::after {
+    border: 9px solid #A9F1DB;
+    box-shadow: 0 0 5px 0px #A9F1DB;
+}
+
+.card:nth-of-type(5n+3) > .cardIndex{
+    color: #A9F1DB;
+}
+
+.card:nth-of-type(5n+4)::after {
+    border: 9px solid #F16529;
+    box-shadow: 0 0 5px 0px #F16529;
+}
+
+.card:nth-of-type(5n+4) > .cardIndex{
+    color: #F16529;
+}
+
+.cardTitle {
+    font-weight: 600;
+    font-size: 20px;
+    color: #11141B;
+    margin: 6px 0 4px 0;
+}
+
+.cardDescription{
+    font-weight: 500;
+    font-size: 16px;
+    color: #676767;
+}
+
+.cardEstimate{
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    color: #676767D1;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 46px;
+}
