@@ -81,47 +81,47 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm, setInLocalStorage
   }
 
   return (
-    <div className={styles.pageContainer}>
-      <BlushEffect className={styles.zIndexZero}/>
-      <h1 className={styles.title}>Your Personalized Learning Path is Ready!</h1>
-      <p className={styles.subtitle}>Based on your goals, skills, and test results, we’ve created a path that fits you.</p>
-      <div className={styles.flexContainer}>
-        <div className={styles.flexChild}>
-          <div className={styles.card}>
-            <p className={styles.profileTitle}>Your Profile</p>
-            <div className={styles.profileFact}>
-              <p className={styles.profileLabel}>Target Role</p>
-              <p className={styles.profileValue}>{career}</p>
+    <div className={styles["pageContainer"]}>
+      <BlushEffect className={styles["zIndexZero"]}/>
+      <h1 className={styles["title"]}>Your Personalized Learning Path is Ready!</h1>
+      <p className={styles["subtitle"]}>Based on your goals, skills, and test results, we’ve created a path that fits you.</p>
+      <div className={styles["flexContainer"]}>
+        <div className={styles["flexChild"]}>
+          <div className={styles["card"]}>
+            <p className={styles["profileTitle"]}>Your Profile</p>
+            <div className={styles["profileFact"]}>
+              <p className={styles["profileLabel"]}>Target Role</p>
+              <p className={`${styles["profileValue"]} ${styles["capitalize"]}`}>{career}</p>
             </div>
-            <div className={styles.profileFact}>
-              <p className={styles.profileLabel}>Current Level</p>
-              <p className={styles.profileValue}>{skillLevel || "Beginner"}</p>
+            <div className={styles["profileFact"]}>
+              <p className={styles["profileLabel"]}>Current Level</p>
+              <p className={styles["profileValue"]}>{skillLevel || "Beginner"}</p>
             </div>
-            <div className={styles.profileFact}>
-              <p className={styles.profileLabel}>Study Pace</p>
-              <p className={styles.profileValue}>Balanced <br/>({timeCommitment} hours/week)</p>
+            <div className={styles["profileFact"]}>
+              <p className={styles["profileLabel"]}>Study Pace</p>
+              <p className={styles["profileValue"]}>{timeCommitment} hour{timeCommitment > 1 ? "s": ""}/week</p>
             </div>
-            <div className={styles.profileFact}>
-              <p className={styles.profileLabel}>Estimated Time</p>
-              <p className={styles.profileValue}>{calculatePathTimeEstimate(timeCommitment, totalTime)}</p>
+            <div className={styles["profileFact"]}>
+              <p className={styles["profileLabel"]}>Estimated Time</p>
+              <p className={styles["profileValue"]}>{calculatePathTimeEstimate(timeCommitment, totalTime)}</p>
             </div>
           </div>
-          <button className={styles.defaultButton} disabled onClick={shareProgress}>
+          <button className={styles["defaultButton"]} disabled onClick={shareProgress}>
             <img src={shareIcon}/>
             Share
           </button>
-          <button className={styles.defaultButton} onClick={resetForm}>
+          <button className={styles["defaultButton"]} onClick={resetForm}>
             <img src={editIcon}/>
             Edit Path
           </button>
         </div>
-        <div className={styles.flexChild}>
-          <div className={styles.timeline}>
+        <div className={styles["flexChild"]}>
+          <div className={styles["timeline"]}>
             {aiAnswer.map((item, index) => (
-              <LearningPathItem key={item.key} item={item} index={index}/>
+              <LearningPathItem key={item.title} item={item} index={index}/>
             ))}
           </div>
-          <button className={styles.submitButton} onClick={savePath}>Save</button>
+          <button className={styles["submitButton"]} onClick={savePath}>Save</button>
           {/* {aiAnswer.split("$").map((item) => (
             <LearningPathItem key={item} item={item} />
           ))} */}

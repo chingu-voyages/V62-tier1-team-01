@@ -103,6 +103,7 @@
 .defaultButton:not(:disabled):hover, .submitButton:not(:disabled):hover {
     box-shadow:0 8px 16px 0 rgba(0,0,0,0.6);
     transition: box-shadow .5s;
+    cursor: pointer;
 }
 
 .defaultButton:disabled{
@@ -125,6 +126,10 @@
     font-weight: 600;
     font-size: 16px;
     margin-top: 7px;
+}
+
+.capitalize {
+    text-transform: capitalize;
 }
 
 .timeline {
