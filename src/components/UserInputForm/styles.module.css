@@ -87,6 +87,14 @@
   display: none;
 }
 
+.error {
+  padding: 32px;
+  background-color: #d44040;
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
 @media (min-width: 768px) and (max-width: 1200px) {
   .form {
     margin-right: 32px;

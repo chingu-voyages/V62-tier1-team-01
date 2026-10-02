@@ -17,6 +17,7 @@ function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState("");
   const [userPrompt, setUserPrompt] = useState(initialState);
   const [isWaiting, setIsWaiting] = useState(false);
+  const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
 
   async function handleSubmit(e) {
@@ -60,9 +61,14 @@ function AiGeneratedPath() {
       setAiAnswer(result.response.text());
       setStep(2);
     } catch (err) {
-      alert("Error while generating content, please try again later");
+      handleError();
     }
     setIsWaiting(false);
+  }
+
+  function handleError(err) {
+    setError({ display: true, message: "Error while generating your leaning path..." });
+    setTimeout(() => setError({ display: false, message: "" }), 2000);
   }
 
   function handleNext() {
@@ -86,6 +92,7 @@ function AiGeneratedPath() {
           setUserPrompt={setUserPrompt}
           aiAnswer={aiAnswer}
           isWaiting={isWaiting}
+          error={error}
         >
           <>
             <Button onClick={handlePrevious} marginRight={"8px"}>

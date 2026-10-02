@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children }) {
+function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children, error }) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
@@ -118,6 +118,10 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
             <option>6 - 10 hours</option>
             <option>10+ hrs</option>
           </select>
+        </div>
+
+        <div className={error.display ? styles["error"] : styles["hide"]}>
+          {error.message}
         </div>
 
         <div className={styles["buttons"]}>
