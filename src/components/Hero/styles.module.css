@@ -4,7 +4,7 @@
   color: #515a6e;
 }
 
-.card {
+.hero {
   display: flex;
   justify-content: space-between;
   margin-top: 128px;
@@ -19,13 +19,13 @@
   margin-bottom: 24px;
 }
 
-.textSection {
+.content {
   margin-right: 32px;
   margin-left: 32px;
   z-index: 1;
 }
 
-.text {
+.description {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 36px;
@@ -42,11 +42,11 @@
   margin-top: 36px;
 }
 
-.cardInfo {
+.info {
   margin: 0 16px;
 }
 
-.cardText {
+.info > p {
   color: #11141b80;
 }
 
@@ -66,7 +66,7 @@
 }
 
 @media (max-width: 768px) {
-  .card {
+  .hero {
     display: block;
     margin-top: 36px;
     background-image: url("/src/assets/banner-img-with-opacity.svg");
@@ -79,10 +79,6 @@
 
   .img {
     display: none;
-  }
-
-  .textSection {
-    height: 100%;
   }
 
   .iframe {
