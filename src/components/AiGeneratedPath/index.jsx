@@ -124,11 +124,11 @@ function AiGeneratedPath() {
 
   return (
     <>
-    <LearningPathResult
-      resetForm={resetForm}
-      aiAnswer={aiAnswer}
-      userPrompt={userPrompt}
-      setInLocalStorage={setInLocalStorage}
+      <LearningPathResult
+        resetForm={resetForm}
+        aiAnswer={aiAnswer}
+        userPrompt={userPrompt}
+        setInLocalStorage={setInLocalStorage}
       />
       <button onClick={handlePrevious}>Previous</button>
     </>
