@@ -98,9 +98,42 @@ function AiGeneratedPath() {
     return <LandingPage onNextStep={handleNext} />;
   }
 
-  // if (isWaiting){ 
-  //   return <div className="loader"></div>;
-  // }
+  // @francisco's suggestion
+  if (step === 1) {
+    return (
+      <>
+        <div>
+          {(inLocalStorage) ? "You have 1 Learning Path saved in our local storage!" : null}
+          <UserInputForm
+            onSubmit={handleSubmit}
+            userPrompt={userPrompt}
+            setUserPrompt={setUserPrompt}
+          />
+          {isWaiting &&
+            <div className="loader"></div>
+          }
+        </div>
+        <button onClick={handlePrevious}>Previous</button>
+        {(inLocalStorage) && <button onClick={handleNext}>Next</button>}
+      </>
+    );
+  }
+
+  return (
+    <>
+    <LearningPathResult
+      resetForm={resetForm}
+      aiAnswer={aiAnswer}
+      userPrompt={userPrompt}
+      setInLocalStorage={setInLocalStorage}
+      />
+      <button onClick={handlePrevious}>Previous</button>
+    </>
+  );
+
+
+  // @winona's code
+  /**
 
   return (
     <div>
@@ -129,6 +162,8 @@ function AiGeneratedPath() {
       <button onClick={handlePrevious}>Previous</button>
     </div>
   );
+
+  */
 }
 
 export default AiGeneratedPath;
