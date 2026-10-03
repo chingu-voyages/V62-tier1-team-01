@@ -3,19 +3,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
+import { getItem, removeItem, getJson } from "../../services/api";
+
+const initialState = {
+  career: "",
+  skillLevel: "",
+  timeCommitment: 1,
+};
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(JSON.parse(localStorage.getItem("nexa-ai-generated-learning-path")) || "");
-  const [userPrompt, setUserPrompt] = useState(JSON.parse(localStorage.getItem("nexa-user-answers")) || {
-    career: "",
-    skillLevel: "",
-    timeCommitment: 1,
-  });
+  const [aiAnswer, setAiAnswer] = useState(getJson("nexa-ai-generated-learning-path"));
+  const [userPrompt, setUserPrompt] = useState(getJson("nexa-user-answers") || initialState);
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
-  const [inLocalStorage, setInLocalStorage] = useState(localStorage.getItem("nexa-ai-generated-learning-path") !== null);
+  const [inLocalStorage, setInLocalStorage] = useState(getItem("nexa-ai-generated-learning-path"));
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -73,14 +76,14 @@ function AiGeneratedPath() {
     setStep((s) => s - 1);
   }
 
-  function removeFromLocalStorage(){
-    localStorage.removeItem("nexa-ai-generated-learning-path");
-    localStorage.removeItem("nexa-user-answers");
+  function removeFromLocalStorage() {
+    removeItem("nexa-ai-generated-learning-path");
+    removeItem("nexa-user-answers");
     setInLocalStorage(false);
     console.log("Removed from local storage!");
   }
 
-  function resetForm(){
+  function resetForm() {
     // setUserPrompt({
     //   career: "",
     //   skillLevel: "",
@@ -104,20 +107,20 @@ function AiGeneratedPath() {
       <div>
         {(!submitted && !inLocalStorage) &&
           <>
-          <UserInputForm
-            onSubmit={handleSubmit}
-            userPrompt={userPrompt}
-            setUserPrompt={setUserPrompt}
-          />
-          {isWaiting &&
-            <div className="loader"></div>
-          }
+            <UserInputForm
+              onSubmit={handleSubmit}
+              userPrompt={userPrompt}
+              setUserPrompt={setUserPrompt}
+            />
+            {isWaiting &&
+              <div className="loader"></div>
+            }
           </>
         }
         {(submitted || inLocalStorage) &&
-          <LearningPathResult 
+          <LearningPathResult
             resetForm={resetForm}
-            aiAnswer={aiAnswer} 
+            aiAnswer={aiAnswer}
             userPrompt={userPrompt}
             setInLocalStorage={setInLocalStorage}
           />

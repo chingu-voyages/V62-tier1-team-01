@@ -53,7 +53,7 @@ function Hero({ onNextStep }) {
           </div>
 
           <div className={isOpen ? styles.showVideo : styles.hideVideo}>
-            <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe>
+            {/* <iframe className={styles.iframe} src="https://www.youtube.com/embed/WdIfjzreRnM" allowFullScreen></iframe> */}
           </div>
         </div>
 
