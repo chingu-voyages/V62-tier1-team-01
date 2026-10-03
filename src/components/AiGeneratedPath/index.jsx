@@ -60,6 +60,9 @@ function AiGeneratedPath() {
       setAiAnswer(JSON.parse(result.response.text()));
       // console.log(result.response.text());
       setSubmitted(true);
+
+      // if the learning path is sucessfully generated, then step = 2 because thats the result page number
+      setStep(2);
     } catch (err) {
       alert("Error while generating content, please try again later");
       // setError(true);
