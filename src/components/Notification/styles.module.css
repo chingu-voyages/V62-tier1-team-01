@@ -1,0 +1,22 @@
+.default {
+    opacity: 1;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: rgba(128, 128, 128, .8);
+    color: white;
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    transition: opacity .1s;
+}
+
+.success {
+    background-color: rgba(0, 128, 0, .8);
+    color: white;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity .5s;
+}
