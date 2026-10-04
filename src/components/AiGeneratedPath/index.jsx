@@ -3,19 +3,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
+import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
+
+const initialUserPrompt = {
+  career: "",
+  skillLevel: "",
+  timeCommitment: 1,
+}
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(JSON.parse(localStorage.getItem("nexa-ai-generated-learning-path")) || "");
-  const [userPrompt, setUserPrompt] = useState(JSON.parse(localStorage.getItem("nexa-user-answers")) || {
-    career: "",
-    skillLevel: "",
-    timeCommitment: 1,
-  });
+  const [aiAnswer, setAiAnswer] = useState(getJSON("nexa-ai-generated-learning-path") || "");
+  const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
-  const [inLocalStorage, setInLocalStorage] = useState(localStorage.getItem("nexa-ai-generated-learning-path") !== null);
+  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -74,8 +77,8 @@ function AiGeneratedPath() {
   }
 
   function removeFromLocalStorage(){
-    localStorage.removeItem("nexa-ai-generated-learning-path");
-    localStorage.removeItem("nexa-user-answers");
+    removeItem("nexa-ai-generated-learning-path");
+    removeItem("nexa-user-answers");
     setInLocalStorage(false);
     console.log("Removed from local storage!");
   }
@@ -89,6 +92,26 @@ function AiGeneratedPath() {
     removeFromLocalStorage();
     setSubmitted(false);
     // setError(false);
+  }
+
+  // Save learning path to localStorage
+  function saveToLocalStorage() {
+    saveItem("nexa-ai-generated-learning-path", aiAnswer);
+    saveItem("nexa-user-answers", userPrompt);
+    setInLocalStorage(true);
+    console.log("Saved to local storage!");
+  }
+
+  //todo
+  function takeScreenshot() {
+    return 0;
+  }
+
+  // Save learning path to localStorage and take screenshot
+  function savePath() {
+    saveToLocalStorage();
+    takeScreenshot();
+    return 0;
   }
 
   if (step === 0) {
@@ -119,7 +142,7 @@ function AiGeneratedPath() {
             resetForm={resetForm}
             aiAnswer={aiAnswer} 
             userPrompt={userPrompt}
-            setInLocalStorage={setInLocalStorage}
+            savePath={savePath}
           />
         }
       </div>
