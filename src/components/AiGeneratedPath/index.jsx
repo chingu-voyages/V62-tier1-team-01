@@ -19,6 +19,7 @@ function AiGeneratedPath() {
   // const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
   const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
+  const [pathNotification, setPathNotification] = useState({display: false, message: "Success! Your path was saved 🎉"});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -105,6 +106,15 @@ function AiGeneratedPath() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
     saveItem("nexa-user-answers", userPrompt);
     setInLocalStorage(true);
+    setPathNotification(prev => { 
+      console.log({...prev, display: true});
+      return {...prev, display: true};
+    });
+    setTimeout(() => {
+      setPathNotification(prev => { return {...prev, display: false}});
+      console.log(pathNotification);
+    }, 2000);
+  
     console.log("Saved to local storage!");
   }
 
@@ -153,6 +163,7 @@ function AiGeneratedPath() {
         aiAnswer={aiAnswer} 
         userPrompt={userPrompt}
         savePath={savePath}
+        notificationState={pathNotification}
       />
     </div>
   );

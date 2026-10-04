@@ -3,9 +3,10 @@ import shareIcon from "../../assets/share-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import BlushEffect from "../BlushEffect";
+import Notification from "../Notification";
 
 // todo
-function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath}) {
+function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath, notificationState}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer.map(step => step["time_estimate"]).reduce((sum, step) => sum + step);
 
@@ -100,6 +101,7 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath}) {
               <LearningPathItem key={item.title} item={item} index={index}/>
             ))}
           </div>
+          <Notification type="success" state={notificationState}>{notificationState.message}</Notification>
           <button className={styles["submitButton"]} onClick={savePath}>Save</button>
           {/* {aiAnswer.split("$").map((item) => (
             <LearningPathItem key={item} item={item} />
