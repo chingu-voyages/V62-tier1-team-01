@@ -16,7 +16,7 @@ function AiGeneratedPath() {
   const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
   const [isWaiting, setIsWaiting] = useState(false);
   const [step, setStep] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
   const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
 
@@ -59,17 +59,22 @@ function AiGeneratedPath() {
 
       setAiAnswer(JSON.parse(result.response.text()));
       // console.log(result.response.text());
-      setSubmitted(true);
+      // setSubmitted(true);
+      setStep(2);
     } catch (err) {
       alert("Error while generating content, please try again later");
       // setError(true);
-      setSubmitted(false);
+      // setSubmitted(false);
     }
     setIsWaiting(false);
   }
 
   function handleNext() {
-    setStep((s) => s + 1);
+    if (step === 0 && inLocalStorage) {
+      setStep(2);
+    } else{
+      setStep((s) => s + 1);
+    }
   }
 
   function handlePrevious() {
@@ -90,7 +95,8 @@ function AiGeneratedPath() {
     //   timeCommitment: 1,
     // });
     removeFromLocalStorage();
-    setSubmitted(false);
+    // setSubmitted(false);
+    handlePrevious();
     // setError(false);
   }
 
@@ -122,11 +128,10 @@ function AiGeneratedPath() {
   //   return <div className="loader"></div>;
   // }
 
-  return (
-    <div>
-      <div>
-        {(!submitted && !inLocalStorage) &&
-          <>
+  if (step === 1) {
+    return (
+      <>
+        <div>
           <UserInputForm
             onSubmit={handleSubmit}
             userPrompt={userPrompt}
@@ -135,18 +140,20 @@ function AiGeneratedPath() {
           {isWaiting &&
             <div className="loader"></div>
           }
-          </>
-        }
-        {(submitted || inLocalStorage) &&
-          <LearningPathResult 
-            resetForm={resetForm}
-            aiAnswer={aiAnswer} 
-            userPrompt={userPrompt}
-            savePath={savePath}
-          />
-        }
-      </div>
-      <button onClick={handlePrevious}>Previous</button>
+        </div>
+        <button onClick={handlePrevious}>Previous</button>
+      </>
+    );
+  }
+
+  return (
+    <div>
+      <LearningPathResult 
+        resetForm={resetForm}
+        aiAnswer={aiAnswer} 
+        userPrompt={userPrompt}
+        savePath={savePath}
+      />
     </div>
   );
 }
