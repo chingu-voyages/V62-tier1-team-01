@@ -6,15 +6,17 @@ function LearningPathItem({ item, index}) {
   const { title, description, time_estimate } = item;
   // console.log(item);
   return (
-    <div className={styles.card}>
-      <p className={styles.cardIndex}>{index < 9 ? "0": ""}{index+1}</p>
-      <p className={styles.cardTitle}>{title}</p>
+    <details open className={styles.card}>
+      <summary className={styles.cardIndex}>
+        <p className={styles.cardIndex}>{index < 9 ? "0": ""}{index+1}</p>
+        <p className={styles.cardTitle}>{title}</p>
+      </summary>
       <p className={styles.cardDescription}>{description}</p>
       <div className={styles.cardEstimate}>
         <img src={timeIcon}/>
         <p>{time_estimate} hours</p>
       </div>
-    </div>
+    </details>
   );
 }
 
