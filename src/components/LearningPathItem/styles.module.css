@@ -25,6 +25,7 @@
     z-index: 1;
 }
 
+/*Adapted code for the drop down icon from this codepen: https://codepen.io/frederickallen/pen/NZMEMw*/
 .card summary::-webkit-details-marker {
   display: none;
 }
