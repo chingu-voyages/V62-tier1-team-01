@@ -1,4 +1,4 @@
-.buttonNextPage {
+.button {
   background-color: #11141b;
   border: none;
   color: #fff;
@@ -6,4 +6,8 @@
   border-radius: 16px;
   cursor: pointer;
   z-index: 1;
+}
+
+.button:hover {
+  background-color: #242730;
 }
