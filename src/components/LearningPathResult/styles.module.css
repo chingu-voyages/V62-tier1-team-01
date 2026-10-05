@@ -146,3 +146,26 @@
     left: 0;
     margin-left: -54px;
 }
+
+@media (max-width: 1024px){
+    .pageContainer{
+        padding: 244px 47px;
+    }
+    .flexContainer{
+        padding: 20px 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flexContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+    .flexChild {
+        width: 100%;
+    }
+    .timeline::after{
+        margin-left: -24px;
+    }
+}

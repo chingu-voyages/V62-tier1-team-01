@@ -20,9 +20,40 @@
     background-color: white;
     border: 9px solid #264DE4;
     box-shadow: 0 0 5px 0px #264DE4;
-    top: 77px;
+    top: 48px;
     border-radius: 50%;
     z-index: 1;
+}
+
+.card summary::-webkit-details-marker {
+  display: none;
+}
+
+.card summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+.card summary:after {
+  content: ">";
+  transform: rotate(90deg);
+  color: rgba(38, 77, 228);
+  position: absolute;
+  font-size: 1.75rem;
+  font-weight: 200;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: -15px;
+  top: 0px;
+  transform-origin: center;
+  transition: top 200ms ease-in-out;
+}
+
+.card[open] summary:after {
+  transform: rotate(-90deg);
+  top: 10px;
+  font-size: 1.75rem;
 }
 
 .cardIndex {
@@ -96,4 +127,10 @@
     font-weight: 500;
     font-size: 13px;
     margin-top: 46px;
+}
+
+@media (max-width: 768px){
+    .card::after {
+        left: -44px;
+    }
 }
