@@ -14,7 +14,8 @@
     "@google/generative-ai": "^0.24.1",
     "prettier": "^3.9.6",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-icons": "^5.7.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
