@@ -2,13 +2,14 @@
   width: 100%;
   box-sizing: border-box;
 
+  margin: 0 auto;
+  max-width: 1200px;
   display: flex;
+  padding: 32px 0;
   align-items: flex-start;
   justify-content: space-between;
 
-  padding: 70px 32px;
   background: #ffffff;
-
   color: #111111;
 }
 
@@ -27,12 +28,12 @@
 .footerMenu {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 
-  gap: 200px;
+  gap: 40px;
   flex: 1;
 
-  margin-left: 70px;
+  margin-left: 40px;
 }
 
 .footerMenuColumn {
