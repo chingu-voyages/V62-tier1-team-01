@@ -3,18 +3,22 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
+import Button from "../Button";
+import styles from "./styles.module.css";
 import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
 
-const initialUserPrompt = {
-  career: "",
-  skillLevel: "",
-  timeCommitment: 1,
-}
+const initialState = {
+  career: "Front-end Development",
+  skills: "HTML, CSS, JavaScript",
+  experienceLevel: "Beginner",
+  timeCommitment: "Less than 3 hrs",
+};
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState(getJSON("nexa-ai-generated-learning-path") || "");
   const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
   const [isWaiting, setIsWaiting] = useState(false);
+  const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
   // const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState(false);
@@ -35,8 +39,9 @@ function AiGeneratedPath() {
       2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
 
       3. The user's career goal is: ${userPrompt.career}
-         The user's current skill level is: ${userPrompt.skillLevel}
-         The user time commitment (hours per week) is: ${userPrompt.timeCommitment}
+         The user's background and existing skills are: ${userPrompt.skills}
+         The user's current skill level is: ${userPrompt.experienceLevel}
+         The user time commitment is: ${userPrompt.timeCommitment} per week
 
       4. Generate a structured learning path that:
         - Is practical and actionable
@@ -60,14 +65,19 @@ function AiGeneratedPath() {
 
       setAiAnswer(JSON.parse(result.response.text()));
       // console.log(result.response.text());
-      // setSubmitted(true);
       setStep(2);
+      // setSubmitted(true);
     } catch (err) {
-      alert("Error while generating content, please try again later");
+      handleError();
       // setError(true);
       // setSubmitted(false);
     }
     setIsWaiting(false);
+  }
+
+  function handleError(err) {
+    setError({ display: true, message: "Error while generating your leaning path..." });
+    setTimeout(() => setError({ display: false, message: "" }), 2000);
   }
 
   function handleNext() {
@@ -134,25 +144,32 @@ function AiGeneratedPath() {
     return <LandingPage onNextStep={handleNext} />;
   }
 
-  // if (isWaiting){ 
-  //   return <div className="loader"></div>;
-  // }
-
   if (step === 1) {
     return (
-      <>
-        <div>
-          <UserInputForm
-            onSubmit={handleSubmit}
-            userPrompt={userPrompt}
-            setUserPrompt={setUserPrompt}
-          />
-          {isWaiting &&
-            <div className="loader"></div>
-          }
+      <div className="container">
+        <UserInputForm
+          onSubmit={handleSubmit}
+          userPrompt={userPrompt}
+          setUserPrompt={setUserPrompt}
+          aiAnswer={aiAnswer}
+          isWaiting={isWaiting}
+          error={error}
+        >
+          <>
+            <Button onClick={handlePrevious} marginRight={"8px"}>
+              Previous
+            </Button>
+            {aiAnswer === "" ? null : (
+              <Button onClick={handleNext} marginRight={"8px"}>
+                Next
+              </Button>
+            )}
+          </>
+        </UserInputForm>
+        <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
+          <div className="loader"></div>
         </div>
-        <button onClick={handlePrevious}>Previous</button>
-      </>
+      </div>
     );
   }
 
