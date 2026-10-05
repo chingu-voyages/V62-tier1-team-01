@@ -1,5 +1,5 @@
-import brandIcon from "../../assets/logo.png";
-import searchIcon from "../../assets/search-icon.svg";
+import brandIcon from "../../assets/brandlogo.svg";
+// import searchIcon from "../../assets/search-icon.svg";
 import style from "./header.module.css";
 
 export default function Header() {
@@ -14,9 +14,9 @@ export default function Header() {
         <a href="/">My Learning</a>
       </nav>
 
-      <button className={style.btn}>
+      {/* <button className={style.btn}>
         <img src={searchIcon} alt="Search" />
-      </button>
+      </button> */}
     </header>
   );
 }

@@ -1,17 +1,16 @@
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: auto;
     box-sizing: border-box;
+    box-shadow: 0px 6px 8px rgba(149, 149, 149, 0.2);
 
     color: #000000;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
-    padding: 40px 7%;
+    padding: 16px 12%;
     background-color: #FFFFFF;
 
     box-sizing: border-box;

@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
-import brandIcon from "../../assets/logo.png";
+import brandIcon from "../../assets/brandlogo.svg";
 import style from "./footer.module.css";
 
 export default function Footer() {
