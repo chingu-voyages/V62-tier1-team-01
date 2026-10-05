@@ -7,7 +7,7 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
 
-const initialState = {
+const initialUserPrompt = {
   career: "Front-end Development",
   skills: "HTML, CSS, JavaScript",
   experienceLevel: "Beginner",
