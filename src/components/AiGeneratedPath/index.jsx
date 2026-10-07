@@ -5,8 +5,9 @@ import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
+import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
 
-const initialState = {
+const initialUserPrompt = {
   career: "Front-end Development",
   skills: "HTML, CSS, JavaScript",
   experienceLevel: "Beginner",
@@ -14,11 +15,13 @@ const initialState = {
 };
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState("");
-  const [userPrompt, setUserPrompt] = useState(initialState);
+  const [aiAnswer, setAiAnswer] = useState(getJSON("nexa-ai-generated-learning-path") || "");
+  const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
+  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
+  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? "Your path has been deleted from storage 🗑️" : "Success! Your path was saved 🎉"});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -47,8 +50,8 @@ function AiGeneratedPath() {
       5. If the user input is not a valid career goal, ask the user to reformulate the request.
 
       6. Output format:
-        - Write everything in a single line
-        - Separate each step of the learning path using the '$' character
+        - Return a list of JSON objects with title, description, and time estimate in hours (to complete the task)
+        - Do not return any other text except the JSON
     `;
 
     try {
@@ -58,7 +61,8 @@ function AiGeneratedPath() {
       });
       const result = await model.generateContent(contextInfo);
 
-      setAiAnswer(result.response.text());
+      setAiAnswer(JSON.parse(result.response.text()));
+      // console.log(result.response.text());
       setStep(2);
     } catch (err) {
       handleError();
@@ -72,11 +76,53 @@ function AiGeneratedPath() {
   }
 
   function handleNext() {
-    setStep((s) => s + 1);
+    if (step === 0 && inLocalStorage) {
+      setStep(2);
+    } else{
+      setStep((s) => s + 1);
+    }
   }
 
   function handlePrevious() {
     setStep((s) => s - 1);
+  }
+
+  function removeFromLocalStorage(){
+    removeItem("nexa-ai-generated-learning-path");
+    removeItem("nexa-user-answers");
+    setPathNotification({display: true, message: "Your path has been deleted from storage 🗑️"});
+    setTimeout(() => {
+      setPathNotification(prev => { return {...prev, display: false}});
+      setInLocalStorage(false);
+      // console.log(pathNotification);
+    }, 2000);
+    console.log("Removed from local storage!");
+  }
+
+  // Save learning path to localStorage
+  function saveToLocalStorage() {
+    saveItem("nexa-ai-generated-learning-path", aiAnswer);
+    saveItem("nexa-user-answers", userPrompt);
+    setPathNotification({display: true, message: "Success! Your path was saved 🎉"});
+    setTimeout(() => {
+      setPathNotification(prev => { return {...prev, display: false}});
+      setInLocalStorage(true);
+      // console.log(pathNotification);
+    }, 2000);
+  
+    console.log("Saved to local storage!");
+  }
+
+  //todo
+  function takeScreenshot() {
+    return 0;
+  }
+
+  // Save learning path to localStorage and take screenshot
+  function savePath() {
+    saveToLocalStorage();
+    takeScreenshot();
+    return 0;
   }
 
   if (step === 0) {
@@ -113,10 +159,17 @@ function AiGeneratedPath() {
   }
 
   return (
-    <>
-      <LearningPathResult aiAnswer={aiAnswer} />
-      <button onClick={handlePrevious}>Previous</button>
-    </>
+    <div>
+      <LearningPathResult 
+        handlePrevious={handlePrevious}
+        aiAnswer={aiAnswer} 
+        userPrompt={userPrompt}
+        savePath={savePath}
+        deletePath={removeFromLocalStorage}
+        notificationState={pathNotification}
+        inLocalStorage={inLocalStorage}
+      />
+    </div>
   );
 }
 
