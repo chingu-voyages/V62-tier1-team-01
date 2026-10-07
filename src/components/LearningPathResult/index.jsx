@@ -25,7 +25,20 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
    * @param {number} totalTime - Estimate from AI converted into hours
    * @returns {string} - String representation of how long learning path will take
    */
-  function calculatePathTimeEstimate (timeCommitment, totalTime=30){
+  function calculatePathTimeEstimate (timeCommitmentString, totalTime=30){
+    let timeCommitment = 1;
+    switch (timeCommitmentString){
+      case "Less than 3 hrs":
+        timeCommitment = 1.5;
+        break;
+      case "3 - 5 hours":
+        timeCommitment = 4;
+        break;
+      case "6 - 10 hours":
+        timeCommitment = 8;
+      case "10+ hrs":
+        timeCommitment = 10;
+    }
     const numberOfWeeks = totalTime/timeCommitment;
     const numberOfYears = Math.floor(numberOfWeeks/52);
     const numberOfMonths = Math.floor((numberOfWeeks % 52)/4);
