@@ -80,8 +80,8 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
           {/* <button className={styles["defaultButton"]} disabled onClick={shareProgress}>
             <img src={shareIcon}/>
             Share
-          </button>
-          <button className={styles["defaultButton"]} onClick={resetForm}>
+          </button> */}
+          <button className={styles["defaultButton"]} onClick={handlePrevious}>
             <img src={editIcon}/>
             Edit Path
           </button>

@@ -94,18 +94,6 @@ function AiGeneratedPath() {
     console.log("Removed from local storage!");
   }
 
-  function resetForm(){
-    // setUserPrompt({
-    //   career: "",
-    //   skillLevel: "",
-    //   timeCommitment: 1,
-    // });
-    removeFromLocalStorage();
-    // setSubmitted(false);
-    handlePrevious();
-    // setError(false);
-  }
-
   // Save learning path to localStorage
   function saveToLocalStorage() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
@@ -171,10 +159,11 @@ function AiGeneratedPath() {
   return (
     <div>
       <LearningPathResult 
-        resetForm={resetForm}
+        handlePrevious={handlePrevious}
         aiAnswer={aiAnswer} 
         userPrompt={userPrompt}
         savePath={savePath}
+        deletePath={removeFromLocalStorage}
         notificationState={pathNotification}
       />
     </div>
