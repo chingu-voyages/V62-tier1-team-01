@@ -1,7 +1,12 @@
 import styles from "./styles.module.css";
 import timeIcon from "../../assets/time-icon.svg";
 
-// todo
+/**
+ * @param {import("react").PropsWithoutRef} props 
+ * @param {Object} item - An object containing information for one step of learning path, including title, description and estimate time to complete
+ * @param {number} index - The number showing the order of the step in the path
+ * @returns {Element} - A card component containing a step of the learning path
+ */
 function LearningPathItem({ item, index}) {
   const { title, description, time_estimate } = item;
   // console.log(item);
