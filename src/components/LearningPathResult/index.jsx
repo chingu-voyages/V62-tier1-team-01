@@ -14,9 +14,10 @@ import Notification from "../Notification";
  * @param {Function} props.savePath - A function that saves the current learning path to localStorage
  * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
  * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
+ * @param {boolean} props.inLocalStorage - A boolean showing whether the learning path is saved in localStorage
  * @returns {Element} - A component containing the Learning Path page
  */
-function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, deletePath, notificationState}) {
+function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, deletePath, notificationState, inLocalStorage}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer.map(step => step["time_estimate"]).reduce((sum, step) => sum + step);
 
@@ -85,6 +86,12 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
             <img src={editIcon}/>
             Edit Path
           </button>
+          <Notification type="success" state={notificationState}/>
+          {!inLocalStorage &&
+            <button className={styles["submitButton"]} onClick={savePath} disabled={notificationState.display}>{notificationState.display ? "Saved!": "Save Copy"}</button>
+          }{inLocalStorage &&
+            <button className={styles["submitButton"]} onClick={deletePath} disabled={notificationState.display}>{notificationState.display ? "Deleted..." : "Delete Copy"}</button>
+          }
         </div>
         <div className={styles["flexChild"]}>
           <div className={styles["timeline"]}>
@@ -92,8 +99,6 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
               <LearningPathItem key={item.title} item={item} index={index}/>
             ))}
           </div>
-          <Notification type="success" state={notificationState}/>
-          <button className={styles["submitButton"]} onClick={savePath}>Save</button>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ function AiGeneratedPath() {
   const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
   const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
-  const [pathNotification, setPathNotification] = useState({display: false, message: "Success! Your path was saved 🎉"});
+  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? "Your path has been deleted from storage 🗑️" : "Success! Your path was saved 🎉"});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -90,7 +90,12 @@ function AiGeneratedPath() {
   function removeFromLocalStorage(){
     removeItem("nexa-ai-generated-learning-path");
     removeItem("nexa-user-answers");
-    setInLocalStorage(false);
+    setPathNotification({display: true, message: "Your path has been deleted from storage 🗑️"});
+    setTimeout(() => {
+      setPathNotification(prev => { return {...prev, display: false}});
+      setInLocalStorage(false);
+      // console.log(pathNotification);
+    }, 2000);
     console.log("Removed from local storage!");
   }
 
@@ -98,13 +103,10 @@ function AiGeneratedPath() {
   function saveToLocalStorage() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
     saveItem("nexa-user-answers", userPrompt);
-    setInLocalStorage(true);
-    setPathNotification(prev => { 
-      // console.log({...prev, display: true});
-      return {...prev, display: true};
-    });
+    setPathNotification({display: true, message: "Success! Your path was saved 🎉"});
     setTimeout(() => {
       setPathNotification(prev => { return {...prev, display: false}});
+      setInLocalStorage(true);
       // console.log(pathNotification);
     }, 2000);
   
@@ -165,6 +167,7 @@ function AiGeneratedPath() {
         savePath={savePath}
         deletePath={removeFromLocalStorage}
         notificationState={pathNotification}
+        inLocalStorage={inLocalStorage}
       />
     </div>
   );

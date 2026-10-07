@@ -83,7 +83,7 @@
     padding: 1rem 5rem;
     border-radius: 16px;
     margin: 18px 0;
-    margin-left: auto;
+    /* margin-left: auto; */
     text-transform: uppercase;
     transition: box-shadow .5s;
 }
@@ -94,7 +94,7 @@
     cursor: pointer;
 }
 
-.defaultButton:disabled{
+.submitButton:disabled, .defaultButton:disabled{
     cursor: not-allowed;
     background: lightgrey;
     color: darkgray;
@@ -137,7 +137,7 @@
 
 @media (max-width: 1024px){
     .pageContainer{
-        padding: 244px 47px;
+        padding: 100px 47px;
     }
     .flexContainer{
         padding: 20px 0px;
