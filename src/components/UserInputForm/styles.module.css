@@ -17,6 +17,7 @@
 .form {
   margin-right: 32px;
   margin-left: 32px;
+  margin-bottom: 64px;
 }
 
 .fieldHeader {
@@ -67,7 +68,7 @@
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid #cecece;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .select {
@@ -77,7 +78,7 @@
   border-radius: 8px;
   padding: 8px 16px;
   background-color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .buttons {
