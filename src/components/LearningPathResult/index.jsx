@@ -1,51 +1,29 @@
 import styles from "./styles.module.css";
-import shareIcon from "../../assets/share-icon.svg";
+// import shareIcon from "../../assets/share-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import BlushEffect from "../BlushEffect";
 import Notification from "../Notification";
 
-// todo
-function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath, notificationState}) {
+/**
+ * 
+ * @param {import("react").PropsWithoutRef} props 
+ * @param {{title: string, description: string, time_estimate: number}[]} props.aiAnswer - List of objects containing steps in learning path, including title, description and estimate time to complete
+ * @param {Object} props.userPrompt - Object containing user's answers to the form
+ * @param {Function} props.handleSubmit - An onClick handler that takes the user to the previous page
+ * @param {Function} props.savePath - A function that saves the current learning path to localStorage
+ * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
+ * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
+ * @returns {Element} - A component containing the Learning Path page
+ */
+function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, deletePath, notificationState}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer.map(step => step["time_estimate"]).reduce((sum, step) => sum + step);
 
-  const dummyData = [
-    {
-      key: "A",
-      title: "Learn HTML",
-      description: "Here is the description",
-      estimate: 5
-    },
-    {
-      key: "B",
-      title: "Learn HTML",
-      description: "Here is the description",
-      estimate: 5
-    },
-    {
-      key: "C",
-      title: "Learn HTML",
-      description: "Here is the description",
-      estimate: 5
-    },
-    {
-      key: "D",
-      title: "Learn HTML",
-      description: "Here is the description",
-      estimate: 5
-    },
-    {
-      key: "E",
-      title: "Learn HTML",
-      description: "Here is the description",
-      estimate: 5
-    },
-  ]
   /**
-   * 
    * @param {number} timeCommitment - User's answer in hours per week
    * @param {number} totalTime - Estimate from AI converted into hours
+   * @returns {string} - String representation of how long learning path will take
    */
   function calculatePathTimeEstimate (timeCommitment, totalTime=30){
     const numberOfWeeks = totalTime/timeCommitment;
@@ -56,9 +34,9 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath, notific
   }
 
   //todo
-  function shareProgress() {
+  // function shareProgress() {
 
-  }
+  // }
 
   return (
     <div className={styles["pageContainer"]}>
@@ -86,7 +64,7 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath, notific
               <p className={styles["profileValue"]}>{calculatePathTimeEstimate(timeCommitment, totalTime)}</p>
             </div>
           </div>
-          <button className={styles["defaultButton"]} disabled onClick={shareProgress}>
+          {/* <button className={styles["defaultButton"]} disabled onClick={shareProgress}>
             <img src={shareIcon}/>
             Share
           </button>
@@ -101,11 +79,8 @@ function LearningPathResult({ aiAnswer, userPrompt, resetForm, savePath, notific
               <LearningPathItem key={item.title} item={item} index={index}/>
             ))}
           </div>
-          <Notification type="success" state={notificationState}>{notificationState.message}</Notification>
+          <Notification type="success" state={notificationState}/>
           <button className={styles["submitButton"]} onClick={savePath}>Save</button>
-          {/* {aiAnswer.split("$").map((item) => (
-            <LearningPathItem key={item} item={item} />
-          ))} */}
         </div>
       </div>
     </div>
