@@ -26,10 +26,10 @@ function LearningPathResult({
   notificationState,
   inLocalStorage,
 }) {
-  const { career, skillLevel, timeCommitment } = userPrompt;
-  const totalTime = aiAnswer
-    .map((step) => step["time_estimate"])
-    .reduce((sum, step) => sum + step);
+  const { career, experienceLevel, timeCommitment } = userPrompt;
+  const totalTime = aiAnswer.map((step) => step["time_estimate"]).reduce((sum, step) => sum + step);
+
+  console.log(aiAnswer);
 
   /**
    * @param {number} timeCommitment - User's answer in hours per week
@@ -47,8 +47,10 @@ function LearningPathResult({
         break;
       case "6 - 10 hours":
         timeCommitment = 8;
+        break;
       case "10+ hrs":
         timeCommitment = 10;
+        break;
     }
     const numberOfWeeks = totalTime / timeCommitment;
     const numberOfYears = Math.floor(numberOfWeeks / 52);
@@ -89,7 +91,7 @@ function LearningPathResult({
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Current Level</p>
               <p className={styles["profileValue"]}>
-                {skillLevel || "Beginner"}
+                {experienceLevel}
               </p>
             </div>
             <div className={styles["profileFact"]}>
