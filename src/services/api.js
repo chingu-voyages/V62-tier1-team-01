@@ -15,7 +15,7 @@ export function getJSON(key) {
 
 /**
  * Get an item from localStorage
- * @param {string} key - key to get localStorage item 
+ * @param {string} key - key to get localStorage item
  * @returns a string if it exists, else a empty string
  */
 export function saveItem(key, value) {
@@ -25,7 +25,7 @@ export function saveItem(key, value) {
 
 /**
  * Check that an item exists in localStorage
- * @param {string} key - key of localStorage item 
+ * @param {string} key - key of localStorage item
  * @returns a boolean showing whether the item exists or not
  */
 export function checkItemExists(key) {
