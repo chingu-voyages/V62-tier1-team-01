@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
+import { getJSON, saveItem, checkItemExists, removeItem, getUserPrompt, sendRequestToApi } from "../../services/api";
 
 const initialUserPrompt = {
   career: "Front-end Development",
@@ -29,40 +28,11 @@ function AiGeneratedPath() {
     setAiAnswer("");
     setIsWaiting(true);
 
-    const contextInfo = `
-      You are an AI Career Path Generator.
-
-      1. Your role is to transform a user's career goal into a clear, personalized, step-by-step learning journey.
-
-      2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
-
-      3. The user's career goal is: ${userPrompt.career}
-         The user's background and existing skills are: ${userPrompt.skills}
-         The user's current skill level is: ${userPrompt.experienceLevel}
-         The user time commitment is: ${userPrompt.timeCommitment} per week
-
-      4. Generate a structured learning path that:
-        - Is practical and actionable
-        - Progresses step by step from the user's current level and based on his weekly commitment
-        - Includes relevant skills, tools, and technologies
-        - Is aligned with real-world job requirements
-
-      5. If the user input is not a valid career goal, ask the user to reformulate the request.
-
-      6. Output format:
-        - Return a list of JSON objects with title, description, and time estimate in hours (to complete the task)
-        - Do not return any other text except the JSON
-    `;
+    const contextInfo = getUserPrompt(userPrompt);
 
     try {
-      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-      const model = genAI.getGenerativeModel({
-        model: "gemini-3.1-flash-lite",
-      });
-      const result = await model.generateContent(contextInfo);
-
+      const result = await sendRequestToApi(contextInfo);
       setAiAnswer(JSON.parse(result.response.text()));
-      // console.log(result.response.text());
       setStep(2);
     } catch (err) {
       handleError();
@@ -70,7 +40,7 @@ function AiGeneratedPath() {
     setIsWaiting(false);
   }
 
-  function handleError(err) {
+  function handleError() {
     setError({ display: true, message: "Error while generating your leaning path..." });
     setTimeout(() => setError({ display: false, message: "" }), 2000);
   }
@@ -94,12 +64,10 @@ function AiGeneratedPath() {
     setTimeout(() => {
       setPathNotification(prev => { return {...prev, display: false}});
       setInLocalStorage(false);
-      // console.log(pathNotification);
     }, 2000);
     console.log("Removed from local storage!");
   }
 
-  // Save learning path to localStorage
   function saveToLocalStorage() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
     saveItem("nexa-user-answers", userPrompt);
@@ -107,7 +75,6 @@ function AiGeneratedPath() {
     setTimeout(() => {
       setPathNotification(prev => { return {...prev, display: false}});
       setInLocalStorage(true);
-      // console.log(pathNotification);
     }, 2000);
   
     console.log("Saved to local storage!");
@@ -118,7 +85,6 @@ function AiGeneratedPath() {
     return 0;
   }
 
-  // Save learning path to localStorage and take screenshot
   function savePath() {
     saveToLocalStorage();
     takeScreenshot();
