@@ -4,10 +4,10 @@ import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import BlushEffect from "../BlushEffect";
 import Notification from "../Notification";
+import Button from "../Button";
 
 /**
- * 
- * @param {import("react").PropsWithoutRef} props 
+ *  
  * @param {{title: string, description: string, time_estimate: number}[]} props.aiAnswer - List of objects containing steps in learning path, including title, description and estimate time to complete
  * @param {Object} props.userPrompt - Object containing user's answers to the form
  * @param {Function} props.handleSubmit - An onClick handler that takes the user to the previous page
@@ -15,7 +15,6 @@ import Notification from "../Notification";
  * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
  * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
  * @param {boolean} props.inLocalStorage - A boolean showing whether the learning path is saved in localStorage
- * @returns {Element} - A component containing the Learning Path page
  */
 function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, deletePath, notificationState, inLocalStorage}) {
   const { career, skillLevel, timeCommitment } = userPrompt;
