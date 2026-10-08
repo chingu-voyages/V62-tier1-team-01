@@ -1,7 +1,15 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children, error }) {
+function UserInputForm({
+  onSubmit,
+  userPrompt,
+  setUserPrompt,
+  aiAnswer,
+  isWaiting,
+  children,
+  error,
+}) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
@@ -21,17 +29,22 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
   return (
     <div className="container">
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
-        <h2>Building <br/> your path</h2>
+        <h1>
+          Building <br /> your path
+        </h1>
         <p>Just a second...</p>
       </div>
       <div className={isWaiting ? styles["hide"] : styles["header"]}>
-        <h2>Let's build your path</h2>
+        <h1>Let's build your path</h1>
         <p>
           Tell us a bit about yourself so we can create a personalized <br />
           learning journey for you.
         </p>
       </div>
-      <form onSubmit={onSubmit} className={isWaiting ? styles["hide"] : styles["form"]}>
+      <form
+        onSubmit={onSubmit}
+        className={isWaiting ? styles["hide"] : styles["form"]}
+      >
         <div className={styles["field"]}>
           <div className={styles["fieldHeader"]}>
             <div className={styles["circle"]}>
@@ -126,7 +139,11 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
 
         <div className={styles["buttons"]}>
           {children}
-          {aiAnswer === "" ? <Button type="submit">Submit</Button> : <Button type="submit">Submit again</Button>}
+          {aiAnswer === "" ? (
+            <Button type="submit">Submit</Button>
+          ) : (
+            <Button type="submit">Submit again</Button>
+          )}
         </div>
       </form>
     </div>
