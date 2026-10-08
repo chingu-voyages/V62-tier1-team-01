@@ -71,7 +71,7 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
-              <p className={styles["profileValue"]}>{timeCommitment} hour{timeCommitment > 1 ? "s": ""}/week</p>
+              <p className={styles["profileValue"]}>{timeCommitment}/week</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Estimated Time</p>
