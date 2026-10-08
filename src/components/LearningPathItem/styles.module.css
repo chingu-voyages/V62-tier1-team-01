@@ -107,13 +107,13 @@
 
 .cardTitle {
     font-weight: 600;
-    font-size: 1.25rem; /* 20px; */
+    font-size: 1.125rem; /* 18px; */
     color: var(--learning-path-title);
     margin: 6px 0 4px 0;
 }
 
 .cardDescription{
-    font-weight: 500;
+    /* font-weight: 500; */
     font-size: 1rem; /* 16px; */
     color: var(--learning-path-subtitle);
 }
