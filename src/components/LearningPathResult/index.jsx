@@ -82,15 +82,15 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
             <img src={shareIcon}/>
             Share
           </button> */}
-          <button className={styles["defaultButton"]} onClick={handlePrevious}>
+          <Button className="defaultButton" onClick={handlePrevious}>
             <img src={editIcon}/>
             Edit Path
-          </button>
-          <Notification type="success" state={notificationState}/>
+          </Button>
+          <Notification type={notificationState.message.indexOf("🎉") !== -1 ? "success" : "error"} state={notificationState}/>
           {!inLocalStorage &&
-            <button className={styles["submitButton"]} onClick={savePath} disabled={notificationState.display}>{notificationState.display ? "Saved!": "Save Copy"}</button>
+            <Button className="submitButton" onClick={savePath} disabled={notificationState.display}>{notificationState.display ? "Saved!": "Save Copy"}</Button>
           }{inLocalStorage &&
-            <button className={styles["submitButton"]} onClick={deletePath} disabled={notificationState.display}>{notificationState.display ? "Deleted..." : "Delete Copy"}</button>
+            <Button className="submitButton" onClick={deletePath} disabled={notificationState.display}>{notificationState.display ? "Deleted..." : "Delete Copy"}</Button>
           }
         </div>
         <div className={styles["flexChild"]}>
