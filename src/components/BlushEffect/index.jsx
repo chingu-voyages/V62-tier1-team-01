@@ -4,7 +4,7 @@ function BlushEffect() {
   return (
     <>
       <div
-        className={styles.blush}
+        className={styles["blush"]}
         style={{
           backgroundColor: "#8BCBFF33",
           left: "64px",
@@ -14,7 +14,7 @@ function BlushEffect() {
         }}
       ></div>
       <div
-        className={styles.blush}
+        className={styles["blush"]}
         style={{
           backgroundColor: "#B7A1FF33",
           left: "128px",
@@ -24,7 +24,7 @@ function BlushEffect() {
         }}
       ></div>
       <div
-        className={styles.blush}
+        className={styles["blush"]}
         style={{
           backgroundColor: "#F1CFA940",
           left: "1020px",
@@ -34,7 +34,7 @@ function BlushEffect() {
         }}
       ></div>
       <div
-        className={styles.blush}
+        className={styles["blush"]}
         style={{
           backgroundColor: "#FFB6D940",
           left: "960px",

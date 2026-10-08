@@ -1,0 +1,126 @@
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  padding: 32px 0;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  background: #ffffff;
+  color: #111111;
+}
+
+.brandLogo {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.brandIcon {
+  width: 130px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.footerMenu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+
+  gap: 40px;
+  flex: 1;
+
+  margin-left: 40px;
+}
+
+.footerMenuColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer h3 {
+  margin: 0;
+  padding: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.footer a {
+  color: #666666;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: #111111;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  margin-left: 30px;
+  flex-shrink: 0;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111111;
+  font-size: 27px;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.socialIcons a:hover {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .footer {
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 50px 6%;
+  }
+
+  .footerMenu {
+    margin-left: 0;
+    gap: 45px;
+    flex-wrap: wrap;
+  }
+
+  .socialIcons {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footerMenu {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+}

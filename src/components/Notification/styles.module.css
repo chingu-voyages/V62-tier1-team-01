@@ -1,0 +1,28 @@
+.default {
+    opacity: 1;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: var(--notification-default);
+    color: var(--notification-text);
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    transition: opacity .1s;
+    z-index: 2;
+}
+
+.success {
+    background-color: var(--notification-success);
+    color: var(--notification-text);
+}
+
+.error {
+    background-color: var(--notification-error);
+    color: var(--notification-text);
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity .5s;
+}

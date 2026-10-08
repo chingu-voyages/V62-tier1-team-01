@@ -1,0 +1,135 @@
+.card {
+    padding: 19px 34px 34px 34px;
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    min-width: 300px;
+    max-width: 384px;
+    margin-bottom: 46px;
+    position: relative;
+    /* width: 50%; */
+    /* min-inline-size: 0; */
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -73px;
+    background-color: var(--learning-path-timeline-circle-base);
+    top: 48px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/*Adapted code for the drop down icon from this codepen: https://codepen.io/frederickallen/pen/NZMEMw*/
+.card summary::-webkit-details-marker {
+  display: none;
+}
+
+.card summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+.card summary:after {
+  content: ">";
+  transform: rotate(90deg);
+  color: var(--card-dropdown-arrow);
+  position: absolute;
+  font-size: 1.75rem;
+  font-weight: 200;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: -15px;
+  top: 0px;
+  transform-origin: center;
+  transition: top 200ms ease-in-out;
+}
+
+.card[open] summary:after {
+  transform: rotate(-90deg);
+  top: 10px;
+  font-size: 1.75rem;
+}
+
+.cardIndex {
+    font-weight: 600;
+    font-size: 1.25rem; /* 20px; */
+}
+
+.card:nth-of-type(5n)::after {
+    border: 9px solid var(--learning-path-timeline-variation-1);
+    box-shadow: 0 0 5px 0px var(--learning-path-timeline-variation-1);
+}
+
+.card:nth-of-type(5n) > .cardIndex {
+    color: var(--learning-path-timeline-variation-1);
+}
+
+.card:nth-of-type(5n+1)::after {
+    border: 9px solid var(--learning-path-timeline-variation-2);
+    box-shadow: 0 0 5px 0px var(--learning-path-timeline-variation-2);
+}
+
+.card:nth-of-type(5n+1) > .cardIndex{
+    color: var(--learning-path-timeline-variation-2);
+}
+
+.card:nth-of-type(5n+2)::after {
+    border: 9px solid var(--learning-path-timeline-variation-3);
+    box-shadow: 0 0 5px 0px var(--learning-path-timeline-variation-3);
+}
+
+.card:nth-of-type(5n+2) > .cardIndex{
+    color: var(--learning-path-timeline-variation-3);
+}
+
+.card:nth-of-type(5n+3)::after {
+    border: 9px solid var(--learning-path-timeline-variation-4);
+    box-shadow: 0 0 5px 0px var(--learning-path-timeline-variation-4);
+}
+
+.card:nth-of-type(5n+3) > .cardIndex{
+    color: var(--learning-path-timeline-variation-4);
+}
+
+.card:nth-of-type(5n+4)::after {
+    border: 9px solid var(--learning-path-timeline-variation-5);
+    box-shadow: 0 0 5px 0px var(--learning-path-timeline-variation-5);
+}
+
+.card:nth-of-type(5n+4) > .cardIndex{
+    color: var(--learning-path-timeline-variation-5);
+}
+
+.cardTitle {
+    font-weight: 600;
+    font-size: 1.25rem; /* 20px; */
+    color: var(--learning-path-title);
+    margin: 6px 0 4px 0;
+}
+
+.cardDescription{
+    font-weight: 500;
+    font-size: 1rem; /* 16px; */
+    color: var(--learning-path-subtitle);
+}
+
+.cardEstimate{
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    color: var(--learning-path-small-text);
+    font-weight: 500;
+    font-size: .8125rem; /* 13px; */ 
+    margin-top: 46px;
+}
+
+@media (max-width: 768px){
+    .card::after {
+        left: -44px;
+    }
+}
