@@ -57,49 +57,6 @@
     margin-bottom: 25px;
 }
 
-.defaultButton {
-    display: block;
-    font-weight: 500;
-    font-size: 1.125rem; /* 18px; */
-    background-color: var(--primary-button-background);
-    border: 1px solid var(--primary-button-border);
-    padding: 1rem 1.5rem;
-    border-radius: 16px;
-    display: flex;
-    color: var(--learning-path-title);
-    align-items: center;
-    gap: 14px;
-    margin: 18px 0;
-    transition: box-shadow .5s;
-}
-
-.submitButton {
-    background-color: var(--secondary-button-background);
-    color: var(--secondary-button-text);
-    border: none;
-    display: block;
-    font-weight: 400;
-    font-size: 1.125rem; /* 18px; */ 
-    padding: 1rem 5rem;
-    border-radius: 16px;
-    margin: 18px 0;
-    /* margin-left: auto; */
-    text-transform: uppercase;
-    transition: box-shadow .5s;
-}
-
-.defaultButton:not(:disabled):hover, .submitButton:not(:disabled):hover {
-    box-shadow: var(--button-box-shadow);
-    transition: box-shadow .5s;
-    cursor: pointer;
-}
-
-.submitButton:disabled, .defaultButton:disabled{
-    cursor: not-allowed;
-    background: lightgrey;
-    color: darkgray;
-}
-
 .profileFact {
     margin: 31px 0;
 }
