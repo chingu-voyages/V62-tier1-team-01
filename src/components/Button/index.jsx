@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 
 /**
- * 
+ *
  * @param {string} props.children - Content displayed inside the button
  * @param {() => void} props.onClick - Click event handler
  * @param {"button" | "submit" | "reset"} props.type - Button type attribute
@@ -10,7 +10,6 @@ import styles from "./styles.module.css";
  * @param {boolean} props.disabled - Optional boolean that will disable the button if true
  */
 function Button({ children, onClick, type, marginRight, className, disabled }) {
-
   return (
     <button
       onClick={onClick}
