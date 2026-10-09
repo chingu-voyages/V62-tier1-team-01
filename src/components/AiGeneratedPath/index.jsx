@@ -1,44 +1,33 @@
-import { useState } from "react";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
 import {
-  getJSON,
   saveItem,
-  checkItemExists,
   removeItem,
   getUserPrompt,
   sendRequestToApi,
+  useApiState
 } from "../../services/api";
 
-const initialUserPrompt = {
-  career: "Front-end Development",
-  skills: "HTML, CSS, JavaScript",
-  experienceLevel: "Beginner",
-  timeCommitment: "Less than 3 hrs",
-};
-
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(
-    getJSON("nexa-ai-generated-learning-path") || ""
-  );
-  const [userPrompt, setUserPrompt] = useState(
-    getJSON("nexa-user-answers") || initialUserPrompt
-  );
-  const [isWaiting, setIsWaiting] = useState(false);
-  const [error, setError] = useState({ display: false, message: "" });
-  const [step, setStep] = useState(0);
-  const [inLocalStorage, setInLocalStorage] = useState(
-    checkItemExists("nexa-ai-generated-learning-path")
-  );
-  const [pathNotification, setPathNotification] = useState({
-    display: false,
-    message: inLocalStorage
-      ? "Your path has been deleted from storage 🗑️"
-      : "Success! Your path was saved 🎉",
-  });
+  const { 
+    aiAnswer, 
+    setAiAnswer, 
+    userPrompt, 
+    setUserPrompt, 
+    isWaiting, 
+    setIsWaiting, 
+    error, 
+    setError, 
+    step, 
+    setStep,
+    inLocalStorage,
+    setInLocalStorage, 
+    pathNotification, 
+    setPathNotification 
+  } = useApiState();
 
   async function handleSubmit(e) {
     e.preventDefault();

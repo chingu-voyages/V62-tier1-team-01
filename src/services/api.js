@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { useState } from "react";
 
 /**
  * Get a JSON value from localStorage
@@ -55,8 +56,8 @@ export async function sendRequestToApi(contextInfo) {
 }
 
 /**
- * Concatenate userPrompt object with the default prompt
- * @param {object} userPrompt - user custom data
+ * Concatenate userPrompt string with the default prompt
+ * @param {string} userPrompt - user custom data
  */
 export function getUserPrompt(userPrompt) {
   const contextInfo = `
@@ -85,4 +86,49 @@ export function getUserPrompt(userPrompt) {
       - Do not return any other text except the JSON
   `;
   return contextInfo;
+}
+
+export function useApiState() {
+  const initialUserPrompt = {
+    career: "Front-end Development",
+    skills: "HTML, CSS, JavaScript",
+    experienceLevel: "Beginner",
+    timeCommitment: "Less than 3 hrs",
+  };
+
+  const [aiAnswer, setAiAnswer] = useState(
+    getJSON("nexa-ai-generated-learning-path") || ""
+  );
+  const [userPrompt, setUserPrompt] = useState(
+    getJSON("nexa-user-answers") || initialUserPrompt
+  );
+  const [isWaiting, setIsWaiting] = useState(false);
+  const [error, setError] = useState({ display: false, message: "" });
+  const [step, setStep] = useState(0);
+  const [inLocalStorage, setInLocalStorage] = useState(
+    checkItemExists("nexa-ai-generated-learning-path")
+  );
+  const [pathNotification, setPathNotification] = useState({
+    display: false,
+    message: inLocalStorage
+      ? "Your path has been deleted from storage 🗑️"
+      : "Success! Your path was saved 🎉",
+  });
+
+  return { 
+    aiAnswer, 
+    setAiAnswer, 
+    userPrompt, 
+    setUserPrompt, 
+    isWaiting, 
+    setIsWaiting, 
+    error, 
+    setError, 
+    step, 
+    setStep,
+    inLocalStorage,
+    setInLocalStorage, 
+    pathNotification, 
+    setPathNotification 
+  };
 }
