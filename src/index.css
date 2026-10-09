@@ -38,6 +38,19 @@ body {
   font-family: var(--primary-font);
 }
 
+main {
+  background-image: url("./assets/blushes.svg");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  padding: 128px 0;
+  z-index: 3;
+  min-height: 100vh;
+}
+
+main > * {
+  z-index: 1;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1200px;
