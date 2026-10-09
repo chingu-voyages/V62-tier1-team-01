@@ -97,7 +97,7 @@ export function useApiState() {
   };
 
   const [aiAnswer, setAiAnswer] = useState(
-    getJSON("nexa-ai-generated-learning-path") || ""
+    getJSON("nexa-ai-generated-learning-path")
   );
   const [userPrompt, setUserPrompt] = useState(
     getJSON("nexa-user-answers") || initialUserPrompt
