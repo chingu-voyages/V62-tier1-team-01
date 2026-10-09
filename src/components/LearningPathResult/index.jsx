@@ -2,7 +2,6 @@ import styles from "./styles.module.css";
 // import shareIcon from "../../assets/share-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
-import BlushEffect from "../BlushEffect";
 import Notification from "../Notification";
 
 /**
@@ -54,7 +53,6 @@ function LearningPathResult({ aiAnswer, userPrompt, handlePrevious, savePath, de
 
   return (
     <div className={styles["pageContainer"]}>
-      <BlushEffect className={styles["zIndexZero"]}/>
       <h1 className={styles["title"]}>Your Personalized Learning Path is Ready!</h1>
       <p className={styles["subtitle"]}>Based on your goals, skills, and test results, we’ve created a path that fits you.</p>
       <div className={styles["flexContainer"]}>
