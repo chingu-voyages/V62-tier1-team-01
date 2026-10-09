@@ -4,7 +4,7 @@
 
 .pageContainer {
     margin: 0;
-    padding: 100px 94px;
+    padding: 0 94px;
     color: var(--learning-path-title);
 }
 
@@ -35,7 +35,7 @@
     justify-content: space-between;
     position: relative;
     z-index: 1;
-    padding: 20px 87px;
+    padding: 20px 87px 0;
     gap: 123px;
     margin-left: auto;
     margin-right: auto;
