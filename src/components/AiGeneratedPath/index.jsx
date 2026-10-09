@@ -87,11 +87,12 @@ function AiGeneratedPath() {
   }
 
   function handleError(err) {
+    const errorMessage = "Error while generating your leaning path...";
     setError({
       display: true,
-      message: "Error while generating your leaning path...",
+      message: errorMessage,
     });
-    setTimeout(() => setError({ display: false, message: "" }), 2000);
+    setTimeout(() => setError({ display: false, message: errorMessage }), 2000);
   }
 
   function handleNext() {

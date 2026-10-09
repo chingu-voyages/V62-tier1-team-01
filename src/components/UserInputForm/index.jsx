@@ -29,7 +29,6 @@ function UserInputForm({
 
   return (
     <div className="container">
-
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
         <h2>
           Building <br /> your path
@@ -43,7 +42,7 @@ function UserInputForm({
           learning journey for you.
         </p>
       </div>
-      
+
       <div>
         <Notification type="error" state={error} />
       </div>
