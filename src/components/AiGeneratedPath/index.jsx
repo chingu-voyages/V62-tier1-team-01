@@ -40,6 +40,7 @@ function AiGeneratedPath() {
     try {
       const result = await sendRequestToApi(contextInfo);
       setAiAnswer(JSON.parse(result.response.text()));
+      // console.log(result.response.text());
       setStep(2);
     } catch (err) {
       handleError();
@@ -50,7 +51,7 @@ function AiGeneratedPath() {
   function handleError() {
     setError({
       display: true,
-      message: "Error while generating your leaning path...",
+      message: "Error while generating your learning path...",
     });
     setTimeout(() => setError({ display: false, message: "" }), 2000);
   }
@@ -79,10 +80,12 @@ function AiGeneratedPath() {
         return { ...prev, display: false };
       });
       setInLocalStorage(false);
+      // console.log(pathNotification);
     }, 2000);
     console.log("Removed from local storage!");
   }
 
+  // Save learning path to localStorage
   function saveToLocalStorage() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
     saveItem("nexa-user-answers", userPrompt);
@@ -95,6 +98,7 @@ function AiGeneratedPath() {
         return { ...prev, display: false };
       });
       setInLocalStorage(true);
+      // console.log(pathNotification);
     }, 2000);
 
     console.log("Saved to local storage!");
@@ -105,6 +109,7 @@ function AiGeneratedPath() {
     return 0;
   }
 
+  // Save learning path to localStorage and take screenshot
   function savePath() {
     saveToLocalStorage();
     takeScreenshot();
