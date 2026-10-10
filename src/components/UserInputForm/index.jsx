@@ -1,7 +1,16 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
+import Notification from "../Notification";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children, error }) {
+function UserInputForm({
+  onSubmit,
+  userPrompt,
+  setUserPrompt,
+  aiAnswer,
+  isWaiting,
+  children,
+  error,
+}) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
@@ -21,7 +30,9 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
   return (
     <div className="container">
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
-        <h2>Building <br/> your path</h2>
+        <h2>
+          Building <br /> your path
+        </h2>
         <p>Just a second...</p>
       </div>
       <div className={isWaiting ? styles["hide"] : styles["header"]}>
@@ -31,7 +42,15 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           learning journey for you.
         </p>
       </div>
-      <form onSubmit={onSubmit} className={isWaiting ? styles["hide"] : styles["form"]}>
+
+      <div>
+        <Notification type="error" state={error} />
+      </div>
+
+      <form
+        onSubmit={onSubmit}
+        className={isWaiting ? styles["hide"] : styles["form"]}
+      >
         <div className={styles["field"]}>
           <div className={styles["fieldHeader"]}>
             <div className={styles["circle"]}>
@@ -120,13 +139,13 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           </select>
         </div>
 
-        <div className={error.display ? styles["error"] : styles["hide"]}>
-          {error.message}
-        </div>
-
         <div className={styles["buttons"]}>
           {children}
-          {aiAnswer === "" ? <Button type="submit">Submit</Button> : <Button type="submit">Submit again</Button>}
+          {aiAnswer === "" ? (
+            <Button type="submit">Submit</Button>
+          ) : (
+            <Button type="submit">Submit again</Button>
+          )}
         </div>
       </form>
     </div>

@@ -4,7 +4,6 @@
 
 .header > h2 {
   font-size: 46px;
-  margin-top: 128px;
   margin-bottom: 20px;
 }
 
@@ -67,7 +66,7 @@
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid #cecece;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .select {
@@ -77,7 +76,7 @@
   border-radius: 8px;
   padding: 8px 16px;
   background-color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .buttons {

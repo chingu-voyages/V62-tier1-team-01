@@ -4,28 +4,28 @@
   --primary-font: "Inter", sans-serif;
 
   /* Colors used throughout the project */
-  --learning-path-title: #11141B;
+  --learning-path-title: #11141b;
   --learning-path-subtitle: #676767;
-  --learning-path-small-text: #676767D1;
-  --learning-path-timeline-circle-base: #FFF;
-  --learning-path-timeline-variation-1: #4691FC;
-  --learning-path-timeline-variation-2: #264DE4;
-  --learning-path-timeline-variation-3: #9747FF;
-  --learning-path-timeline-variation-4: #A9F1DB;
-  --learning-path-timeline-variation-5: #F16529;
-  --primary-button-background: #FEFDFE;
-  --primary-button-border: #1A1C2533;
-  --secondary-button-background: #11141B;
-  --secondary-button-text: #FFF;
+  --learning-path-small-text: #676767d1;
+  --learning-path-timeline-circle-base: #fff;
+  --learning-path-timeline-variation-1: #4691fc;
+  --learning-path-timeline-variation-2: #264de4;
+  --learning-path-timeline-variation-3: #9747ff;
+  --learning-path-timeline-variation-4: #a9f1db;
+  --learning-path-timeline-variation-5: #f16529;
+  --primary-button-background: #fefdfe;
+  --primary-button-border: #1a1c2533;
+  --secondary-button-background: #11141b;
+  --secondary-button-text: #fff;
   --secondary-button-border: none;
-  --button-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  --button-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
   --card-dropdown-arrow: rgba(38, 77, 228);
-  --card-background: #FEFDFE;
-  --card-border: #5158D22B;
-  --notification-text: #FFF;
-  --notification-default: rgba(128, 128, 128, .8);
-  --notification-success: rgba(0, 128, 0, .8);
-  --notification-error: rgba(128, 0, 0, .8);
+  --card-background: #fefdfe;
+  --card-border: #5158d22b;
+  --notification-text: #fff;
+  --notification-default: rgba(128, 128, 128, 0.8);
+  --notification-success: rgba(0, 128, 0, 0.8);
+  --notification-error: rgba(156, 3, 3, 0.8);
 }
 
 * {
@@ -43,7 +43,7 @@ body {
   max-width: 1200px;
 }
 
-/* HTML: <div class="loader"></div> */
+/* HTML: <div className="loader"></div> */
 .loader {
   width: 50px;
   padding: 8px;
