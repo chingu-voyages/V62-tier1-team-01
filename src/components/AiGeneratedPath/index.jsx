@@ -1,33 +1,20 @@
+import { useState } from "react";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import {
-  saveItem,
-  removeItem,
-  getUserPrompt,
-  sendRequestToApi,
-  useApiState
-} from "../../services/api";
+import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "../../constants";
+import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "../../services/api";
 
 function AiGeneratedPath() {
-  const { 
-    aiAnswer, 
-    setAiAnswer, 
-    userPrompt, 
-    setUserPrompt, 
-    isWaiting, 
-    setIsWaiting, 
-    error, 
-    setError, 
-    step, 
-    setStep,
-    inLocalStorage,
-    setInLocalStorage, 
-    pathNotification, 
-    setPathNotification 
-  } = useApiState();
+  const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
+  const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
+  const [isWaiting, setIsWaiting] = useState(false);
+  const [error, setError] = useState({ display: false, message: "" });
+  const [step, setStep] = useState(0);
+  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
+  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -51,9 +38,9 @@ function AiGeneratedPath() {
   function handleError() {
     setError({
       display: true,
-      message: "Error while generating your learning path...",
+      message: ERROR_MSG,
     });
-    setTimeout(() => setError({ display: false, message: "" }), 2000);
+    setTimeout(() => setError({ display: false, message: ERROR_MSG }), 2000);
   }
 
   function handleNext() {
@@ -69,11 +56,11 @@ function AiGeneratedPath() {
   }
 
   function removeFromLocalStorage() {
-    removeItem("nexa-ai-generated-learning-path");
-    removeItem("nexa-user-answers");
+    removeItem(KEY_AI_PATH);
+    removeItem(KEY_USER_ANSWER);
     setPathNotification({
       display: true,
-      message: "Your path has been deleted from storage 🗑️",
+      message: DELETED_MSG,
     });
     setTimeout(() => {
       setPathNotification((prev) => {
@@ -87,11 +74,11 @@ function AiGeneratedPath() {
 
   // Save learning path to localStorage
   function saveToLocalStorage() {
-    saveItem("nexa-ai-generated-learning-path", aiAnswer);
-    saveItem("nexa-user-answers", userPrompt);
+    saveItem(KEY_AI_PATH, aiAnswer);
+    saveItem(KEY_USER_ANSWER, userPrompt);
     setPathNotification({
       display: true,
-      message: "Success! Your path was saved 🎉",
+      message: SAVED_MSG,
     });
     setTimeout(() => {
       setPathNotification((prev) => {
