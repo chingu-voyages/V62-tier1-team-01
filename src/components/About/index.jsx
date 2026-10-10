@@ -1,5 +1,9 @@
 import style from './about.module.css';
 
+// import claire from '../../assets/claire.jpg';
+// import francisco from '../../assets/fransico.jpg';
+// import winona from '../../assets/winona.jpg';
+
 const teamMembers = [
     {
         id: 1,
@@ -11,16 +15,16 @@ const teamMembers = [
     {
         id: 2,
         'name': 'Fransico Guitler',
-        'image': '',
-        'github': 'https://github.com/fransicoguitler',
+        'image': '/src/assets/francisco.jpg',
+        'github': 'https://github.com/umfrancisco',
         'linkedin': 'https://www.linkedin.com/in/fransico-guitler/',
     },
     {
         id: 3,
         'name': 'Winona Murphy',
-        'image': '',
-        'github': 'https://github.com/winonamurphy',
-        'linkedin': 'https://www.linkedin.com/in/winona-murphy/',
+        'image': '/src/assets/winona.jpg',
+        'github': 'https://github.com/wmurphy-collabstar',
+        'linkedin': 'https://www.linkedin.com/in/winona-murphy-840048170/',
     }
 ];
 
