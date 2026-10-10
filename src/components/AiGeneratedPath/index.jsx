@@ -1,27 +1,20 @@
 import { useState } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
-
-const initialUserPrompt = {
-  career: "Front-end Development",
-  skills: "HTML, CSS, JavaScript",
-  experienceLevel: "Beginner",
-  timeCommitment: "Less than 3 hrs",
-};
+import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "../../constants";
+import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "../../services/api";
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(getJSON("nexa-ai-generated-learning-path") || "");
-  const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
+  const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
+  const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
-  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
-  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? "Your path has been deleted from storage 🗑️" : "Success! Your path was saved 🎉"});
+  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
+  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,38 +22,10 @@ function AiGeneratedPath() {
     setAiAnswer("");
     setIsWaiting(true);
 
-    const contextInfo = `
-      You are an AI Career Path Generator.
-
-      1. Your role is to transform a user's career goal into a clear, personalized, step-by-step learning journey.
-
-      2. This is a web application that helps users understand what to learn next, removing guesswork by providing a tailored path based on their current skill level and desired career.
-
-      3. The user's career goal is: ${userPrompt.career}
-         The user's background and existing skills are: ${userPrompt.skills}
-         The user's current skill level is: ${userPrompt.experienceLevel}
-         The user time commitment is: ${userPrompt.timeCommitment} per week
-
-      4. Generate a structured learning path that:
-        - Is practical and actionable
-        - Progresses step by step from the user's current level and based on his weekly commitment
-        - Includes relevant skills, tools, and technologies
-        - Is aligned with real-world job requirements
-
-      5. If the user input is not a valid career goal, ask the user to reformulate the request.
-
-      6. Output format:
-        - Return a list of JSON objects with title, description, and time estimate in hours (to complete the task)
-        - Do not return any other text except the JSON
-    `;
+    const contextInfo = getUserPrompt(userPrompt);
 
     try {
-      const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-      const model = genAI.getGenerativeModel({
-        model: "gemini-3.1-flash-lite",
-      });
-      const result = await model.generateContent(contextInfo);
-
+      const result = await sendRequestToApi(contextInfo);
       setAiAnswer(JSON.parse(result.response.text()));
       // console.log(result.response.text());
       setStep(2);
@@ -70,15 +35,18 @@ function AiGeneratedPath() {
     setIsWaiting(false);
   }
 
-  function handleError(err) {
-    setError({ display: true, message: "Error while generating your leaning path..." });
-    setTimeout(() => setError({ display: false, message: "" }), 2000);
+  function handleError() {
+    setError({
+      display: true,
+      message: ERROR_MSG,
+    });
+    setTimeout(() => setError({ display: false, message: ERROR_MSG }), 2000);
   }
 
   function handleNext() {
     if (step === 0 && inLocalStorage) {
       setStep(2);
-    } else{
+    } else {
       setStep((s) => s + 1);
     }
   }
@@ -87,12 +55,17 @@ function AiGeneratedPath() {
     setStep((s) => s - 1);
   }
 
-  function removeFromLocalStorage(){
-    removeItem("nexa-ai-generated-learning-path");
-    removeItem("nexa-user-answers");
-    setPathNotification({display: true, message: "Your path has been deleted from storage 🗑️"});
+  function removeFromLocalStorage() {
+    removeItem(KEY_AI_PATH);
+    removeItem(KEY_USER_ANSWER);
+    setPathNotification({
+      display: true,
+      message: DELETED_MSG,
+    });
     setTimeout(() => {
-      setPathNotification(prev => { return {...prev, display: false}});
+      setPathNotification((prev) => {
+        return { ...prev, display: false };
+      });
       setInLocalStorage(false);
       // console.log(pathNotification);
     }, 2000);
@@ -101,15 +74,20 @@ function AiGeneratedPath() {
 
   // Save learning path to localStorage
   function saveToLocalStorage() {
-    saveItem("nexa-ai-generated-learning-path", aiAnswer);
-    saveItem("nexa-user-answers", userPrompt);
-    setPathNotification({display: true, message: "Success! Your path was saved 🎉"});
+    saveItem(KEY_AI_PATH, aiAnswer);
+    saveItem(KEY_USER_ANSWER, userPrompt);
+    setPathNotification({
+      display: true,
+      message: SAVED_MSG,
+    });
     setTimeout(() => {
-      setPathNotification(prev => { return {...prev, display: false}});
+      setPathNotification((prev) => {
+        return { ...prev, display: false };
+      });
       setInLocalStorage(true);
       // console.log(pathNotification);
     }, 2000);
-  
+
     console.log("Saved to local storage!");
   }
 
@@ -160,9 +138,9 @@ function AiGeneratedPath() {
 
   return (
     <div>
-      <LearningPathResult 
+      <LearningPathResult
         handlePrevious={handlePrevious}
-        aiAnswer={aiAnswer} 
+        aiAnswer={aiAnswer}
         userPrompt={userPrompt}
         savePath={savePath}
         deletePath={removeFromLocalStorage}

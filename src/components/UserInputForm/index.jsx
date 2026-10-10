@@ -1,7 +1,15 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
 
-function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaiting, children, error }) {
+function UserInputForm({
+  onSubmit,
+  userPrompt,
+  setUserPrompt,
+  aiAnswer,
+  isWaiting,
+  children,
+  error,
+}) {
   function setCareer(data) {
     setUserPrompt({ ...userPrompt, career: data });
   }
@@ -21,7 +29,9 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
   return (
     <div className="container">
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
-        <h2>Building <br/> your path</h2>
+        <h2>
+          Building <br /> your path
+        </h2>
         <p>Just a second...</p>
       </div>
       <div className={isWaiting ? styles["hide"] : styles["header"]}>
@@ -31,7 +41,10 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           learning journey for you.
         </p>
       </div>
-      <form onSubmit={onSubmit} className={isWaiting ? styles["hide"] : styles["form"]}>
+      <form
+        onSubmit={onSubmit}
+        className={isWaiting ? styles["hide"] : styles["form"]}
+      >
         <div className={styles["field"]}>
           <div className={styles["fieldHeader"]}>
             <div className={styles["circle"]}>
@@ -44,7 +57,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           </div>
           <select
             className={styles["select"]}
-            value={userPrompt.skillLevel}
+            value={userPrompt.career}
             onChange={(e) => setCareer(e.target.value)}
           >
             <option>Front-end Development</option>
@@ -89,7 +102,7 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
           </div>
           <select
             className={styles["select"]}
-            value={userPrompt.skillLevel}
+            value={userPrompt.experienceLevel}
             onChange={(e) => setExperienceLevel(e.target.value)}
           >
             <option>Beginner</option>
@@ -113,10 +126,10 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
             value={userPrompt.timeCommitment}
             onChange={(e) => setTimeCommitment(e.target.value)}
           >
-            <option>Less than 3 hrs</option>
+            <option>Less than 3 hours</option>
             <option>3 - 5 hours</option>
             <option>6 - 10 hours</option>
-            <option>10+ hrs</option>
+            <option>10+ hours</option>
           </select>
         </div>
 
@@ -126,7 +139,11 @@ function UserInputForm({ onSubmit, userPrompt, setUserPrompt, aiAnswer, isWaitin
 
         <div className={styles["buttons"]}>
           {children}
-          {aiAnswer === "" ? <Button type="submit">Submit</Button> : <Button type="submit">Submit again</Button>}
+          {aiAnswer === "" ? (
+            <Button type="submit">Submit</Button>
+          ) : (
+            <Button type="submit">Submit again</Button>
+          )}
         </div>
       </form>
     </div>
