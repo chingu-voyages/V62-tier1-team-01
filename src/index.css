@@ -19,13 +19,15 @@
   --secondary-button-text: #fff;
   --secondary-button-border: none;
   --button-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+  --button-disabled-background: #d3d3d3;
+  --button-disabled-text: #a9a9a9;
   --card-dropdown-arrow: rgba(38, 77, 228);
   --card-background: #fefdfe;
   --card-border: #5158d22b;
   --notification-text: #fff;
   --notification-default: rgba(128, 128, 128, 0.8);
   --notification-success: rgba(0, 128, 0, 0.8);
-  --notification-error: rgba(128, 0, 0, 0.8);
+  --notification-error: rgba(192, 0, 0, 0.8);
 }
 
 * {

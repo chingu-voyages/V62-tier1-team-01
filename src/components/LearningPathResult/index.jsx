@@ -3,10 +3,10 @@ import styles from "./styles.module.css";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import Notification from "../Notification";
+import Button from "../Button";
 
 /**
  *
- * @param {import("react").PropsWithoutRef} props
  * @param {{title: string, description: string, time_estimate: number}[]} props.aiAnswer - List of objects containing steps in learning path, including title, description and estimate time to complete
  * @param {Object} props.userPrompt - Object containing user's answers to the form
  * @param {Function} props.handleSubmit - An onClick handler that takes the user to the previous page
@@ -14,7 +14,6 @@ import Notification from "../Notification";
  * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
  * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
  * @param {boolean} props.inLocalStorage - A boolean showing whether the learning path is saved in localStorage
- * @returns {Element} - A component containing the Learning Path page
  */
 function LearningPathResult({
   aiAnswer,
@@ -92,9 +91,7 @@ function LearningPathResult({
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
-              <p className={styles["profileValue"]}>
-                {timeCommitment} hour{timeCommitment > 1 ? "s" : ""}/week
-              </p>
+              <p className={styles["profileValue"]}>{timeCommitment}/week</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Estimated Time</p>
@@ -107,28 +104,35 @@ function LearningPathResult({
             <img src={shareIcon}/>
             Share
           </button> */}
-          <button className={styles["defaultButton"]} onClick={handlePrevious}>
+          <Button className="defaultButton" onClick={handlePrevious}>
             <img src={editIcon} />
             Edit Path
-          </button>
-          <Notification type="success" state={notificationState} />
+          </Button>
+          <Notification
+            type={
+              notificationState.message.indexOf("🎉") !== -1
+                ? "success"
+                : "error"
+            }
+            state={notificationState}
+          />
           {!inLocalStorage && (
-            <button
-              className={styles["submitButton"]}
+            <Button
+              className="submitButton"
               onClick={savePath}
               disabled={notificationState.display}
             >
               {notificationState.display ? "Saved!" : "Save Copy"}
-            </button>
+            </Button>
           )}
           {inLocalStorage && (
-            <button
-              className={styles["submitButton"]}
+            <Button
+              className="submitButton"
               onClick={deletePath}
               disabled={notificationState.display}
             >
               {notificationState.display ? "Deleted..." : "Delete Copy"}
-            </button>
+            </Button>
           )}
         </div>
         <div className={styles["flexChild"]}>
