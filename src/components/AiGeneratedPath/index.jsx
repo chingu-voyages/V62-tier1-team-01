@@ -5,7 +5,12 @@ import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import { getJSON, saveItem, checkItemExists, removeItem } from "../../services/api";
+import {
+  getJSON,
+  saveItem,
+  checkItemExists,
+  removeItem,
+} from "../../services/api";
 
 const initialUserPrompt = {
   career: "Front-end Development",
@@ -15,13 +20,24 @@ const initialUserPrompt = {
 };
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(getJSON("nexa-ai-generated-learning-path") || "");
-  const [userPrompt, setUserPrompt] = useState(getJSON("nexa-user-answers") || initialUserPrompt);
+  const [aiAnswer, setAiAnswer] = useState(
+    getJSON("nexa-ai-generated-learning-path") || ""
+  );
+  const [userPrompt, setUserPrompt] = useState(
+    getJSON("nexa-user-answers") || initialUserPrompt
+  );
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: "" });
   const [step, setStep] = useState(0);
-  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists("nexa-ai-generated-learning-path"));
-  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? "Your path has been deleted from storage 🗑️" : "Success! Your path was saved 🎉"});
+  const [inLocalStorage, setInLocalStorage] = useState(
+    checkItemExists("nexa-ai-generated-learning-path")
+  );
+  const [pathNotification, setPathNotification] = useState({
+    display: false,
+    message: inLocalStorage
+      ? "Your path has been deleted from storage 🗑️"
+      : "Success! Your path was saved 🎉",
+  });
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -71,14 +87,17 @@ function AiGeneratedPath() {
   }
 
   function handleError(err) {
-    setError({ display: true, message: "Error while generating your leaning path..." });
+    setError({
+      display: true,
+      message: "Error while generating your leaning path...",
+    });
     setTimeout(() => setError({ display: false, message: "" }), 2000);
   }
 
   function handleNext() {
     if (step === 0 && inLocalStorage) {
       setStep(2);
-    } else{
+    } else {
       setStep((s) => s + 1);
     }
   }
@@ -87,12 +106,17 @@ function AiGeneratedPath() {
     setStep((s) => s - 1);
   }
 
-  function removeFromLocalStorage(){
+  function removeFromLocalStorage() {
     removeItem("nexa-ai-generated-learning-path");
     removeItem("nexa-user-answers");
-    setPathNotification({display: true, message: "Your path has been deleted from storage 🗑️"});
+    setPathNotification({
+      display: true,
+      message: "Your path has been deleted from storage 🗑️",
+    });
     setTimeout(() => {
-      setPathNotification(prev => { return {...prev, display: false}});
+      setPathNotification((prev) => {
+        return { ...prev, display: false };
+      });
       setInLocalStorage(false);
       // console.log(pathNotification);
     }, 2000);
@@ -103,13 +127,18 @@ function AiGeneratedPath() {
   function saveToLocalStorage() {
     saveItem("nexa-ai-generated-learning-path", aiAnswer);
     saveItem("nexa-user-answers", userPrompt);
-    setPathNotification({display: true, message: "Success! Your path was saved 🎉"});
+    setPathNotification({
+      display: true,
+      message: "Success! Your path was saved 🎉",
+    });
     setTimeout(() => {
-      setPathNotification(prev => { return {...prev, display: false}});
+      setPathNotification((prev) => {
+        return { ...prev, display: false };
+      });
       setInLocalStorage(true);
       // console.log(pathNotification);
     }, 2000);
-  
+
     console.log("Saved to local storage!");
   }
 
@@ -160,9 +189,9 @@ function AiGeneratedPath() {
 
   return (
     <div>
-      <LearningPathResult 
+      <LearningPathResult
         handlePrevious={handlePrevious}
-        aiAnswer={aiAnswer} 
+        aiAnswer={aiAnswer}
         userPrompt={userPrompt}
         savePath={savePath}
         deletePath={removeFromLocalStorage}
