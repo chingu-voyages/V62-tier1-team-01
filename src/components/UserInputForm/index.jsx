@@ -126,10 +126,10 @@ function UserInputForm({
             value={userPrompt.timeCommitment}
             onChange={(e) => setTimeCommitment(e.target.value)}
           >
-            <option>Less than 3 hrs</option>
+            <option>Less than 3 hours</option>
             <option>3 - 5 hours</option>
             <option>6 - 10 hours</option>
-            <option>10+ hrs</option>
+            <option>10+ hours</option>
           </select>
         </div>
 
