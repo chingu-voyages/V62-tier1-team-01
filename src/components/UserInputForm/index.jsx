@@ -29,13 +29,13 @@ function UserInputForm({
   return (
     <div className="container">
       <div className={isWaiting ? styles["header"] : styles["hide"]}>
-        <h2>
+        <h1>
           Building <br /> your path
-        </h2>
+        </h1>
         <p>Just a second...</p>
       </div>
       <div className={isWaiting ? styles["hide"] : styles["header"]}>
-        <h2>Let's build your path</h2>
+        <h1>Let's build your path</h1>
         <p>
           Tell us a bit about yourself so we can create a personalized <br />
           learning journey for you.

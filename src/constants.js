@@ -7,6 +7,6 @@ export const INITIAL_USER_PROMPT = {
 
 export const KEY_AI_PATH = "nexa-ai-generated-learning-path";
 export const KEY_USER_ANSWER = "nexa-user-answers";
-export const SAVED_MSG = "Your path has been deleted from storage 🗑️";
-export const DELETED_MSG = "Success! Your path was saved 🎉";
+export const SAVED_MSG = "Success! Your path was saved 🎉";
+export const DELETED_MSG = "Your path has been deleted from storage 🗑️";
 export const ERROR_MSG = "Error while generating your learning path...";
