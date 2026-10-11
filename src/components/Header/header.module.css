@@ -25,6 +25,7 @@
 }
 
 .navigation a {
+  font-family: var(--secondary-font);
   text-decoration: none;
   color: #000000;
   font-size: clamp(14px, 1.2vw, 18px);
