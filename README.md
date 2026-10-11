@@ -54,6 +54,7 @@ The things you need before downloading the web application.
 * The following dependencies:
     * `react: ^v19.2.8` [Documentation](https://react.dev/)
     * `react-dom: ^v19.2.8` [Documentation](https://react.dev/reference/react-dom)
+    * `react-icons: ^v5.7.0` [Documentation](https://react-icons.github.io/react-icons/)
     * `prettier: ^v3.9.6` [Documentation](https://prettier.io/docs/)
     * `@google/generative-ai: ^v0.24.1` [Documentation](https://www.npmjs.com/package/@google/generative-ai)
   
