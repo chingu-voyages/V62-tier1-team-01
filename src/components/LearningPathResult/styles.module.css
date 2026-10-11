@@ -99,7 +99,7 @@
 
 @media (max-width: 1024px) {
   .pageContainer {
-    padding: 100px 47px;
+    padding: 0px 47px;
   }
   .flexContainer {
     padding: 20px 0px;
