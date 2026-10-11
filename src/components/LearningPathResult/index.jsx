@@ -24,7 +24,7 @@ function LearningPathResult({
   notificationState,
   inLocalStorage,
 }) {
-  const { career, skillLevel, timeCommitment } = userPrompt;
+  const { career, experienceLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer
     .map((step) => step["time_estimate"])
     .reduce((sum, step) => sum + step);
@@ -37,7 +37,7 @@ function LearningPathResult({
   function calculatePathTimeEstimate(timeCommitmentString, totalTime = 30) {
     let timeCommitment = 1;
     switch (timeCommitmentString) {
-      case "Less than 3 hrs":
+      case "Less than 3 hours":
         timeCommitment = 1.5;
         break;
       case "3 - 5 hours":
@@ -45,8 +45,10 @@ function LearningPathResult({
         break;
       case "6 - 10 hours":
         timeCommitment = 8;
-      case "10+ hrs":
+        break;
+      case "10+ hours":
         timeCommitment = 10;
+        break;
     }
     const numberOfWeeks = totalTime / timeCommitment;
     const numberOfYears = Math.floor(numberOfWeeks / 52);
@@ -86,12 +88,14 @@ function LearningPathResult({
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Current Level</p>
               <p className={styles["profileValue"]}>
-                {skillLevel || "Beginner"}
+                {experienceLevel}
               </p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
-              <p className={styles["profileValue"]}>{timeCommitment}/week</p>
+              <p className={styles["profileValue"]}>
+                {timeCommitment} hour{timeCommitment > 1 ? "s" : ""}/week
+              </p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Estimated Time</p>
