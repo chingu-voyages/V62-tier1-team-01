@@ -3,9 +3,9 @@
   position: fixed;
   top: 50px;
   right: 50px;
-  padding: 32px;
   background-color: var(--notification-default);
   color: var(--notification-text);
+  padding: 32px;
   border-radius: 8px;
   margin-bottom: 32px;
   transition: opacity 0.1s;

@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Header />
-      <AiGeneratedPath />
+      <main>
+        <AiGeneratedPath />
+      </main>
       <Footer />
     </>
   );

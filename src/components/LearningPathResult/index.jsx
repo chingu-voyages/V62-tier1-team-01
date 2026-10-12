@@ -2,12 +2,11 @@ import styles from "./styles.module.css";
 // import shareIcon from "../../assets/share-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
-import BlushEffect from "../BlushEffect";
 import Notification from "../Notification";
+import Button from "../Button";
 
 /**
  *
- * @param {import("react").PropsWithoutRef} props
  * @param {{title: string, description: string, time_estimate: number}[]} props.aiAnswer - List of objects containing steps in learning path, including title, description and estimate time to complete
  * @param {Object} props.userPrompt - Object containing user's answers to the form
  * @param {Function} props.handleSubmit - An onClick handler that takes the user to the previous page
@@ -15,7 +14,6 @@ import Notification from "../Notification";
  * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
  * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
  * @param {boolean} props.inLocalStorage - A boolean showing whether the learning path is saved in localStorage
- * @returns {Element} - A component containing the Learning Path page
  */
 function LearningPathResult({
   aiAnswer,
@@ -26,7 +24,7 @@ function LearningPathResult({
   notificationState,
   inLocalStorage,
 }) {
-  const { career, skillLevel, timeCommitment } = userPrompt;
+  const { career, experienceLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer
     .map((step) => step["time_estimate"])
     .reduce((sum, step) => sum + step);
@@ -39,7 +37,7 @@ function LearningPathResult({
   function calculatePathTimeEstimate(timeCommitmentString, totalTime = 30) {
     let timeCommitment = 1;
     switch (timeCommitmentString) {
-      case "Less than 3 hrs":
+      case "Less than 3 hours":
         timeCommitment = 1.5;
         break;
       case "3 - 5 hours":
@@ -47,8 +45,10 @@ function LearningPathResult({
         break;
       case "6 - 10 hours":
         timeCommitment = 8;
-      case "10+ hrs":
+        break;
+      case "10+ hours":
         timeCommitment = 10;
+        break;
     }
     const numberOfWeeks = totalTime / timeCommitment;
     const numberOfYears = Math.floor(numberOfWeeks / 52);
@@ -66,7 +66,6 @@ function LearningPathResult({
 
   return (
     <div className={styles["pageContainer"]}>
-      <BlushEffect className={styles["zIndexZero"]} />
       <h1 className={styles["title"]}>
         Your Personalized Learning Path is Ready!
       </h1>
@@ -89,13 +88,13 @@ function LearningPathResult({
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Current Level</p>
               <p className={styles["profileValue"]}>
-                {skillLevel || "Beginner"}
+                {experienceLevel}
               </p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
               <p className={styles["profileValue"]}>
-                {timeCommitment} hour{timeCommitment > 1 ? "s" : ""}/week
+                {timeCommitment}/week
               </p>
             </div>
             <div className={styles["profileFact"]}>
@@ -109,28 +108,35 @@ function LearningPathResult({
             <img src={shareIcon}/>
             Share
           </button> */}
-          <button className={styles["defaultButton"]} onClick={handlePrevious}>
+          <Button className="defaultButton" onClick={handlePrevious}>
             <img src={editIcon} />
             Edit Path
-          </button>
-          <Notification type="success" state={notificationState} />
+          </Button>
+          <Notification
+            type={
+              notificationState.message.indexOf("🎉") !== -1
+                ? "success"
+                : "error"
+            }
+            state={notificationState}
+          />
           {!inLocalStorage && (
-            <button
-              className={styles["submitButton"]}
+            <Button
+              className="submitButton"
               onClick={savePath}
               disabled={notificationState.display}
             >
               {notificationState.display ? "Saved!" : "Save Copy"}
-            </button>
+            </Button>
           )}
           {inLocalStorage && (
-            <button
-              className={styles["submitButton"]}
+            <Button
+              className="submitButton"
               onClick={deletePath}
               disabled={notificationState.display}
             >
               {notificationState.display ? "Deleted..." : "Delete Copy"}
-            </button>
+            </Button>
           )}
         </div>
         <div className={styles["flexChild"]}>
