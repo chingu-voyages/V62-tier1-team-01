@@ -94,7 +94,7 @@ function LearningPathResult({
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
               <p className={styles["profileValue"]}>
-                {timeCommitment} hour{timeCommitment > 1 ? "s" : ""}/week
+                {timeCommitment}/week
               </p>
             </div>
             <div className={styles["profileFact"]}>
