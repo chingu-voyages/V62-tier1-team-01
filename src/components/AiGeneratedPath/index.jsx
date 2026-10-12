@@ -55,7 +55,10 @@ function AiGeneratedPath() {
   function removeFromLocalStorage() {
     removeItem(KEY_AI_PATH);
     removeItem(KEY_USER_ANSWER);
-    setPathNotification((prev) => ({ ...prev, display: true }));
+    setPathNotification({
+      display: true,
+      message: DELETED_MSG,
+    });
     setTimeout(() => {
       setPathNotification((prev) => ({ ...prev, display: false }));
       setInLocalStorage(false);
