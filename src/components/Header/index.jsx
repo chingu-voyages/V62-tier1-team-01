@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import brandIcon from "../../assets/brandlogo.svg";
 // import searchIcon from "../../assets/search-icon.svg";
 import style from "./header.module.css";
@@ -10,8 +11,8 @@ export default function Header() {
       </div>
 
       <nav className={style.navigation}>
-        <a href="/">Home</a>
-        <a href="/">My Learning</a>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </nav>
 
       {/* <button className={style.btn}>
