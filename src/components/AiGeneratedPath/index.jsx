@@ -11,7 +11,7 @@ function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
   const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
   const [isWaiting, setIsWaiting] = useState(false);
-  const [error, setError] = useState({ display: false, message: "" });
+  const [error, setError] = useState({ display: false, message: ERROR_MSG });
   const [step, setStep] = useState(0);
   const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
   const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
@@ -36,11 +36,8 @@ function AiGeneratedPath() {
   }
 
   function handleError() {
-    setError({
-      display: true,
-      message: ERROR_MSG,
-    });
-    setTimeout(() => setError({ display: false, message: ERROR_MSG }), 2000);
+    setError((prev) => ({ ...prev, display: true }));
+    setTimeout(() => setError((prev) => ({ ...prev, display: false })), 2000);
   }
 
   function handleNext() {
@@ -63,9 +60,7 @@ function AiGeneratedPath() {
       message: DELETED_MSG,
     });
     setTimeout(() => {
-      setPathNotification((prev) => {
-        return { ...prev, display: false };
-      });
+      setPathNotification((prev) => ({ ...prev, display: false }));
       setInLocalStorage(false);
       // console.log(pathNotification);
     }, 2000);
@@ -81,9 +76,7 @@ function AiGeneratedPath() {
       message: SAVED_MSG,
     });
     setTimeout(() => {
-      setPathNotification((prev) => {
-        return { ...prev, display: false };
-      });
+      setPathNotification((prev) => ({ ...prev, display: false }));
       setInLocalStorage(true);
       // console.log(pathNotification);
     }, 2000);

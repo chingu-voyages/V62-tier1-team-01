@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 import Button from "../Button";
+import Notification from "../Notification";
 
 function UserInputForm({
   onSubmit,
@@ -41,6 +42,11 @@ function UserInputForm({
           learning journey for you.
         </p>
       </div>
+
+      <div>
+        <Notification type="error" state={error} />
+      </div>
+
       <form
         onSubmit={onSubmit}
         className={isWaiting ? styles["hide"] : styles["form"]}
@@ -131,10 +137,6 @@ function UserInputForm({
             <option>6 - 10 hours</option>
             <option>10+ hours</option>
           </select>
-        </div>
-
-        <div className={error.display ? styles["error"] : styles["hide"]}>
-          {error.message}
         </div>
 
         <div className={styles["buttons"]}>
