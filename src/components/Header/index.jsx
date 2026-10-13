@@ -13,7 +13,6 @@ export default function Header() {
       <nav className={style.navigation}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/">My Learning</Link>
       </nav>
 
       {/* <button className={style.btn}>
