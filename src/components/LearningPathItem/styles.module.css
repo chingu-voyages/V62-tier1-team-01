@@ -132,7 +132,7 @@
   margin-top: 46px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 817px) {
   .card::after {
     left: -44px;
   }
