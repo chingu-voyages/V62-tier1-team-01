@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-.header > h2 {
+.header > h1 {
   font-size: 46px;
-  margin-top: 128px;
+  /* margin-top: 128px; */
   margin-bottom: 20px;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .field {
+  background-color: var(--card-background);
   box-shadow:
     0 4px 8px 0 rgba(59, 59, 59, 0.2),
     0 6px 20px 0 rgba(59, 59, 59, 0.2);
@@ -67,7 +68,7 @@
   padding: 8px 16px;
   border-radius: 8px;
   border: 1px solid #cecece;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .select {
@@ -77,7 +78,7 @@
   border-radius: 8px;
   padding: 8px 16px;
   background-color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .buttons {
