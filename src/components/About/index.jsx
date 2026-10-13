@@ -1,28 +1,28 @@
 import style from './about.module.css';
 
-// import claire from '../../assets/claire.jpg';
-// import francisco from '../../assets/fransico.jpg';
-// import winona from '../../assets/winona.jpg';
+import claire from '../../assets/claire.jpg';
+import francisco from '../../assets/francisco.jpg';
+import winona from '../../assets/winona.jpg';
 
 const teamMembers = [
     {
         id: 1,
         'name': 'Claire Lee',
-        'image': '/src/assets/claire.jpg',
+        'image': claire,
         'github': 'https://github.com/llsy97',
         'linkedin': 'https://www.linkedin.com/in/seungyeon-lee-claire/',
     },
     {
         id: 2,
-        'name': 'Fransico Guitler',
-        'image': '/src/assets/francisco.jpg',
+        'name': 'Francisco Guitler',
+        'image': francisco,
         'github': 'https://github.com/umfrancisco',
-        'linkedin': 'https://www.linkedin.com/in/fransico-guitler/',
+        'linkedin': 'https://www.linkedin.com/in/francisco-guitler/',
     },
     {
         id: 3,
         'name': 'Winona Murphy',
-        'image': '/src/assets/winona.jpg',
+        'image': winona,
         'github': 'https://github.com/wmurphy-collabstar',
         'linkedin': 'https://www.linkedin.com/in/winona-murphy-840048170/',
     }
