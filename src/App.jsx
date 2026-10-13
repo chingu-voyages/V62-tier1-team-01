@@ -8,14 +8,14 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-
-      <Routes>
-        <Route path="/" element={<AiGeneratedPath />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-
-      <Footer />
+      <Header/>
+        <main>
+          <Routes>
+            <Route path="/" element={<AiGeneratedPath />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+        <Footer/>
     </BrowserRouter>
   );
 }
