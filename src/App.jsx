@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, createContext } from "react";
 import AiGeneratedPath from "./components/AiGeneratedPath";
 import LearningPathResult from "./components/LearningPathResult";
+import About from "./components/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "./constants";
@@ -28,7 +29,8 @@ function App() {
           <LearningPathContext.Provider value={learningPathState}>
           <Routes>
             <Route path="/" element={<AiGeneratedPath/>}></Route>
-            <Route path="/my-learning" element={<LearningPathResult/>}></Route>
+            <Route path="/about" element={<About />} />
+            <Route path="/my-learning" element={<LearningPathResult/>}/>
           </Routes>
           </LearningPathContext.Provider>
         </main>

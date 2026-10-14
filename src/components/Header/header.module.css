@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 32px 0;
+  padding: 32px;
 
   color: #000000;
   background-color: #ffffff;
@@ -25,6 +25,7 @@
 }
 
 .navigation a {
+  font-family: var(--secondary-font);
   text-decoration: none;
   color: #000000;
   font-size: clamp(14px, 1.2vw, 18px);
@@ -47,9 +48,14 @@
   height: 36px;
 }
 
+@media (max-width: 1024px) {
+  .header {
+    padding: 12px 32px;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
-    padding: 12px 20px;
     gap: 24px;
   }
 
