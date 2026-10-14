@@ -14,7 +14,7 @@ function AiGeneratedPath() {
     userPrompt, 
     setUserPrompt, 
     inLocalStorage
-  }
+  } = useContext(LearningPathContext);
 
   // const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
   // const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
