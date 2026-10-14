@@ -35,6 +35,11 @@
   display: flex;
 }
 
+.buttons a {
+  text-decoration: none;
+  color: var(--learning-path-title);
+}
+
 .infos {
   display: flex;
   align-items: center;
@@ -49,22 +54,13 @@
   color: #11141b80;
 }
 
-.iframe {
-  width: 100%;
-  height: 320px;
-  border: none;
-  border-radius: 16px;
+@media (min-width: 503px) and (max-width: 1024px) {
+  .img {
+    display: none;
+  }
 }
 
-.showVideo {
-  margin-top: 32px;
-}
-
-.hideVideo {
-  display: none;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 503px) {
   .hero {
     display: block;
     margin-top: 36px;
@@ -78,9 +74,5 @@
 
   .img {
     display: none;
-  }
-
-  .iframe {
-    height: 200px;
   }
 }

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import AiGeneratedPath from "./components/AiGeneratedPath";
 import About from "./components/About";
 import Header from "./components/Header";
