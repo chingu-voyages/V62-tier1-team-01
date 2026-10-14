@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import UserInputForm from "../UserInputForm";
-import LearningPathResult from "../LearningPathResult";
+// import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
 import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "../../constants";
 import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "../../services/api";
+import { LearningPathContext } from "../../App";
 
 function AiGeneratedPath() {
-  const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
-  const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
+  const {
+    setAiAnswer, 
+    userPrompt, 
+    setUserPrompt, 
+    inLocalStorage
+  }
+
+  // const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
+  // const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: ERROR_MSG });
   const [step, setStep] = useState(0);
-  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
-  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
+  // const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
+  // const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -129,19 +137,19 @@ function AiGeneratedPath() {
     );
   }
 
-  return (
-    <div>
-      <LearningPathResult
-        handlePrevious={handlePrevious}
-        aiAnswer={aiAnswer}
-        userPrompt={userPrompt}
-        savePath={savePath}
-        deletePath={removeFromLocalStorage}
-        notificationState={pathNotification}
-        inLocalStorage={inLocalStorage}
-      />
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <LearningPathResult
+  //       handlePrevious={handlePrevious}
+  //       aiAnswer={aiAnswer}
+  //       userPrompt={userPrompt}
+  //       savePath={savePath}
+  //       deletePath={removeFromLocalStorage}
+  //       notificationState={pathNotification}
+  //       inLocalStorage={inLocalStorage}
+  //     />
+  //   </div>
+  // );
 }
 
 export default AiGeneratedPath;

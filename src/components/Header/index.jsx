@@ -11,7 +11,7 @@ export default function Header() {
 
       <nav className={style.navigation}>
         <a href="/">Home</a>
-        <a href="/">My Learning</a>
+        <a href="/my-learning">My Learning</a>
       </nav>
 
       {/* <button className={style.btn}>
