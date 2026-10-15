@@ -117,9 +117,9 @@
 }
 
 .cardDescription {
-  /* font-weight: 500; */
   font-size: 1rem; /* 16px; */
   color: var(--learning-path-subtitle);
+  line-height: 24px;
 }
 
 .cardEstimate {
