@@ -111,16 +111,14 @@ function AiGeneratedPath() {
           isWaiting={isWaiting}
           error={error}
         >
-          <>
-            <Button onClick={handlePrevious} marginRight={"8px"}>
-              Previous
+          <Button onClick={handlePrevious} marginRight={"8px"}>
+            Previous
+          </Button>
+          {aiAnswer === "" ? null : (
+            <Button onClick={handleNext} marginRight={"8px"}>
+              Next
             </Button>
-            {aiAnswer === "" ? null : (
-              <Button onClick={handleNext} marginRight={"8px"}>
-                Next
-              </Button>
-            )}
-          </>
+          )}
         </UserInputForm>
         <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
           <div className="loader"></div>
