@@ -6,8 +6,8 @@ import LandingPage from "./components/LandingPage";
 import About from "./components/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "./constants";
-import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "./services/api";
+import { DELETED_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "./constants";
+import { saveItem, removeItem, getJSON, checkItemExists } from "./services/api";
 
 export const LearningPathContext = createContext(null);
 

@@ -1,12 +1,10 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserInputForm from "../UserInputForm";
-// import LearningPathResult from "../LearningPathResult";
-import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "../../constants";
-import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "../../services/api";
+import { ERROR_MSG } from "../../constants";
+import { getUserPrompt, sendRequestToApi } from "../../services/api";
 import { LearningPathContext } from "../../App";
 
 function AiGeneratedPath() {
@@ -18,13 +16,8 @@ function AiGeneratedPath() {
   } = useContext(LearningPathContext);
   const navigate = useNavigate();
 
-  // const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
-  // const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: ERROR_MSG });
-  const [step, setStep] = useState(0);
-  // const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
-  // const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
 
   async function handleSubmit(e) {
     e.preventDefault();
