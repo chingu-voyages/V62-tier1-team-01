@@ -10,12 +10,23 @@
   justify-content: space-between;
 
   background: #ffffff;
-  color: #111111;
+  color: #11141B;
+
+  flex-wrap: wrap;
+  row-gap: 32px;
 }
 
+
 .brandLogo {
-  width: 180px;
+  width: 220px;
   flex-shrink: 0;
+}
+
+.brandDescription {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color:#666666;
 }
 
 .brandIcon {
@@ -41,6 +52,20 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+}
+
+.footerCopyright {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 20px;
+  border-top: 1px solid #eeeeee;
+  text-align: center;
+}
+
+.footerCopyright p {
+  margin: 0;
+  font-size: 13px;
+  color: #888888;
 }
 
 .footer h3 {
@@ -92,6 +117,24 @@
 .socialIcons a:hover {
   opacity: 0.6;
   transform: translateY(-2px);
+}
+
+.footerSocialMedia {
+  display: contents;
+}
+
+.footerCopyright {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 20px;
+  border-top: 1px solid #eeeeee;
+  text-align: center;
+}
+
+.footerCopyright p {
+  margin: 0;
+  font-size: 13px;
+  color: #888888;
 }
 
 @media (max-width: 942px) {
