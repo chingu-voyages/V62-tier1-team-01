@@ -20,6 +20,21 @@ function LearningPathResult() {
   const navigate = useNavigate();
 
   const { career, experienceLevel, timeCommitment } = userPrompt;
+
+  if (!aiAnswer){
+    return (
+      <div className={styles["pageContainer"]}>
+        <h1 className={styles["title"]}>No Learning Path...</h1>
+        <p className={styles["subtitle"]}>Please submit the career quiz to get started.</p>
+        <div className={styles["quizButtonContainer"]}>
+          <Button className="defaultButton" onClick={() => navigate("/career-quiz")}>
+            Take Career Quiz
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   const totalTime = aiAnswer
     .map((step) => step["time_estimate"])
     .reduce((sum, step) => sum + step);
