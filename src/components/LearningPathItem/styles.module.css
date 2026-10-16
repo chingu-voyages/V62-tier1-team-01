@@ -39,24 +39,20 @@
 }
 
 .card summary:after {
-  content: ">";
-  transform: rotate(90deg);
-  color: var(--card-dropdown-arrow);
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/plus-and-x.svg") no-repeat center / contain;
   position: absolute;
-  font-size: 1.75rem;
-  font-weight: 200;
-  line-height: 0;
-  margin-top: 0.75rem;
+  top: 0;
   right: -15px;
-  top: 0px;
+  transform: rotate(0deg);
   transform-origin: center;
-  transition: top 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
 }
 
 .card[open] summary:after {
-  transform: rotate(-90deg);
-  top: 10px;
-  font-size: 1.75rem;
+  transform: rotate(45deg);
 }
 
 .cardIndex {

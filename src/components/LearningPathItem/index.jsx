@@ -16,6 +16,8 @@ function LearningPathItem({ item, index }) {
           {index + 1}
         </p>
         <p className={styles.cardTitle}>{title}</p>
+        <p className={styles.cardTitle}>{title}</p>
+        <FiPlus className={styles.toggleIcon} />
       </summary>
       <p className={styles.cardDescription}>{description}</p>
       <div className={styles.cardEstimate}>
