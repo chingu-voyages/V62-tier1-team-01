@@ -10,7 +10,7 @@ function Hero({ onNextStep }) {
     <div className="container">
       <div className={styles["hero"]}>
         <div className={styles["content"]}>
-          <div>
+          <div className={styles["mainText"]}>
             <span className={styles["subtitle"]}>
               AI-POWERED LEARNING PATHS
             </span>

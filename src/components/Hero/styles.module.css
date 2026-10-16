@@ -54,18 +54,26 @@
   color: #11141b80;
 }
 
-@media (min-width: 503px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .mainText {
+    max-width: 600px;
+  }
+
   .img {
     display: none;
   }
 }
 
-@media (max-width: 503px) {
+@media (max-width: 768px) {
   .hero {
     display: block;
     margin-top: 36px;
     background-image: url("/src/assets/banner-img-with-opacity.svg");
     background-repeat: no-repeat;
+  }
+
+  .mainText {
+    max-width: 600px;
   }
 
   .infos {
