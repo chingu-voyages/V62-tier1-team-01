@@ -1,6 +1,6 @@
 .subtitle {
-  font-size: 11px;
-  margin-bottom: 16x;
+  font-size: 13px;
+  margin-bottom: 16px;
   color: #515a6e;
 }
 
@@ -33,6 +33,20 @@
 
 .buttons {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px
+}
+
+.buttons > * {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.buttons > *:last-child {
+  margin-left: 8px;
+  padding-left: 0;
+  font-family: var(--secondary-font);
 }
 
 .infos {
@@ -82,5 +96,11 @@
 
   .iframe {
     height: 200px;
+  }
+
+  .buttons {
+      flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 }
