@@ -1,29 +1,24 @@
 import styles from "./styles.module.css";
-// import shareIcon from "../../assets/share-icon.svg";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import editIcon from "../../assets/edit-icon.svg";
 import LearningPathItem from "../LearningPathItem";
 import Notification from "../Notification";
 import Button from "../Button";
+import { LearningPathContext } from "../../App";
 
-/**
- *
- * @param {{title: string, description: string, time_estimate: number}[]} props.aiAnswer - List of objects containing steps in learning path, including title, description and estimate time to complete
- * @param {Object} props.userPrompt - Object containing user's answers to the form
- * @param {Function} props.handleSubmit - An onClick handler that takes the user to the previous page
- * @param {Function} props.savePath - A function that saves the current learning path to localStorage
- * @param {Function} props.deletePath - A function that deletes the localStorage copy of the learning path
- * @param {{display: boolean, message: string}} props.notificationState - An object containing the state for the save notification
- * @param {boolean} props.inLocalStorage - A boolean showing whether the learning path is saved in localStorage
- */
-function LearningPathResult({
-  aiAnswer,
-  userPrompt,
-  handlePrevious,
-  savePath,
-  deletePath,
-  notificationState,
-  inLocalStorage,
-}) {
+function LearningPathResult() {
+
+  const {
+    aiAnswer,
+    userPrompt,
+    savePath,
+    removeFromLocalStorage,
+    pathNotification,
+    inLocalStorage
+  } = useContext(LearningPathContext);
+  const navigate = useNavigate();
+
   const { career, experienceLevel, timeCommitment } = userPrompt;
   const totalTime = aiAnswer
     .map((step) => step["time_estimate"])
@@ -58,11 +53,6 @@ function LearningPathResult({
     );
     return `~${numberOfYears > 0 ? `${numberOfYears} year${numberOfYears > 1 ? "s" : ""}` : ""}${numberOfYears > 0 && numberOfMonths > 0 ? ", " : ""}${numberOfMonths > 0 ? `${numberOfMonths} month${numberOfMonths > 1 ? "s" : ""}` : ""}${numberOfMonths > 0 && leftOverWeeks > 0 ? ", " : ""}${leftOverWeeks > 0 ? `${leftOverWeeks} week${leftOverWeeks > 1 ? "s" : ""}` : ""}`;
   }
-
-  //todo
-  // function shareProgress() {
-
-  // }
 
   return (
     <div className={styles["pageContainer"]}>
@@ -104,38 +94,34 @@ function LearningPathResult({
               </p>
             </div>
           </div>
-          {/* <button className={styles["defaultButton"]} disabled onClick={shareProgress}>
-            <img src={shareIcon}/>
-            Share
-          </button> */}
-          <Button className="defaultButton" onClick={handlePrevious}>
+          <Button className="defaultButton" onClick={() => navigate("/career-quiz")}>
             <img src={editIcon} />
             Edit Path
           </Button>
           <Notification
             type={
-              notificationState.message.indexOf("🎉") !== -1
+              pathNotification.message.indexOf("🎉") !== -1
                 ? "success"
                 : "error"
             }
-            state={notificationState}
+            state={pathNotification}
           />
           {!inLocalStorage && (
             <Button
               className="submitButton"
               onClick={savePath}
-              disabled={notificationState.display}
+              disabled={pathNotification.display}
             >
-              {notificationState.display ? "Saved!" : "Save Copy"}
+              {pathNotification.display ? "Saved!" : "Save Copy"}
             </Button>
           )}
           {inLocalStorage && (
             <Button
               className="submitButton"
-              onClick={deletePath}
-              disabled={notificationState.display}
+              onClick={removeFromLocalStorage}
+              disabled={pathNotification.display}
             >
-              {notificationState.display ? "Deleted..." : "Delete Copy"}
+              {pathNotification.display ? "Deleted..." : "Delete Copy"}
             </Button>
           )}
         </div>
