@@ -3,28 +3,22 @@ import separationBar from "/src/assets/separation-bar.svg";
 import heroImg from "/src/assets/banner-img.svg";
 import Button from "../Button";
 import VideoButton from "../VideoButton";
-import { useState } from "react";
 
 function Hero({ onNextStep }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleOpen() {
-    setIsOpen((o) => !o);
-  }
 
   return (
     <div className="container">
       <div className={styles["hero"]}>
         <div className={styles["content"]}>
-          <div>
+          <div className={styles["mainText"]}>
             <span className={styles["subtitle"]}>
               AI-POWERED LEARNING PATHS
             </span>
-            <h2 className={styles["title"]}>
+            <h1 className={styles["title"]}>
               From Curiosity
               <br />
               to Career.
-            </h2>
+            </h1>
             <p className={styles["description"]}>
               Turn your goals into a clear, step-by-step learning journey. Our
               AI analyzes your current level, identifies the most relevant
@@ -37,8 +31,8 @@ function Hero({ onNextStep }) {
             <Button onClick={onNextStep}>
               <span>Generate your path</span>
             </Button>
-            <VideoButton onOpen={handleOpen}>
-              <span>{isOpen ? "Close video" : "Watch demo"}</span>
+            <VideoButton>
+              <a href="#">Watch demo</a>
             </VideoButton>
           </div>
 
@@ -54,14 +48,6 @@ function Hero({ onNextStep }) {
             <div className={styles["info"]}>
               <p>Clear, structured, and easy to follow</p>
             </div>
-          </div>
-
-          <div className={isOpen ? styles["showVideo"] : styles["hideVideo"]}>
-            <iframe
-              className={styles["iframe"]}
-              src="https://placehold.co/480x320"
-              allowFullScreen
-            ></iframe>
           </div>
         </div>
 

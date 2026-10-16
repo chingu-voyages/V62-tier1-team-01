@@ -1,8 +1,7 @@
-
 .about {
   width: 100%;
   min-height: 80vh;
-  padding: 80px 6%;
+  padding: 0px 6%;
   box-sizing: border-box;
 }
 
@@ -48,7 +47,9 @@
   border: 1px solid #eeeeee;
   border-radius: 16px;
   background-color: #ffffff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .memberCard:hover {
