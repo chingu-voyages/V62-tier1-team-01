@@ -18,7 +18,7 @@ export default function Footer() {
           <h3>Pages</h3>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          <Link to="/my-learning">My Learning</Link>
+          {/* <Link to="/my-learning">My Learning</Link> */}
         </div>
 
         <div className={style.footerMenuColumn}>

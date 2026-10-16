@@ -12,7 +12,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<AiGeneratedPath key="home" />} />
-            <Route path="/my-learning" element={<AiGeneratedPath key="my-learning" startStep={1} />} />
+            {/* <Route path="/my-learning" element={<AiGeneratedPath key="my-learning" startStep={1} />} /> */}
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
