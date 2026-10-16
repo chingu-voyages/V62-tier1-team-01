@@ -9,10 +9,10 @@ function LandingPage() {
   const { inLocalStorage } = useContext(LearningPathContext);
 
   function onNextStep() {
-    if (inLocalStorage){
-      navigate('/my-learning');
-    }else {
-      navigate('/career-quiz');
+    if (inLocalStorage) {
+      navigate("/my-learning");
+    } else {
+      navigate("/career-quiz");
     }
   }
   return (

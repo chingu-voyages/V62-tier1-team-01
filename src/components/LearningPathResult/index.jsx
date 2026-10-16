@@ -8,26 +8,30 @@ import Button from "../Button";
 import { LearningPathContext } from "../../App";
 
 function LearningPathResult() {
-
   const {
     aiAnswer,
     userPrompt,
     savePath,
     removeFromLocalStorage,
     pathNotification,
-    inLocalStorage
+    inLocalStorage,
   } = useContext(LearningPathContext);
   const navigate = useNavigate();
 
   const { career, experienceLevel, timeCommitment } = userPrompt;
 
-  if (!aiAnswer){
+  if (!aiAnswer) {
     return (
       <div className={styles["pageContainer"]}>
         <h1 className={styles["title"]}>No Learning Path...</h1>
-        <p className={styles["subtitle"]}>Please submit the career quiz to get started.</p>
+        <p className={styles["subtitle"]}>
+          Please submit the career quiz to get started.
+        </p>
         <div className={styles["quizButtonContainer"]}>
-          <Button className="defaultButton" onClick={() => navigate("/career-quiz")}>
+          <Button
+            className="defaultButton"
+            onClick={() => navigate("/career-quiz")}
+          >
             Take Career Quiz
           </Button>
         </div>
@@ -92,15 +96,11 @@ function LearningPathResult() {
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Current Level</p>
-              <p className={styles["profileValue"]}>
-                {experienceLevel}
-              </p>
+              <p className={styles["profileValue"]}>{experienceLevel}</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
-              <p className={styles["profileValue"]}>
-                {timeCommitment}/week
-              </p>
+              <p className={styles["profileValue"]}>{timeCommitment}/week</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Estimated Time</p>
@@ -109,7 +109,10 @@ function LearningPathResult() {
               </p>
             </div>
           </div>
-          <Button className="defaultButton" onClick={() => navigate("/career-quiz")}>
+          <Button
+            className="defaultButton"
+            onClick={() => navigate("/career-quiz")}
+          >
             <img src={editIcon} />
             Edit Path
           </Button>

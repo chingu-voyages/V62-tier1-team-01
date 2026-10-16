@@ -8,12 +8,8 @@ import { getUserPrompt, sendRequestToApi } from "../../services/api";
 import { LearningPathContext } from "../../App";
 
 function AiGeneratedPath() {
-  const {
-    aiAnswer,
-    setAiAnswer, 
-    userPrompt, 
-    setUserPrompt
-  } = useContext(LearningPathContext);
+  const { aiAnswer, setAiAnswer, userPrompt, setUserPrompt } =
+    useContext(LearningPathContext);
   const navigate = useNavigate();
 
   const [isWaiting, setIsWaiting] = useState(false);
@@ -53,11 +49,19 @@ function AiGeneratedPath() {
         error={error}
       >
         <>
-          <Button type="button" onClick={() => navigate("/")} marginRight={"8px"}>
+          <Button
+            type="button"
+            onClick={() => navigate("/")}
+            marginRight={"8px"}
+          >
             Previous
           </Button>
           {aiAnswer === "" ? null : (
-            <Button type="button" onClick={() => navigate("/my-learning")} marginRight={"8px"}>
+            <Button
+              type="button"
+              onClick={() => navigate("/my-learning")}
+              marginRight={"8px"}
+            >
               Next
             </Button>
           )}
