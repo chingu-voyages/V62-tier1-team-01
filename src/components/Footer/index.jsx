@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={style.brandLogo}>
         <img src={brandIcon} alt="Brand Icon" className={style.brandIcon} />
         <p className={style.brandDescription}>
-          AI-powered learning paths,<br></br>from curiosity to career.
+          AI-powered learning paths,<br />from curiosity to career.
         </p>
       </div>
 
@@ -18,7 +18,6 @@ export default function Footer() {
           <h3>Pages</h3>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          {/* <Link to="/my-learning">My Learning</Link> */}
         </div>
 
         <div className={style.footerMenuColumn}>

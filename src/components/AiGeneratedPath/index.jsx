@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import UserInputForm from "../UserInputForm";
 import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
@@ -16,12 +15,6 @@ function AiGeneratedPath() {
   const [step, setStep] = useState(0);
   const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
   const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
-  // const location = useLocation();
-
-  // // Reset to the starting step whenever a nav link is clicked (even to the same URL)
-  // useEffect(() => {
-  //   setStep(startStep);
-  // }, [location.key, startStep]);
 
   async function handleSubmit(e) {
     e.preventDefault();
