@@ -1,7 +1,20 @@
 import Hero from "../Hero";
 import Modal from "../Modal";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { LearningPathContext } from "../../App";
 
-function LandingPage({ onNextStep }) {
+function LandingPage() {
+  const navigate = useNavigate();
+  const { inLocalStorage } = useContext(LearningPathContext);
+
+  function onNextStep() {
+    if (inLocalStorage){
+      navigate('/my-learning');
+    }else {
+      navigate('/career-quiz');
+    }
+  }
   return (
     <>
       <Hero onNextStep={onNextStep} />
