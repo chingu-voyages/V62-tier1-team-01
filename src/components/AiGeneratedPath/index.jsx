@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import UserInputForm from "../UserInputForm";
 // import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
@@ -10,11 +11,12 @@ import { LearningPathContext } from "../../App";
 
 function AiGeneratedPath() {
   const {
+    aiAnswer,
     setAiAnswer, 
     userPrompt, 
-    setUserPrompt, 
-    inLocalStorage
+    setUserPrompt
   } = useContext(LearningPathContext);
+  const navigate = useNavigate();
 
   // const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
   // const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
@@ -35,8 +37,7 @@ function AiGeneratedPath() {
     try {
       const result = await sendRequestToApi(contextInfo);
       setAiAnswer(JSON.parse(result.response.text()));
-      // console.log(result.response.text());
-      setStep(2);
+      navigate("/my-learning");
     } catch (err) {
       handleError();
     }
@@ -48,108 +49,32 @@ function AiGeneratedPath() {
     setTimeout(() => setError((prev) => ({ ...prev, display: false })), 2000);
   }
 
-  function handleNext() {
-    if (step === 0 && inLocalStorage) {
-      setStep(2);
-    } else {
-      setStep((s) => s + 1);
-    }
-  }
-
-  function handlePrevious() {
-    setStep((s) => s - 1);
-  }
-
-  function removeFromLocalStorage() {
-    removeItem(KEY_AI_PATH);
-    removeItem(KEY_USER_ANSWER);
-    setPathNotification({
-      display: true,
-      message: DELETED_MSG,
-    });
-    setTimeout(() => {
-      setPathNotification((prev) => ({ ...prev, display: false }));
-      setInLocalStorage(false);
-      // console.log(pathNotification);
-    }, 2000);
-    console.log("Removed from local storage!");
-  }
-
-  // Save learning path to localStorage
-  function saveToLocalStorage() {
-    saveItem(KEY_AI_PATH, aiAnswer);
-    saveItem(KEY_USER_ANSWER, userPrompt);
-    setPathNotification({
-      display: true,
-      message: SAVED_MSG,
-    });
-    setTimeout(() => {
-      setPathNotification((prev) => ({ ...prev, display: false }));
-      setInLocalStorage(true);
-      // console.log(pathNotification);
-    }, 2000);
-
-    console.log("Saved to local storage!");
-  }
-
-  //todo
-  function takeScreenshot() {
-    return 0;
-  }
-
-  // Save learning path to localStorage and take screenshot
-  function savePath() {
-    saveToLocalStorage();
-    takeScreenshot();
-    return 0;
-  }
-
-  if (step === 0) {
-    return <LandingPage onNextStep={handleNext} />;
-  }
-
-  if (step === 1) {
-    return (
-      <div className="container">
-        <UserInputForm
-          onSubmit={handleSubmit}
-          userPrompt={userPrompt}
-          setUserPrompt={setUserPrompt}
-          aiAnswer={aiAnswer}
-          isWaiting={isWaiting}
-          error={error}
-        >
-          <>
-            <Button onClick={handlePrevious} marginRight={"8px"}>
-              Previous
+  return (
+    <div className="container">
+      <UserInputForm
+        onSubmit={handleSubmit}
+        userPrompt={userPrompt}
+        setUserPrompt={setUserPrompt}
+        aiAnswer={aiAnswer}
+        isWaiting={isWaiting}
+        error={error}
+      >
+        <>
+          <Button type="button" onClick={() => navigate("/")} marginRight={"8px"}>
+            Previous
+          </Button>
+          {aiAnswer === "" ? null : (
+            <Button type="button" onClick={() => navigate("/my-learning")} marginRight={"8px"}>
+              Next
             </Button>
-            {aiAnswer === "" ? null : (
-              <Button onClick={handleNext} marginRight={"8px"}>
-                Next
-              </Button>
-            )}
-          </>
-        </UserInputForm>
-        <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
-          <div className="loader"></div>
-        </div>
+          )}
+        </>
+      </UserInputForm>
+      <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
+        <div className="loader"></div>
       </div>
-    );
-  }
-
-  // return (
-  //   <div>
-  //     <LearningPathResult
-  //       handlePrevious={handlePrevious}
-  //       aiAnswer={aiAnswer}
-  //       userPrompt={userPrompt}
-  //       savePath={savePath}
-  //       deletePath={removeFromLocalStorage}
-  //       notificationState={pathNotification}
-  //       inLocalStorage={inLocalStorage}
-  //     />
-  //   </div>
-  // );
+    </div>
+  );
 }
 
 export default AiGeneratedPath;
