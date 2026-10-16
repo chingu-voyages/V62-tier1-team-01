@@ -87,15 +87,11 @@ function LearningPathResult({
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Current Level</p>
-              <p className={styles["profileValue"]}>
-                {experienceLevel}
-              </p>
+              <p className={styles["profileValue"]}>{experienceLevel}</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Study Pace</p>
-              <p className={styles["profileValue"]}>
-                {timeCommitment}/week
-              </p>
+              <p className={styles["profileValue"]}>{timeCommitment}/week</p>
             </div>
             <div className={styles["profileFact"]}>
               <p className={styles["profileLabel"]}>Estimated Time</p>

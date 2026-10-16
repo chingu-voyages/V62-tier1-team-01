@@ -4,17 +4,38 @@ import LearningPathResult from "../LearningPathResult";
 import LandingPage from "../LandingPage";
 import Button from "../Button";
 import styles from "./styles.module.css";
-import { DELETED_MSG, ERROR_MSG, INITIAL_USER_PROMPT, KEY_AI_PATH, KEY_USER_ANSWER, SAVED_MSG } from "../../constants";
-import { saveItem, removeItem, getUserPrompt, sendRequestToApi, getJSON, checkItemExists } from "../../services/api";
+import {
+  DELETED_MSG,
+  ERROR_MSG,
+  INITIAL_USER_PROMPT,
+  KEY_AI_PATH,
+  KEY_USER_ANSWER,
+  SAVED_MSG,
+} from "../../constants";
+import {
+  saveItem,
+  removeItem,
+  getUserPrompt,
+  sendRequestToApi,
+  getJSON,
+  checkItemExists,
+} from "../../services/api";
 
 function AiGeneratedPath() {
   const [aiAnswer, setAiAnswer] = useState(getJSON(KEY_AI_PATH));
-  const [userPrompt, setUserPrompt] = useState(getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT);
+  const [userPrompt, setUserPrompt] = useState(
+    getJSON(KEY_USER_ANSWER) || INITIAL_USER_PROMPT
+  );
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState({ display: false, message: ERROR_MSG });
   const [step, setStep] = useState(0);
-  const [inLocalStorage, setInLocalStorage] = useState(checkItemExists(KEY_AI_PATH));
-  const [pathNotification, setPathNotification] = useState({display: false, message: inLocalStorage ? DELETED_MSG : SAVED_MSG});
+  const [inLocalStorage, setInLocalStorage] = useState(
+    checkItemExists(KEY_AI_PATH)
+  );
+  const [pathNotification, setPathNotification] = useState({
+    display: false,
+    message: inLocalStorage ? DELETED_MSG : SAVED_MSG,
+  });
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -111,16 +132,14 @@ function AiGeneratedPath() {
           isWaiting={isWaiting}
           error={error}
         >
-          <>
-            <Button onClick={handlePrevious} marginRight={"8px"}>
-              Previous
+          <Button onClick={handlePrevious} marginRight={"8px"}>
+            Previous
+          </Button>
+          {aiAnswer === "" ? null : (
+            <Button onClick={handleNext} marginRight={"8px"}>
+              Next
             </Button>
-            {aiAnswer === "" ? null : (
-              <Button onClick={handleNext} marginRight={"8px"}>
-                Next
-              </Button>
-            )}
-          </>
+          )}
         </UserInputForm>
         <div className={isWaiting ? styles["loadingArea"] : styles["hide"]}>
           <div className="loader"></div>
