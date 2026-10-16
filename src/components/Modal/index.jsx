@@ -9,7 +9,7 @@ function Modal({ onNextStep }) {
         <p className={styles["subtitle"]}>READY TO START?</p>
         <h2 className={styles["title"]}>Your Next Milestone Starts Here.</h2>
         <p className={styles["description"]}>
-          Join thousands of learners {window.innerWidth <= 768 ? <br/> : ""} and build your future with Nexa.
+          Join thousands of learners <br className={styles["mobileBreakpoint"]}/> and build your future with Nexa.
         </p>
         <Button onClick={onNextStep}>Get Started</Button>
       </div>
