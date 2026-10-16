@@ -39,6 +39,7 @@ function AiGeneratedPath() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    goToTop();
 
     setAiAnswer("");
     setIsWaiting(true);
@@ -67,10 +68,12 @@ function AiGeneratedPath() {
     } else {
       setStep((s) => s + 1);
     }
+    goToTop();
   }
 
   function handlePrevious() {
     setStep((s) => s - 1);
+    goToTop();
   }
 
   function removeFromLocalStorage() {
@@ -115,6 +118,14 @@ function AiGeneratedPath() {
     saveToLocalStorage();
     takeScreenshot();
     return 0;
+  }
+
+  // Resets window to top of page
+  function goToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   if (step === 0) {
