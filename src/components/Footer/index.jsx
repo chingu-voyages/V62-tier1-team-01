@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin, FaYoutube, FaXTwitter } from "react-icons/fa6";
 import brandIcon from "../../assets/brandlogo.svg";
 import style from "./footer.module.css";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -15,9 +16,9 @@ export default function Footer() {
       <nav className={style.footerMenu}>
           <div className={style.footerMenuColumn}>
           <h3>Pages</h3>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/generate">Your path</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/my-learning">My Learning</Link>
         </div>
 
         <div className={style.footerMenuColumn}>
