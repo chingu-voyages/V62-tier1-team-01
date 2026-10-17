@@ -50,13 +50,14 @@ function LearningPathResult({
         timeCommitment = 10;
         break;
     }
-    const numberOfWeeks = totalTime / timeCommitment;
-    const numberOfYears = Math.floor(numberOfWeeks / 52);
-    const numberOfMonths = Math.floor((numberOfWeeks % 52) / 4);
-    const leftOverWeeks = Math.ceil(
-      numberOfWeeks - numberOfYears * 52 - numberOfMonths * 4
-    );
-    return `~${numberOfYears > 0 ? `${numberOfYears} year${numberOfYears > 1 ? "s" : ""}` : ""}${numberOfYears > 0 && numberOfMonths > 0 ? ", " : ""}${numberOfMonths > 0 ? `${numberOfMonths} month${numberOfMonths > 1 ? "s" : ""}` : ""}${numberOfMonths > 0 && leftOverWeeks > 0 ? ", " : ""}${leftOverWeeks > 0 ? `${leftOverWeeks} week${leftOverWeeks > 1 ? "s" : ""}` : ""}`;
+    const weeks = totalTime / timeCommitment;
+    return (weeks / 4) + " months";
+    // const numberOfYears = Math.floor(numberOfWeeks / 52);
+    // const numberOfMonths = Math.floor((numberOfWeeks % 52) / 4);
+    // const leftOverWeeks = Math.ceil(
+    //   numberOfWeeks - numberOfYears * 52 - numberOfMonths * 4
+    // );
+    // return `~${numberOfYears > 0 ? `${numberOfYears} year${numberOfYears > 1 ? "s" : ""}` : ""}${numberOfYears > 0 && numberOfMonths > 0 ? ", " : ""}${numberOfMonths > 0 ? `${numberOfMonths} month${numberOfMonths > 1 ? "s" : ""}` : ""}${numberOfMonths > 0 && leftOverWeeks > 0 ? ", " : ""}${leftOverWeeks > 0 ? `${leftOverWeeks} week${leftOverWeeks > 1 ? "s" : ""}` : ""}`;
   }
 
   //todo
