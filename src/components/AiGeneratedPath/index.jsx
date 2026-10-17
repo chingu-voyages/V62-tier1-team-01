@@ -17,6 +17,7 @@ function AiGeneratedPath() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    goToTop();
 
     setAiAnswer("");
     setIsWaiting(true);

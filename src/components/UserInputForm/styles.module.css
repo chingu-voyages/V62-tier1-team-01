@@ -107,7 +107,7 @@
 
 @media (max-width: 768px) {
   .field {
-    padding: 8px;
+    padding: 16px;
   }
 
   .fieldText {
