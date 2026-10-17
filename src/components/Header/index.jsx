@@ -13,6 +13,12 @@ export default function Header() {
     setIsOpen(o => !o);
   }
 
+  function closeWhenClicked() {
+    if (isMobileScreen) {
+      setIsOpen(false);
+    }
+  }
+
   return (
     <div className="container">
       <header className={styles["header"]}>
@@ -24,13 +30,13 @@ export default function Header() {
         </div>
         <nav className={isOpen ? styles["navbar"] : styles["hide"]}>
           <span>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={closeWhenClicked}>Home</Link>
           </span>
           <span>
-            <Link to="/about">About</Link>
+            <Link to="/about" onClick={closeWhenClicked}>About</Link>
           </span>
           <span>
-            <Link to="/my-learning">My Learning</Link>
+            <Link to="/my-learning" onClick={closeWhenClicked}>My Learning</Link>
           </span>
         </nav>
       </header>
