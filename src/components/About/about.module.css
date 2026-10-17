@@ -106,7 +106,7 @@
 /* Mobile */
 @media (max-width: 600px) {
   .about {
-    padding: 48px 20px;
+    padding: 0px 20px;
   }
 
   .intro h1 {
