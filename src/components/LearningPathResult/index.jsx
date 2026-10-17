@@ -51,7 +51,7 @@ function LearningPathResult({
         break;
     }
     const weeks = totalTime / timeCommitment;
-    return (weeks / 4) + " months";
+    return  Math.ceil(weeks / 4) + " months";
     // const numberOfYears = Math.floor(numberOfWeeks / 52);
     // const numberOfMonths = Math.floor((numberOfWeeks % 52) / 4);
     // const leftOverWeeks = Math.ceil(
