@@ -8,7 +8,7 @@ import { getUserPrompt, sendRequestToApi } from "../../services/api";
 import { LearningPathContext } from "../../App";
 
 function AiGeneratedPath() {
-  const { aiAnswer, setAiAnswer, userPrompt, setUserPrompt } =
+  const { aiAnswer, setAiAnswer, userPrompt, setUserPrompt, goToTop } =
     useContext(LearningPathContext);
   const navigate = useNavigate();
 
@@ -52,7 +52,10 @@ function AiGeneratedPath() {
         <>
           <Button
             type="button"
-            onClick={() => navigate("/")}
+            onClick={() => {
+              navigate("/");
+              goToTop();
+            }}
             marginRight={"8px"}
           >
             Previous
@@ -60,7 +63,10 @@ function AiGeneratedPath() {
           {aiAnswer === "" ? null : (
             <Button
               type="button"
-              onClick={() => navigate("/my-learning")}
+              onClick={() => { 
+                navigate("/my-learning");
+                goToTop();
+              }}
               marginRight={"8px"}
             >
               Next
