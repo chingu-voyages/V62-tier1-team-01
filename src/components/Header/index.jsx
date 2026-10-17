@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Header() {
   const isMobileScreen = window.innerWidth <= 768;
-  const [isOpen, setIsOpen] = useState(isMobileScreen ? false : true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleOpen() {
     setIsOpen(o => !o);
@@ -28,7 +28,7 @@ export default function Header() {
             <img src={menuButton} alt="Menu Button"/>
           </div>
         </div>
-        <nav className={isOpen ? styles["navbar"] : styles["hide"]}>
+        <nav className={isOpen ? `${styles["navbar"]} ${styles["isOpen"]}` : styles["navbar"]}>
           <span>
             <Link to="/" onClick={closeWhenClicked}>Home</Link>
           </span>
