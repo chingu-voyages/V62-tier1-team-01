@@ -137,23 +137,6 @@
   color: #888888;
 }
 
-@media (max-width: 942px) {
-  .footer {
-    flex-wrap: wrap;
-    gap: 50px;
-  }
-
-  .footerMenu {
-    margin-left: 0;
-    gap: 45px;
-    flex-wrap: wrap;
-  }
-
-  .socialIcons {
-    margin-left: 0;
-  }
-}
-
 @media (max-width: 600px) {
   .footer {
     flex-direction: column;
@@ -164,5 +147,24 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
+  }
+}
+
+@media (max-width: 942px) {
+  .footer {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .footerMenu {
+    width: 100%;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+  }
+
+  .socialIcons {
+    margin-left: 0;
   }
 }
