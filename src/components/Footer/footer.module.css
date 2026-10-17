@@ -140,19 +140,6 @@
 @media (max-width: 600px) {
   .footer {
     flex-direction: column;
-  }
-
-  .footerMenu {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-  }
-}
-
-@media (max-width: 942px) {
-  .footer {
-    flex-direction: column;
     gap: 50px;
   }
 
