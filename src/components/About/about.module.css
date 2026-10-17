@@ -113,6 +113,10 @@
     font-size: 32px;
   }
 
+  .intro p {
+    font-size: 16px;
+  }
+
   .intro {
     margin-bottom: 48px;
   }

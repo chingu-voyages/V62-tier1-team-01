@@ -3,13 +3,12 @@
 }
 
 .header > h1 {
-  font-size: 46px;
-  /* margin-top: 128px; */
+  font-size: 42px;
   margin-bottom: 20px;
 }
 
 .header > p {
-  font-size: 20px;
+  font-size: 18px;
   color: #676767;
   margin-bottom: 76px;
 }
@@ -124,5 +123,14 @@
 
   .buttons button {
     padding: 8px 18px;
+  }
+}
+
+@media (max-width: 600px){
+  .header > h1 {
+    font-size: 32px;
+  }
+  .header > p {
+    font-size: 16px;
   }
 }
