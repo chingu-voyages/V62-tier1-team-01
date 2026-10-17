@@ -18,7 +18,7 @@
 
 .intro p {
   font-size: 18px;
-  color: #666;
+  color: #676767;
 }
 
 .teamMembers {
@@ -106,11 +106,15 @@
 /* Mobile */
 @media (max-width: 600px) {
   .about {
-    padding: 48px 20px;
+    padding: 0px 20px;
   }
 
   .intro h1 {
     font-size: 32px;
+  }
+
+  .intro p {
+    font-size: 16px;
   }
 
   .intro {

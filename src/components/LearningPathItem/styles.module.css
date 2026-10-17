@@ -3,7 +3,7 @@
   background-color: var(--card-background);
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  min-width: 300px;
+  min-width: 200px;
   max-width: 384px;
   margin-bottom: 46px;
   position: relative;
