@@ -66,6 +66,13 @@ function App() {
     return 0;
   }
 
+  function goToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   const learningPathState = {
     aiAnswer,
     setAiAnswer,
@@ -77,6 +84,7 @@ function App() {
     setPathNotification,
     removeFromLocalStorage,
     savePath,
+    goToTop
   };
 
   return (

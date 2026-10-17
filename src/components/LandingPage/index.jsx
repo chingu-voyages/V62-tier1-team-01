@@ -6,10 +6,11 @@ import { LearningPathContext } from "../../App";
 
 function LandingPage() {
   const navigate = useNavigate();
-  const { inLocalStorage } = useContext(LearningPathContext);
+  const { inLocalStorage, goToTop } = useContext(LearningPathContext);
 
   function onNextStep() {
     navigate("/career-quiz");
+    goToTop();
   }
   return (
     <>
