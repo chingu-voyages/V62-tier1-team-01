@@ -15,6 +15,7 @@ function LearningPathResult() {
     removeFromLocalStorage,
     pathNotification,
     inLocalStorage,
+    goToTop
   } = useContext(LearningPathContext);
   const navigate = useNavigate();
 
@@ -30,7 +31,10 @@ function LearningPathResult() {
         <div className={styles["quizButtonContainer"]}>
           <Button
             className="defaultButton"
-            onClick={() => navigate("/career-quiz")}
+            onClick={() => {
+              navigate("/career-quiz");
+              goToTop();
+            }}
           >
             Take Career Quiz
           </Button>
@@ -112,7 +116,10 @@ function LearningPathResult() {
           </div>
           <Button
             className="defaultButton"
-            onClick={() => navigate("/career-quiz")}
+            onClick={() => {
+              navigate("/career-quiz");
+              goToTop();
+            }}
           >
             <img src={editIcon} />
             Edit Path
