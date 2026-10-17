@@ -23,7 +23,7 @@ function Hero({ onNextStep }) {
               Turn your goals into a clear, step-by-step learning journey. Our
               AI analyzes your current level, identifies the most relevant
               skills, and builds a personalized roadmap to help you grow faster
-              and with confidence—no more guessing what to learn next.
+              and with confidence.
             </p>
           </div>
 
