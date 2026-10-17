@@ -83,6 +83,6 @@ main > * {
 @media (max-width: 768px) {
   main {
     padding-top: 0;
-    padding-bottom: 128px;
+    padding-bottom: 32px;
   }
 }
