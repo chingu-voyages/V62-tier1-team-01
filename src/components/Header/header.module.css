@@ -55,6 +55,7 @@
   .isOpen {
     display: flex;
     flex-direction: column;
+    text-align: right;
   }
 
   .button {
