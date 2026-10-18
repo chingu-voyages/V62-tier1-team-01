@@ -137,32 +137,21 @@
   color: #888888;
 }
 
-@media (max-width: 942px) {
+@media (max-width: 600px) {
   .footer {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 50px;
   }
 
   .footerMenu {
+    width: 100%;
     margin-left: 0;
-    gap: 45px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
   }
 
   .socialIcons {
     margin-left: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer {
-    flex-direction: column;
-  }
-
-  .footerMenu {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
   }
 }
