@@ -79,3 +79,10 @@ main > * {
     transform: rotate(1turn);
   }
 }
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
