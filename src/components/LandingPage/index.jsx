@@ -1,11 +1,19 @@
 import Hero from "../Hero";
-import BlushEffect from "../BlushEffect";
 import Modal from "../Modal";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { LearningPathContext } from "../../App";
 
-function LandingPage({ onNextStep }) {
+function LandingPage() {
+  const navigate = useNavigate();
+  const { inLocalStorage, goToTop } = useContext(LearningPathContext);
+
+  function onNextStep() {
+    navigate("/career-quiz");
+    goToTop();
+  }
   return (
     <>
-      <BlushEffect />
       <Hero onNextStep={onNextStep} />
       <Modal onNextStep={onNextStep} />
     </>
