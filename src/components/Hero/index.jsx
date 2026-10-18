@@ -32,7 +32,9 @@ function Hero({ onNextStep }) {
               <span>Generate your path</span>
             </Button>
             <VideoButton>
-              <a href="#">Watch demo</a>
+              <a href="https://youtu.be/jupIklMNdFE" target="_blank" rel="noopener noreferrer">
+                Watch demo
+              </a>
             </VideoButton>
           </div>
 
