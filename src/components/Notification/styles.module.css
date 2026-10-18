@@ -1,5 +1,6 @@
 .default {
   opacity: 1;
+  display: block;
   position: fixed;
   top: 50px;
   right: 50px;
@@ -25,4 +26,5 @@
 .hide {
   opacity: 0;
   transition: opacity 0.5s;
+  display: none;
 }
